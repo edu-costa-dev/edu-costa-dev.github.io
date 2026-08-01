@@ -1,0 +1,33 @@
+*{
+    font-size: 24pt;
+}
+
+.cabecalho {
+    text-align: center;
+    grid-column: 1 /-1;
+    background-color: rgb(188, 186, 186);
+    padding: 20px;
+}
+
+.menu {
+    text-align: center;
+    grid-column: auto;
+    background-color: aqua;
+    padding: 20px;
+}
+
+.container{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: blueviolet;
+    text-align: center;
+    border-left: 20px white;
+}
+
+.rodape{
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    background-color: blue;
+}

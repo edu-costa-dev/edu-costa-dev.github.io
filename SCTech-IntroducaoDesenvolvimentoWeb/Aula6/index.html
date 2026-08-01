@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Práticas, SEO e Acessibilidade para a Web</title>
+</head>
+
+<body>
+    <form id="dadosCadastrais">
+        <label id="nome">Nome Completo:
+            <input type="text" required>
+        </label><br>
+        <label id="email">Email:
+            <input type="email" required>
+        </label><br>
+        <label id="idade ">Idade:
+            <input type="number" name="" id="" required>
+        </label><br>
+    </form>
+    <form class="materiaALecionar">
+        <label>
+            Selecione a matéria:
+        </label>
+        <label>
+            <input type="radio" name="materia" value="1" required> Matemática
+        </label>
+        <label>
+            <input type="radio" name="materia" value="2"> Português
+        </label>
+        <label>
+            <input type="radio" name="materia" value="3"> Biologia
+        </label>
+        <label>
+            <input type="radio" name="materia" value="4"> Ciência
+        </label>
+        <label>
+            <input type="radio" name="materia" value="5"> História
+        </label>
+        <label>
+            <input type="radio" name="materia" value="6"> Geografia
+        </label>
+        <label>
+            <input type="radio" name="materia" value="7"> Artes
+        </label>
+    </form>
+    <form class="turnosDisponiveis">
+        <label>
+            Selecione o turno:
+        </label>
+        <label>
+            <input type="radio" name="turno" value="1" required> Manhã
+        </label>
+        <label>
+            <input type="radio" name="turno" value="2" required> Tarde
+        </label>
+        <label>
+            <input type="radio" name="turno" value="3" required> Noite
+        </label>
+    </form>
+    <label id="escolaridadeAtual">Nível de Escolaridade:
+        <select>
+            <option value="naoInformado">Não informado...</option>
+            <option value="superiorCompleto">Superior Completo</option>
+            <option value="cursandoMestrado">Cursando Mestrado</option>
+            <option value="mestradoConcluido">Mestrado Concluído</option>
+            <option value="cursandoDoutorado">Cursando Doutorado</option>
+            <option value="doutoradoConcluido">Doutorado Concluído</option>
+        </select>
+    </label><br>
+    <label id="mensagemUsuario">Mensagem:
+        <textarea name="mensagem" id="mensagem" cols="100%" rows="1" maxlength="200"></textarea>
+    </label>
+    <section id="botaoEnviar">
+        <button type="submit">
+            Enviar
+        </button>
+    </section>
+</body>
+
+</html>
