@@ -23,5 +23,5 @@ Olá! 👋 Sou profissional de **Tecnologia da Informação**, formado em Gestã
 
 ### [Projeto SC Tec (Carreira Tech) - Curso: Introdução a Front-End e Back-End](https://sctec.scti.sc.gov.br/)
 **Aulas Práticas** Exercício dos modulos 1 e 2 - [Repositório](https://github.com/edu-costa-dev/SCTech-IntroducaoDesenvolvimentoWeb)
-**Desafio Extra** [Respositório](https://github.com/edu-costa-dev/Projeto-SCTec_Desafio_Extra) - [Projeto](https://edu-costa-dev.github.io/Projeto-SCTec_Desafio_Extra/#inicio)
+**Desafio Extra** [Respositório](https://github.com/edu-costa-dev/SC_Tec-DesafioExtra) - [Projeto](https://edu-costa-dev.github.io/SC_Tec-DesafioExtra/)
  
