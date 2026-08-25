@@ -422,9 +422,157 @@ function inicializarSistemaModais() {
 
 /* --------------------------------------------------------------------------
    7. FORMULÁRIO DE CONTATO FUNCIONAL (VALIDAÇÃO E DISPARO DE MENSAGEM)
+   7. FORMULÁRIO DE CONTATO FUNCIONAL (INTEGRAÇÃO FORMSPREE & MODAL DE CONFIRMAÇÃO)
    -------------------------------------------------------------------------- */
 
 // Função de validação e submissão amigável do formulário de contato
+// Função auxiliar para escapar caracteres HTML e prevenir injeções de código no modal
+function escaparHtml(texto) {
+  if (!texto) return '';
+  const mapa = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(texto).replace(/[&<>"']/g, (m) => mapa[m]);
+}
+
+// Abre o modal de confirmação com os dados validados e enviados com sucesso via Formspree
+function abrirModalSucessoContato(dados) {
+  const modalContainer = document.getElementById('modal-container');
+  const conteudoModalDinamico = document.getElementById('conteudo-modal-dinamico');
+  const botaoFecharModal = document.getElementById('botao-fechar-modal');
+
+  const htmlConteudo = `
+    <div class="modal-confirmacao-sucesso">
+      <div class="icone-sucesso-animado">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="modal-badge">✓ Envio Confirmado via Formspree</span>
+      <h3 class="modal-sucesso-titulo" id="modal-titulo">Mensagem Enviada com Sucesso!</h3>
+      
+      <p class="modal-sucesso-descricao">
+        Obrigado pelo contato, <strong class="cor-destaque">${escaparHtml(dados.nome)}</strong>! 
+        Sua mensagem foi transmitida com sucesso e entregue diretamente à minha caixa de entrada. Responderei no e-mail informado assim que possível.
+      </p>
+
+      <div class="resumo-envio-cartao">
+        <div class="item-resumo-envio">
+          <span class="rotulo-resumo-envio">👤 Remetente</span>
+          <strong class="valor-resumo-envio">${escaparHtml(dados.nome)}</strong>
+        </div>
+        <div class="item-resumo-envio">
+          <span class="rotulo-resumo-envio">✉️ E-mail de Retorno</span>
+          <span class="valor-resumo-envio">${escaparHtml(dados.email)}</span>
+        </div>
+        <div class="item-resumo-envio">
+          <span class="rotulo-resumo-envio">📌 Assunto</span>
+          <span class="valor-resumo-envio">${escaparHtml(dados.assunto)}</span>
+        </div>
+        <div class="item-resumo-envio">
+          <span class="rotulo-resumo-envio">💬 Conteúdo da Mensagem</span>
+          <p class="valor-resumo-envio">${escaparHtml(dados.mensagem).replace(/\n/g, '<br>')}</p>
+        </div>
+      </div>
+
+      <div class="nota-envio-sucesso">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>Uma notificação instantânea foi encaminhada para Antonio Eduardo.</span>
+      </div>
+
+      <div class="modal-acoes-rodape" style="justify-content: center;">
+        <button type="button" class="botao botao-primario" id="botao-concluir-modal-sucesso">
+          <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Concluir</span>
+        </button>
+        <a href="https://wa.me/5548974009440?text=${encodeURIComponent('Olá Antonio, acabei de enviar uma mensagem pelo formulário do seu portfólio!')}" target="_blank" rel="noopener noreferrer" class="botao botao-outline" title="Acelerar conversa no WhatsApp">
+          <svg class="botao-icone" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.42.06-.64.3-.22.23-.85.83-.85 2.02s.87 2.35.99 2.51c.13.16 1.7 2.6 4.12 3.65.58.25 1.02.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28-.25-.13-1.44-.71-1.66-.79-.22-.09-.39-.13-.55.13-.16.25-.64.79-.79.95-.14.16-.29.18-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.3-.01-.47-.01z"/>
+          </svg>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  `;
+
+  conteudoModalDinamico.innerHTML = htmlConteudo;
+  modalContainer.classList.add('aberto');
+  modalContainer.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  botaoFecharModal.focus();
+
+  const botaoConcluir = document.getElementById('botao-concluir-modal-sucesso');
+  if (botaoConcluir) {
+    botaoConcluir.addEventListener('click', () => {
+      modalContainer.classList.remove('aberto');
+      modalContainer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  }
+}
+
+// Abre o modal de erro caso ocorra falha de conexão ou problema no Formspree
+function abrirModalErroContato(mensagemErro) {
+  const modalContainer = document.getElementById('modal-container');
+  const conteudoModalDinamico = document.getElementById('conteudo-modal-dinamico');
+  const botaoFecharModal = document.getElementById('botao-fechar-modal');
+
+  const htmlConteudo = `
+    <div class="modal-confirmacao-sucesso">
+      <div class="icone-sucesso-animado" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.15); color: #ef4444; box-shadow: 0 0 25px rgba(239, 68, 68, 0.35); animation: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+      </div>
+
+      <span class="modal-badge" style="color: #ef4444; background: rgba(239, 68, 68, 0.15);">Instabilidade no Envio</span>
+      <h3 class="modal-sucesso-titulo" id="modal-titulo">Não foi possível enviar agora</h3>
+      
+      <p class="modal-sucesso-descricao">
+        ${escaparHtml(mensagemErro || 'Ocorreu um imprevisto na conexão com o serviço de mensagens. Você pode tentar novamente ou me chamar diretamente pelo WhatsApp ou E-mail.')}
+      </p>
+
+      <div class="modal-acoes-rodape" style="justify-content: center;">
+        <button type="button" class="botao botao-secundario" id="botao-fechar-modal-erro">
+          <span>Tentar Novamente</span>
+        </button>
+        <a href="https://wa.me/5548974009440" target="_blank" rel="noopener noreferrer" class="botao botao-primario">
+          <span>Conversar no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  `;
+
+  conteudoModalDinamico.innerHTML = htmlConteudo;
+  modalContainer.classList.add('aberto');
+  modalContainer.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  botaoFecharModal.focus();
+
+  const botaoFecharErro = document.getElementById('botao-fechar-modal-erro');
+  if (botaoFecharErro) {
+    botaoFecharErro.addEventListener('click', () => {
+      modalContainer.classList.remove('aberto');
+      modalContainer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  }
+}
+
+// Função de validação e submissão assíncrona do formulário de contato via Formspree
 function inicializarFormularioContato() {
   const formContato = document.getElementById('form-contato');
   const alertaSucesso = document.getElementById('alerta-sucesso');
@@ -433,6 +581,7 @@ function inicializarFormularioContato() {
   if (!formContato) return;
 
   formContato.addEventListener('submit', (evento) => {
+  formContato.addEventListener('submit', async (evento) => {
     evento.preventDefault();
 
     // Captura os valores dos campos
@@ -468,6 +617,12 @@ function inicializarFormularioContato() {
     if (formularioValido) {
       botaoEnviar.disabled = true;
       botaoEnviar.innerHTML = '<span>Preparando envio...</span>';
+    // Se houver campos inválidos, coloca o foco no primeiro campo com erro
+    if (!formularioValido) {
+      const primeiroInvalido = formContato.querySelector('.input-campo.invalido');
+      if (primeiroInvalido) primeiroInvalido.focus();
+      return;
+    }
 
       // Prepara os dados para o mailto
       const destinatario = 'antonio_eduardo96@icloud.com';
@@ -475,9 +630,25 @@ function inicializarFormularioContato() {
       const corpoCodificado = encodeURIComponent(
         `Olá Antonio Eduardo,\n\nNome: ${campoNome.value.trim()}\nE-mail: ${campoEmail.value.trim()}\n\nMensagem:\n${campoMensagem.value.trim()}\n`
       );
+    // Prepara o payload de envio estruturado
+    const dadosEnvio = {
+      nome: campoNome.value.trim(),
+      email: campoEmail.value.trim(),
+      _replyto: campoEmail.value.trim(),
+      assunto: campoAssunto.value.trim(),
+      _subject: `[Contato Portfólio] ${campoAssunto.value.trim()} - ${campoNome.value.trim()}`,
+      mensagem: campoMensagem.value.trim()
+    };
 
       // Exibe a mensagem de sucesso na interface
       alertaSucesso.classList.add('visivel');
+    // Atualiza estado do botão para carregando
+    botaoEnviar.disabled = true;
+    const conteudoOriginalBotao = botaoEnviar.innerHTML;
+    botaoEnviar.innerHTML = `
+      <span class="spinner-botao"></span>
+      <span>Enviando mensagem...</span>
+    `;
 
       // Abre o cliente de e-mail padrão do usuário com a mensagem preenchida
       setTimeout(() => {
@@ -490,8 +661,37 @@ function inicializarFormularioContato() {
           </svg>
           <span>Enviar Mensagem</span>
         `;
+    try {
+      // Disparo assíncrono para o endpoint Formspree
+      const endpointFormspree = 'https://formspree.io/f/mgawgldq';
+      const resposta = await fetch(endpointFormspree, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosEnvio)
+      });
+
+      if (resposta.ok) {
+        // Exibe a janela modal de confirmação e validação do envio
+        abrirModalSucessoContato(dadosEnvio);
+        // Reseta o formulário
         formContato.reset();
       }, 1000);
+      } else {
+        const dadosErro = await resposta.json().catch(() => ({}));
+        const mensagemErro = dadosErro.errors && dadosErro.errors.length > 0
+          ? dadosErro.errors.map(e => e.message).join(', ')
+          : 'Houve uma recusa no processamento do envio pelo servidor.';
+        abrirModalErroContato(mensagemErro);
+      }
+    } catch (erroRede) {
+      abrirModalErroContato('Falha de conexão com a rede. Verifique sua conexão ou utilize os canais diretos.');
+    } finally {
+      // Restaura o botão de envio
+      botaoEnviar.disabled = false;
+      botaoEnviar.innerHTML = conteudoOriginalBotao;
     }
   });
 }

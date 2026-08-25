@@ -1809,6 +1809,133 @@ button {
   flex-wrap: wrap;
 }
 
+/* Modal de Confirmação e Validação do Envio (Formspree) */
+.modal-confirmacao-sucesso {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.icone-sucesso-animado {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 1.25rem auto;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid var(--cor-acento-verde);
+  color: var(--cor-acento-verde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+  animation: pulsarSucesso 2s infinite ease-in-out;
+}
+
+.icone-sucesso-animado svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes pulsarSucesso {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.55);
+  }
+}
+
+.modal-sucesso-titulo {
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  color: var(--cor-texto-principal);
+}
+
+.modal-sucesso-descricao {
+  font-size: 0.98rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.resumo-envio-cartao {
+  background: var(--cor-fundo-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-medio);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.item-resumo-envio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--cor-divisor);
+}
+
+.item-resumo-envio:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.rotulo-resumo-envio {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-texto-mutado);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-resumo-envio {
+  font-size: 0.93rem;
+  color: var(--cor-texto-principal);
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.nota-envio-sucesso {
+  font-size: 0.82rem;
+  color: var(--cor-texto-mutado);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nota-envio-sucesso svg {
+  width: 16px;
+  height: 16px;
+  color: var(--cor-destaque);
+  flex-shrink: 0;
+}
+
+/* Spinner de Carregamento no Botão */
+.spinner-botao {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: girarSpinner 0.75s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes girarSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* --------------------------------------------------------------------------
    13. BOTÃO FLUTUANTE DE VOLTAR AO TOPO
    -------------------------------------------------------------------------- */
