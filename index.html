@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro">
+<head>
+  <!-- Metadados essenciais de configuração e codificação de caracteres -->
+  <meta charset="UTF-8">
+  <!-- Viewport otimizado para suporte a dispositivos móveis (Mobile-First) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Descrição do site para mecanismos de busca e compartilhamento social -->
+  <meta name="description" content="Portfólio Profissional de Antonio Eduardo da Costa (Edu Costa) - Desenvolvedor Web com foco em Backend Node.js, formado em Gestão de TI e capacitação pelo SENAI / Projeto SC Tec.">
+  <!-- Autor e palavras-chave -->
+  <meta name="author" content="Antonio Eduardo da Costa">
+  <meta name="keywords" content="Antonio Eduardo, Edu Costa, Desenvolvedor Node.js, Desenvolvedor Backend, Full Stack, SENAI, SC Tec, Gestão de TI, Portfólio, JavaScript">
+  <!-- Título principal da página -->
+  <title>Antonio Eduardo (Edu Costa) | Desenvolvedor Web &amp; Backend Node.js</title>
+
+  <!-- Pré-conexão para fontes do Google para otimização de performance de carregamento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Importação das fontes modernas Outfit e Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Folha de estilos principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================================================================= -->
+  <!-- CABEÇALHO E BARRA DE NAVEGAÇÃO PRINCIPAL                          -->
+  <!-- ================================================================= -->
+  <!-- Cabeçalho fixo no topo com navegação responsiva e controles -->
+  <header class="cabecalho-principal" id="cabecalho">
+    <div class="container container-cabecalho">
+      
+      <!-- Logotipo / Identidade textual com destaque de desenvolvedor -->
+      <a href="#inicio" class="logotipo" aria-label="Ir para o início do portfólio">
+        <span class="logotipo-icone">&lt;/&gt;</span>
+        <span class="logotipo-texto">Edu<span class="cor-destaque">Costa</span></span>
+      </a>
+
+      <!-- Menu de navegação principal (Desktop e Mobile) -->
+      <nav class="navegacao-principal" id="menu-navegacao" aria-label="Navegação Principal">
+        <ul class="lista-navegacao">
+          <li class="item-navegacao"><a href="#inicio" class="link-navegacao ativo">Início</a></li>
+          <li class="item-navegacao"><a href="#sobre" class="link-navegacao">Sobre Mim</a></li>
+          <li class="item-navegacao"><a href="#experiencias" class="link-navegacao">Experiências</a></li>
+          <li class="item-navegacao"><a href="#projetos" class="link-navegacao">Projetos</a></li>
+          <li class="item-navegacao"><a href="#habilidades" class="link-navegacao">Habilidades</a></li>
+          <li class="item-navegacao"><a href="#certificacoes" class="link-navegacao">Certificações</a></li>
+          <li class="item-navegacao"><a href="#contato" class="link-navegacao">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Área de ações do cabeçalho (Botão de Tema e Menu Hambúrguer) -->
+      <div class="acoes-cabecalho">
+        <!-- Botão para alternar entre Modo Claro e Modo Escuro -->
+        <button type="button" class="botao-tema" id="botao-alternar-tema" aria-label="Alternar modo claro e escuro" title="Alternar tema">
+          <!-- Ícone do Sol (Modo Claro) -->
+          <svg class="icone-sol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Ícone da Lua (Modo Escuro) -->
+          <svg class="icone-lua" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Botão de alternância do menu mobile (Hambúrguer) -->
+        <button type="button" class="botao-hamburguer" id="botao-menu-mobile" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-navegacao">
+          <span class="linha-hamburguer"></span>
+          <span class="linha-hamburguer"></span>
+          <span class="linha-hamburguer"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================================================================= -->
+  <!-- CONTEÚDO PRINCIPAL                                                -->
+  <!-- ================================================================= -->
+  <main id="conteudo-principal">
+
+    <!-- =============================================================== -->
+    <!-- 1. SEÇÃO HERO / APRESENTAÇÃO INICIAL                            -->
+    <!-- =============================================================== -->
+    <section class="secao secao-hero" id="inicio">
+      <div class="container container-hero">
+        
+        <!-- Conteúdo textual de apresentação -->
+        <div class="hero-texto">
+          <!-- Selo de status de capacitação e transição -->
+          <div class="badge-status">
+            <span class="ponto-pulsante"></span>
+            <span>Em Transição para Desenvolvimento Backend &bull; SENAI / SC Tec</span>
+          </div>
+
+          <!-- Saudação e nome principal -->
+          <h1 class="hero-titulo">
+            Olá, eu sou <br>
+            <span class="gradiente-texto">Antonio Eduardo da Costa</span>
+          </h1>
+
+          <!-- Subtítulo profissional de posicionamento -->
+          <h2 class="hero-subtitulo">
+            Desenvolvedor Web &amp; Backend <span class="destaque-tecnologia">Node.js</span>
+          </h2>
+
+          <!-- Parágrafo de introdução sintética -->
+          <p class="hero-descricao">
+            Graduado em <strong>Gestão da Tecnologia da Informação</strong> com sólida bagagem em suporte N1/N2, 
+            estruturação de processos e integração de sistemas. Atualmente aprofundando o desenvolvimento de 
+            soluções escaláveis com <strong>Node.js, Express, JavaScript, REST APIs e Bancos de Dados</strong> 
+            através do programa de formação do <strong>SENAI / SC Tec</strong>.
+          </p>
+
+          <!-- Badges de destaques rápidos -->
+          <div class="hero-tags">
+            <span class="tag-hero"><i class="tag-icone">🎓</i> SENAI / SC Tec</span>
+            <span class="tag-hero"><i class="tag-icone">⭐</i> Google AI Certified</span>
+            <span class="tag-hero"><i class="tag-icone">💻</i> Node.js &amp; APIs</span>
+            <span class="tag-hero"><i class="tag-icone">📍</i> Florianópolis - SC</span>
+          </div>
+
+          <!-- Botões de ação rápida (CTA) -->
+          <div class="hero-botoes">
+            <!-- Botão de download direto do currículo oficial em PDF -->
+            <a href="Currículo Antonio Eduardo Completo.pdf" class="botao botao-primario" download="Currículo Antonio Eduardo Completo.pdf" title="Baixar Currículo Completo em formato PDF">
+              <svg class="botao-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Baixar Currículo (PDF)</span>
+            </a>
+
+            <!-- Botão de contato rápido -->
+            <a href="#contato" class="botao botao-secundario">
+              <svg class="botao-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Entrar em Contato</span>
+            </a>
+
+            <!-- Botão para explorar projetos -->
+            <a href="#projetos" class="botao botao-outline">
+              <span>Ver Projetos</span>
+              <svg class="botao-icone-direita" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Links rápidos para redes sociais e canais diretos -->
+          <div class="hero-redes">
+            <span class="hero-redes-rotulo">Conecte-se comigo:</span>
+            <div class="icones-redes">
+              <a href="https://www.linkedin.com/in/antonioedu/" target="_blank" rel="noopener noreferrer" class="link-social" title="Perfil no LinkedIn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z"/></svg>
+              </a>
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="link-social" title="Perfil no GitHub" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+              <a href="https://wa.me/5548974009440" target="_blank" rel="noopener noreferrer" class="link-social" title="Conversar no WhatsApp" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.42.06-.64.3-.22.23-.85.83-.85 2.02s.87 2.35.99 2.51c.13.16 1.7 2.6 4.12 3.65.58.25 1.02.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28-.25-.13-1.44-.71-1.66-.79-.22-.09-.39-.13-.55.13-.16.25-.64.79-.79.95-.14.16-.29.18-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.3-.01-.47-.01z"/></svg>
+              </a>
+              <a href="mailto:antonio_eduardo96@icloud.com" class="link-social" title="Enviar E-mail" aria-label="E-mail">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna visual com foto de perfil e elementos interativos -->
+        <div class="hero-visual">
+          <div class="moldura-foto-container">
+            <!-- Efeito de brilho de fundo dinâmico -->
+            <div class="efeito-brilho-fundo"></div>
+            
+            <!-- Imagem de perfil do usuário -->
+            <div class="moldura-foto">
+              <img src="img/edu.jpg" alt="Foto de perfil de Antonio Eduardo da Costa" class="foto-perfil" width="360" height="480" loading="eager">
+            </div>
+
+            <!-- Cartão flutuante interativo de destaque 1: Formação -->
+            <div class="cartao-flutuante flutuante-topo">
+              <span class="icone-flutuante">🚀</span>
+              <div>
+                <strong class="titulo-flutuante">SC Tec &bull; SENAI</strong>
+                <span class="subtitulo-flutuante">Dev Web &amp; Backend</span>
+              </div>
+            </div>
+
+            <!-- Cartão flutuante interativo de destaque 2: Certificação Google AI -->
+            <div class="cartao-flutuante flutuante-base">
+              <span class="icone-flutuante">🤖</span>
+              <div>
+                <strong class="titulo-flutuante">Google AI Professional</strong>
+                <span class="subtitulo-flutuante">8 Cursos &bull; Coursera</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 2. SEÇÃO SOBRE MIM (COM ACCORDIONS INTERATIVOS)                   -->
+    <!-- =============================================================== -->
+    <section class="secao secao-sobre" id="sobre">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Conheça Minha Jornada</span>
+          <h2 class="titulo-secao">Sobre Mim</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            A convergência entre visão analítica de processos corporativos, suporte avançado de TI e a 
+            construção de soluções modernas de software.
+          </p>
+        </div>
+
+        <!-- Grid de apresentação Sobre Mim -->
+        <div class="grid-sobre">
+          
+          <!-- Resumo em destaque -->
+          <div class="cartao-resumo-sobre">
+            <h3 class="resumo-titulo">Construindo soluções com precisão analítica e código limpo.</h3>
+            <p class="resumo-paragrafo">
+              Minha trajetória na área de tecnologia é marcada por uma sólida compreensão do ecossistema corporativo: 
+              desde o suporte técnico de alta complexidade (N1/N2), atendimento a magistrados e empresas, até a gestão de ativos, 
+              bancos de dados e integrações via API.
+            </p>
+            <p class="resumo-paragrafo">
+              Essa experiência me deu uma visão privilegiada de como as regras de negócio funcionam na prática, o que hoje 
+              impulsiona minha excelência no desenvolvimento backend com Node.js — criando códigos estruturados, seguros e 
+              centrados em resolver problemas reais.
+            </p>
+
+            <!-- Métricas rápidas / Indicadores -->
+            <div class="metricas-sobre">
+              <div class="item-metrica">
+                <span class="numero-metrica">Gestão TI</span>
+                <span class="legenda-metrica">Bacharelado UNILASALLE</span>
+              </div>
+              <div class="item-metrica">
+                <span class="numero-metrica">SENAI</span>
+                <span class="legenda-metrica">Formação SC Tec Backend</span>
+              </div>
+              <div class="item-metrica">
+                <span class="numero-metrica">+5 Anos</span>
+                <span class="legenda-metrica">Vivência em Tecnologia &amp; Suporte</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conjunto de Tópicos Expansíveis (Accordion) -->
+          <div class="container-accordion" id="accordion-sobre">
+            
+            <!-- Item 1 do Accordion: Trajetória Profissional -->
+            <div class="item-accordion" data-accordion="trajetoria">
+              <button type="button" class="gatilho-accordion" aria-expanded="false" id="gatilho-trajetoria" aria-controls="conteudo-trajetoria">
+                <span class="titulo-accordion">
+                  <span class="icone-accordion-categoria">🏢</span>
+                  Minha Trajetória Profissional &amp; Gestão de TI
+                </span>
+                <svg class="seta-accordion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="painel-accordion" id="conteudo-trajetoria" role="region" aria-labelledby="gatilho-trajetoria">
+                <div class="conteudo-interno-accordion">
+                  <p>
+                    Sou graduado em <strong>Gestão da Tecnologia da Informação pela UNILASALLE (2016)</strong> e possuo sólida 
+                    experiência em ambientes corporativos de Service Desk e Sustentação (N1/N2), atuando em instituições como o 
+                    <strong>Tribunal Regional Eleitoral de Santa Catarina (TRE-SC)</strong> e empresas de tecnologia e consultoria.
+                  </p>
+                  <p>
+                    Minhas responsabilidades envolveram gestão de ativos, suporte a sistemas ERP (TOTVS Protheus, Domínio), 
+                    configuração de Oracle Client/TNSNAMES, consultas SQL em bancos de dados, integrações com Postman e atendimento consultivo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 do Accordion: Transição de Carreira -->
+            <div class="item-accordion" data-accordion="transicao">
+              <button type="button" class="gatilho-accordion" aria-expanded="true" id="gatilho-transicao" aria-controls="conteudo-transicao">
+                <span class="titulo-accordion">
+                  <span class="icone-accordion-categoria">🚀</span>
+                  A Transição de Carreira para Backend (SENAI / SC Tec)
+                </span>
+                <svg class="seta-accordion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="painel-accordion expandido" id="conteudo-transicao" role="region" aria-labelledby="gatilho-transicao">
+                <div class="conteudo-interno-accordion">
+                  <p>
+                    Ao trabalhar diretamente com integrações de APIs, fluxos de automação de chatbots e troubleshooting de sistemas, 
+                    identifiquei minha verdadeira paixão: <strong>escrever a lógica de negócio no código</strong> e desenvolver 
+                    sistemas robustos e escaláveis.
+                  </p>
+                  <p>
+                    Ingressei na capacitação intensiva de <strong>Desenvolvimento Web Backend com Node.js pelo SENAI / Projeto SC Tec</strong>, 
+                    onde tenho desenvolvido projetos práticos aplicando arquiteturas limpas, consumo e criação de RESTful APIs, 
+                    modelagem relacional de dados e padrões modernos de JavaScript/TypeScript.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 do Accordion: Inteligência Artificial -->
+            <div class="item-accordion" data-accordion="ia">
+              <button type="button" class="gatilho-accordion" aria-expanded="false" id="gatilho-ia" aria-controls="conteudo-ia">
+                <span class="titulo-accordion">
+                  <span class="icone-accordion-categoria">🤖</span>
+                  Especialização em IA &amp; Metodologias Ágeis
+                </span>
+                <svg class="seta-accordion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="painel-accordion" id="conteudo-ia" role="region" aria-labelledby="gatilho-ia">
+                <div class="conteudo-interno-accordion">
+                  <p>
+                    Concluí o prestigiado <strong>Google AI Professional Certificate (Coursera - 8 cursos)</strong>, dominando 
+                    engenharia de prompts (Zero-shot, Few-shot, Chain-of-thought), desenvolvimento acelerado com IA ("Vibe Coding") 
+                    e integração de LLMs em soluções de software.
+                  </p>
+                  <p>
+                    Possuo também certificações do SENAI em <em>Criação de Prompts</em>, <em>Fundamentos de IA</em> e 
+                    <em>Aplicabilidades Éticas e Responsáveis (LGPD &amp; Governança de Dados)</em>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 do Accordion: Hobbies & Interesses -->
+            <div class="item-accordion" data-accordion="hobbies">
+              <button type="button" class="gatilho-accordion" aria-expanded="false" id="gatilho-hobbies" aria-controls="conteudo-hobbies">
+                <span class="titulo-accordion">
+                  <span class="icone-accordion-categoria">🎯</span>
+                  Hobbies, Estilo de Vida &amp; Interesses Pessoais
+                </span>
+                <svg class="seta-accordion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="painel-accordion" id="conteudo-hobbies" role="region" aria-labelledby="gatilho-hobbies">
+                <div class="conteudo-interno-accordion">
+                  <p>
+                    Fora do ambiente de trabalho e estudos, sou entusiasta de:
+                  </p>
+                  <ul class="lista-hobbies">
+                    <li>🎮 <strong>Jogos de estratégia e RPG:</strong> Desenvolvimento do raciocínio lógico, planejamento e tomada de decisões sob pressão.</li>
+                    <li>📚 <strong>Leitura técnica &amp; Novas Tecnologias:</strong> Acompanhamento diário de novidades no ecossistema JavaScript, Node.js e IA.</li>
+                    <li>⚡ <strong>Automações Pessoais:</strong> Criação de scripts para otimizar rotinas diárias e integração de ferramentas de produtividade.</li>
+                    <li>🎧 <strong>Música &amp; Podcasts de Tecnologia:</strong> Foco, imersão em codificação e aprendizado contínuo.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 3. SEÇÃO EXPERIÊNCIAS PROFISSIONAIS (COM MODAL POP-UP)           -->
+    <!-- =============================================================== -->
+    <section class="secao secao-experiencias" id="experiencias">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Carreira &amp; Atuação Corporativa</span>
+          <h2 class="titulo-secao">Experiências Profissionais</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            Histórico de atuação focado em responsabilidade técnica, sustentação de infraestrutura, 
+            atendimento a usuários e integração de sistemas corporativos.
+          </p>
+        </div>
+
+        <!-- Grid de Cartões de Experiência -->
+        <div class="grid-experiencias">
+
+          <!-- Card Experiência 1: TRE-SC -->
+          <article class="cartao-experiencia" data-id-experiencia="tre-sc">
+            <div class="experiencia-cabecalho-cartao">
+              <span class="badge-periodo">12/2023 – Presente</span>
+              <span class="badge-tipo">Presencial / Órgão Público</span>
+            </div>
+            
+            <!-- Destaque tipográfico forte no Cargo -->
+            <h3 class="cargo-experiencia">Analista de Suporte (N1/N2) &amp; Gestão de Ativos</h3>
+            <!-- Empresa em formato discreto e menor -->
+            <p class="empresa-experiencia">Tribunal Regional Eleitoral de Santa Catarina (G4F)</p>
+            
+            <!-- Breve resumo da atuação -->
+            <p class="resumo-experiencia">
+              Gestão de parque tecnológico, manutenção de ativos críticos, atendimento N1/N2 via OTRS, 
+              suporte a magistrados em sessões plenárias e configuração de Oracle Client/TNSNAMES.
+            </p>
+
+            <div class="tags-experiencia">
+              <span class="tag-tecnologia">OTRS</span>
+              <span class="tag-tecnologia">Oracle Client</span>
+              <span class="tag-tecnologia">Gestão de Ativos</span>
+              <span class="tag-tecnologia">ITIL</span>
+            </div>
+
+            <!-- Botão para abrir o Modal com detalhes aprofundados -->
+            <button type="button" class="botao-abrir-modal botao-link-detalhes" data-modal="experiencia" data-id="tre-sc">
+              <span>Ver detalhes completos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Card Experiência 2: ALIX Tecnologia -->
+          <article class="cartao-experiencia" data-id-experiencia="alix">
+            <div class="experiencia-cabecalho-cartao">
+              <span class="badge-periodo">06/2022 – 08/2023</span>
+              <span class="badge-tipo">Outsourcing &amp; Suporte</span>
+            </div>
+            
+            <!-- Destaque tipográfico forte no Cargo -->
+            <h3 class="cargo-experiencia">Técnico de Informática II &amp; Outsourcing</h3>
+            <!-- Empresa em formato discreto e menor -->
+            <p class="empresa-experiencia">ALIX Tecnologia</p>
+            
+            <!-- Breve resumo da atuação -->
+            <p class="resumo-experiencia">
+              Sustentação N2 em sistemas corporativos ERP (TOTVS Protheus), Siscomex, GLPI, 
+              troubleshooting de redes, implantação de ferramentas colaborativas e suporte N1/N2.
+            </p>
+
+            <div class="tags-experiencia">
+              <span class="tag-tecnologia">TOTVS Protheus</span>
+              <span class="tag-tecnologia">GLPI</span>
+              <span class="tag-tecnologia">Redes &amp; Servidores</span>
+              <span class="tag-tecnologia">NinjaOne</span>
+            </div>
+
+            <!-- Botão para abrir o Modal com detalhes aprofundados -->
+            <button type="button" class="botao-abrir-modal botao-link-detalhes" data-modal="experiencia" data-id="alix">
+              <span>Ver detalhes completos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Card Experiência 3: BC Tech -->
+          <article class="cartao-experiencia" data-id-experiencia="bctech">
+            <div class="experiencia-cabecalho-cartao">
+              <span class="badge-periodo">01/2020 – 05/2022</span>
+              <span class="badge-tipo">SaaS &amp; Atendimento</span>
+            </div>
+            
+            <!-- Destaque tipográfico forte no Cargo -->
+            <h3 class="cargo-experiencia">Analista de Suporte, Implantação e Relacionamento</h3>
+            <!-- Empresa em formato discreto e menor -->
+            <p class="empresa-experiencia">BC Tech</p>
+            
+            <!-- Breve resumo da atuação -->
+            <p class="resumo-experiencia">
+              Implantação de sistemas SaaS, suporte funcional a ERP, automação de chatbots (WhatsApp/Telegram), 
+              testes de integração via API (Postman), scripts JSON e consultas SQL em MariaDB.
+            </p>
+
+            <div class="tags-experiencia">
+              <span class="tag-tecnologia">APIs (Postman)</span>
+              <span class="tag-tecnologia">Scripts JSON</span>
+              <span class="tag-tecnologia">MariaDB / SQL</span>
+              <span class="tag-tecnologia">Chatbots</span>
+            </div>
+
+            <!-- Botão para abrir o Modal com detalhes aprofundados -->
+            <button type="button" class="botao-abrir-modal botao-link-detalhes" data-modal="experiencia" data-id="bctech">
+              <span>Ver detalhes completos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Card Experiência 4: Viável Contabilidade -->
+          <article class="cartao-experiencia" data-id-experiencia="viavel">
+            <div class="experiencia-cabecalho-cartao">
+              <span class="badge-periodo">10/2018 – 12/2019</span>
+              <span class="badge-tipo">Fiscal &amp; Contábil</span>
+            </div>
+            
+            <!-- Destaque tipográfico forte no Cargo -->
+            <h3 class="cargo-experiencia">Auxiliar de Contabilidade &amp; Rotinas Fiscais</h3>
+            <!-- Empresa em formato discreto e menor -->
+            <p class="empresa-experiencia">Viável Contabilidade</p>
+            
+            <!-- Breve resumo da atuação -->
+            <p class="resumo-experiencia">
+              Conferência de XMLs de notas fiscais, geração de SPED Fiscal, apuração de impostos (Simples Nacional, Lucro Presumido) 
+              e rotinas contábeis no sistema Domínio.
+            </p>
+
+            <div class="tags-experiencia">
+              <span class="tag-tecnologia">Sistema Domínio</span>
+              <span class="tag-tecnologia">SPED Fiscal</span>
+              <span class="tag-tecnologia">XMLs Fiscais</span>
+              <span class="tag-tecnologia">Rotinas Tributárias</span>
+            </div>
+
+            <!-- Botão para abrir o Modal com detalhes aprofundados -->
+            <button type="button" class="botao-abrir-modal botao-link-detalhes" data-modal="experiencia" data-id="viavel">
+              <span>Ver detalhes completos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 4. SEÇÃO PROJETOS EM DESTAQUE (COM MODAL POP-UP)                 -->
+    <!-- =============================================================== -->
+    <section class="secao secao-projetos" id="projetos">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Portfólio Prático</span>
+          <h2 class="titulo-secao">Projetos em Destaque</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            Aplicações desenvolvidas durante a capacitação no SENAI / Projeto SC Tec e projetos práticos 
+            focados em arquitetura backend, consumo de APIs e interfaces interativas.
+          </p>
+        </div>
+
+        <!-- Grid de Projetos -->
+        <div class="grid-projetos">
+
+          <!-- Projeto 1: API RESTful com Node.js -->
+          <article class="cartao-projeto">
+            <div class="cabecalho-cartao-projeto">
+              <span class="badge-vinculo">SENAI / SC Tec &bull; Backend</span>
+              <span class="icone-projeto">⚡</span>
+            </div>
+            
+            <h3 class="titulo-projeto">API RESTful com Node.js, Express &amp; Banco de Dados</h3>
+            
+            <p class="descricao-projeto">
+              API robusta para gerenciamento de dados com operações CRUD completas, tratamento modular de erros, 
+              validação de requisições, autenticação JWT e persistência em banco relacional.
+            </p>
+
+            <div class="tags-tecnologias-projeto">
+              <span class="tag-chip">Node.js</span>
+              <span class="tag-chip">Express</span>
+              <span class="tag-chip">PostgreSQL/MariaDB</span>
+              <span class="tag-chip">Postman</span>
+              <span class="tag-chip">REST API</span>
+            </div>
+
+            <div class="acoes-cartao-projeto">
+              <button type="button" class="botao botao-pequeno botao-primario botao-abrir-modal" data-modal="projeto" data-id="api-node">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Ver Detalhes</span>
+              </button>
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="botao botao-pequeno botao-outline" title="Acessar Repositório no GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 2: Aplicação Full Stack Web -->
+          <article class="cartao-projeto">
+            <div class="cabecalho-cartao-projeto">
+              <span class="badge-vinculo">Projeto SC Tec &bull; Full Stack</span>
+              <span class="icone-projeto">🌐</span>
+            </div>
+            
+            <h3 class="titulo-projeto">Aplicação Web Dinâmica &amp; Integração Frontend/Backend</h3>
+            
+            <p class="descricao-projeto">
+              Sistema completo integrando interface responsiva em JavaScript assíncrono com serviços 
+              backend em Node.js, com consumo de endpoints e renderização dinâmica em tela.
+            </p>
+
+            <div class="tags-tecnologias-projeto">
+              <span class="tag-chip">HTML5</span>
+              <span class="tag-chip">CSS3 Moderno</span>
+              <span class="tag-chip">JavaScript (ES6+)</span>
+              <span class="tag-chip">Node.js</span>
+              <span class="tag-chip">Fetch API</span>
+            </div>
+
+            <div class="acoes-cartao-projeto">
+              <button type="button" class="botao botao-pequeno botao-primario botao-abrir-modal" data-modal="projeto" data-id="app-fullstack">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Ver Detalhes</span>
+              </button>
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="botao botao-pequeno botao-outline" title="Acessar Repositório no GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 3: Chatbot & Automação de Mensageria -->
+          <article class="cartao-projeto">
+            <div class="cabecalho-cartao-projeto">
+              <span class="badge-vinculo">Automação &bull; Integrações</span>
+              <span class="icone-projeto">💬</span>
+            </div>
+            
+            <h3 class="titulo-projeto">Chatbots &amp; Automações de Integração de Mensageria</h3>
+            
+            <p class="descricao-projeto">
+              Fluxos interativos inteligentes integrados com canais como WhatsApp e Telegram, utilizando 
+              estruturação em JSON, webhooks e consultas condicionais a endpoints externos.
+            </p>
+
+            <div class="tags-tecnologias-projeto">
+              <span class="tag-chip">JavaScript</span>
+              <span class="tag-chip">Webhooks</span>
+              <span class="tag-chip">APIs JSON</span>
+              <span class="tag-chip">Chatbot Multi-canal</span>
+              <span class="tag-chip">Postman</span>
+            </div>
+
+            <div class="acoes-cartao-projeto">
+              <button type="button" class="botao botao-pequeno botao-primario botao-abrir-modal" data-modal="projeto" data-id="chatbot-automacao">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Ver Detalhes</span>
+              </button>
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="botao botao-pequeno botao-outline" title="Acessar Repositório no GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 4: Portfólio Interativo -->
+          <article class="cartao-projeto">
+            <div class="cabecalho-cartao-projeto">
+              <span class="badge-vinculo">Frontend &bull; Portfólio</span>
+              <span class="icone-projeto">✨</span>
+            </div>
+            
+            <h3 class="titulo-projeto">Portfólio Web Interativo &amp; Acessível</h3>
+            
+            <p class="descricao-projeto">
+              Single-page application construída com HTML5 semântico, CSS3 moderno com suporte dinâmico a 
+              Dark/Light mode via localStorage, modais nativos e componentes expansíveis tipo Accordion.
+            </p>
+
+            <div class="tags-tecnologias-projeto">
+              <span class="tag-chip">HTML5 Semântico</span>
+              <span class="tag-chip">CSS Custom Properties</span>
+              <span class="tag-chip">Vanilla JS</span>
+              <span class="tag-chip">Acessibilidade</span>
+              <span class="tag-chip">UI/UX</span>
+            </div>
+
+            <div class="acoes-cartao-projeto">
+              <button type="button" class="botao botao-pequeno botao-primario botao-abrir-modal" data-modal="projeto" data-id="portfolio-web">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Ver Detalhes</span>
+              </button>
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="botao botao-pequeno botao-outline" title="Acessar Repositório no GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 5. SEÇÃO HABILIDADES TÉCNICAS (HARD & SOFT SKILLS)               -->
+    <!-- =============================================================== -->
+    <section class="secao secao-habilidades" id="habilidades">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Competências &amp; Stack</span>
+          <h2 class="titulo-secao">Habilidades Técnicas e Pessoais</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            Conjunto de competências consolidadas em desenvolvimento backend, interfaces web, infraestrutura, 
+            inteligência artificial aplicada e relacionamento interpessoal.
+          </p>
+        </div>
+
+        <!-- Categorias Visuais de Habilidades -->
+        <div class="grid-habilidades">
+          
+          <!-- Categoria 1: Backend & Bancos de Dados -->
+          <div class="cartao-habilidade">
+            <div class="habilidade-cabecalho">
+              <span class="icone-categoria-habilidade">⚙️</span>
+              <h3 class="titulo-categoria-habilidade">Backend &amp; Banco de Dados</h3>
+            </div>
+            <ul class="lista-skills">
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Node.js &amp; Express</span>
+                  <span class="nivel-skill">Avançado / Foco</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 85%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Criação &amp; Consumo de REST APIs</span>
+                  <span class="nivel-skill">85%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 85%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">SQL (PostgreSQL, MariaDB, Oracle)</span>
+                  <span class="nivel-skill">80%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 80%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">JSON &amp; Manipulação de Dados</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categoria 2: Frontend & Interfaces Web -->
+          <div class="cartao-habilidade">
+            <div class="habilidade-cabecalho">
+              <span class="icone-categoria-habilidade">🎨</span>
+              <h3 class="titulo-categoria-habilidade">Frontend &amp; Web Design</h3>
+            </div>
+            <ul class="lista-skills">
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">HTML5 Semântico &amp; Acessibilidade</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">CSS3 Moderno (Flexbox / Grid / Variáveis)</span>
+                  <span class="nivel-skill">85%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 85%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">JavaScript Moderno (ES6+, DOM, Fetch)</span>
+                  <span class="nivel-skill">80%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 80%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Design Responsivo (Mobile-First)</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categoria 3: Ferramentas & Metodologias -->
+          <div class="cartao-habilidade">
+            <div class="habilidade-cabecalho">
+              <span class="icone-categoria-habilidade">🛠️</span>
+              <h3 class="titulo-categoria-habilidade">Ferramentas &amp; Processos</h3>
+            </div>
+            <ul class="lista-skills">
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Git &amp; GitHub (Versionamento)</span>
+                  <span class="nivel-skill">80%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 80%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Postman &amp; Testes de API</span>
+                  <span class="nivel-skill">85%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 85%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Linux, Windows &amp; Mac OS</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">ITIL / Gestão de Demandas &amp; Tickets</span>
+                  <span class="nivel-skill">95%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 95%;"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categoria 4: Inteligência Artificial & Soft Skills -->
+          <div class="cartao-habilidade">
+            <div class="habilidade-cabecalho">
+              <span class="icone-categoria-habilidade">🧠</span>
+              <h3 class="titulo-categoria-habilidade">IA &amp; Competências Pessoais</h3>
+            </div>
+            <ul class="lista-skills">
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Google AI / Engenharia de Prompts</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Resolução Analítica de Problemas</span>
+                  <span class="nivel-skill">95%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 95%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Comunicação Interpessoal &amp; Trabalho em Equipe</span>
+                  <span class="nivel-skill">90%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 90%;"></div></div>
+              </li>
+              <li class="item-skill">
+                <div class="info-skill">
+                  <span class="nome-skill">Adaptabilidade &amp; Aprendizado Contínuo</span>
+                  <span class="nivel-skill">95%</span>
+                </div>
+                <div class="barra-skill"><div class="progresso-skill" style="width: 95%;"></div></div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 6. SEÇÃO CERTIFICAÇÕES (COM DESTAQUE GOOGLE AI & ARQUIVOS PDF)   -->
+    <!-- =============================================================== -->
+    <section class="secao secao-certificacoes" id="certificacoes">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Formação &amp; Conquistas</span>
+          <h2 class="titulo-secao">Certificações e Credenciais</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            Certificados profissionais emitidos por instituições de prestígio global como Google, Coursera e SENAI/SC.
+          </p>
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- ESPAÇO ESPECIAL COM BADGE/EMBLEMA GOOGLE PROFISSIONAL DE IA   -->
+        <!-- ============================================================= -->
+        <div class="cartao-destaque-google-ai">
+          <div class="google-ai-emblema-wrapper">
+            <!-- Emblema estilizado Google AI -->
+            <div class="emblema-google-glow"></div>
+            <div class="emblema-google">
+              <svg class="google-logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+              </svg>
+              <span class="selo-verificado">✓ Oficial</span>
+            </div>
+          </div>
+
+          <div class="google-ai-conteudo">
+            <div class="google-ai-meta">
+              <span class="badge-destaque-ouro">Certificado Profissional Global</span>
+              <span class="data-emissao">Emitido em 24 de Agosto de 2026</span>
+            </div>
+            
+            <h3 class="google-ai-titulo">Google AI Professional Certificate</h3>
+            
+            <p class="google-ai-descricao">
+              Programa avançado de <strong>8 cursos certificados pelo Google</strong> demonstrando fluência prática em IA: 
+              fundamentos, pesquisa, criação de conteúdo, análise de dados, engenharia de prompts avançada, construção e implantação 
+              de aplicações com inteligência artificial responsável.
+            </p>
+
+            <div class="modulos-google-ai">
+              <span class="modulo-chip">AI Fundamentals</span>
+              <span class="modulo-chip">AI Brainstorming &amp; Planning</span>
+              <span class="modulo-chip">AI Research &amp; Insights</span>
+              <span class="modulo-chip">AI Writing &amp; Communicating</span>
+              <span class="modulo-chip">AI Content Creation</span>
+              <span class="modulo-chip">AI Data Analysis</span>
+              <span class="modulo-chip">AI App Building</span>
+              <span class="modulo-chip">AI App Deployment</span>
+            </div>
+
+            <div class="google-ai-acoes">
+              <!-- Link oficial de verificação na Coursera -->
+              <a href="https://coursera.org/verify/professional-cert/GWS4B6PJ9P7E" target="_blank" rel="noopener noreferrer" class="botao botao-primario" title="Validar Certificado no portal oficial da Coursera">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Verificar no Coursera (GWS4B6PJ9P7E)</span>
+              </a>
+
+              <!-- Botão para visualizar o PDF do certificado -->
+              <a href="certificados/Coursera GWS4B6PJ9P7E.pdf" target="_blank" class="botao botao-outline" title="Visualizar Certificado em PDF">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Visualizar PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- LISTA / GALERIA DOS DEMAIS CURSOS E CERTIFICADOS DO SENAI/SC  -->
+        <!-- ============================================================= -->
+        <h3 class="subtitulo-bloco-certificados">Cursos &amp; Certificações SENAI / SC Tec &amp; Acadêmicas</h3>
+
+        <div class="grid-certificados">
+
+          <!-- Certificado 1: Introdução à Programação Front-End e Back-End -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">SENAI / SC - LAB 365</span>
+              <span class="nota-certificado">Nota: 10,00</span>
+            </div>
+            <h4 class="titulo-certificado">Introdução à Programação Front-End e Back-End (20h)</h4>
+            <p class="detalhes-certificado">
+              Carga horária de 20 horas cobrindo HTML, CSS, JavaScript dinâmico e desenvolvimento de aplicações completas com Node.js no Backend.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Cód: DFG73K0S0G</span>
+              <a href="certificados/Introdução à Programação Front-End e Back-End (20h).pdf" target="_blank" class="link-visualizar-pdf" title="Abrir PDF do Certificado">
+                <span>Ver PDF</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Certificado 2: Trilha rápida Desenvolvimento de Software -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">SC Tec / SENAI</span>
+              <span class="nota-certificado">Concluído</span>
+            </div>
+            <h4 class="titulo-certificado">Trilha Rápida: Desenvolvimento de Software (16h)</h4>
+            <p class="detalhes-certificado">
+              Imersão intensiva com fundamentos e práticas em HTML5, CSS3 e JavaScript aplicados ao desenvolvimento web moderno.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Cód: b708-6ec8-0c10</span>
+              <a href="certificados/Declaração de Participação - Trilha rapida Desenvolvimento de Software (16h).pdf" target="_blank" class="link-visualizar-pdf" title="Abrir PDF da Declaração">
+                <span>Ver PDF</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Certificado 3: IA na Prática - Criação de Prompts -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">SENAI / SC - LAB 365</span>
+              <span class="nota-certificado">Nota: 10,00</span>
+            </div>
+            <h4 class="titulo-certificado">IA na Prática: Criação de Prompts (15h)</h4>
+            <p class="detalhes-certificado">
+              Arquitetura de LLMs, engenharia estruturada de prompts (zero-shot, few-shot, autoavaliação) e refinamento iterativo.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Cód: DFM9DVOXCT</span>
+              <a href="certificados/IA na Prática - Criação de Prompts.pdf" target="_blank" class="link-visualizar-pdf" title="Abrir PDF do Certificado">
+                <span>Ver PDF</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Certificado 4: IA na Prática - Fundamentos -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">SENAI / SC - LAB 365</span>
+              <span class="nota-certificado">Nota: 9,00</span>
+            </div>
+            <h4 class="titulo-certificado">IA na Prática: Fundamentos da IA (8h)</h4>
+            <p class="detalhes-certificado">
+              Pensamento computacional, paradigmas de IA (simbólico, conexionista, estatístico) e aplicações no mercado.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Cód: DETWIZLM6B</span>
+              <a href="certificados/IA na Prática - Fundamentos da Inteligência Artificial (8h).pdf" target="_blank" class="link-visualizar-pdf" title="Abrir PDF do Certificado">
+                <span>Ver PDF</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Certificado 5: IA na Prática - Ética e Responsabilidade -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">SENAI / SC - LAB 365</span>
+              <span class="nota-certificado">Nota: 10,00</span>
+            </div>
+            <h4 class="titulo-certificado">IA na Prática: Aplicabilidades Éticas &amp; LGPD (8h)</h4>
+            <p class="detalhes-certificado">
+              Privacidade de dados no contexto digital, conformidade com a LGPD/GDPR, governança de segurança e ciclo de vida de dados.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Cód: DWYJB55EI8</span>
+              <a href="certificados/IA na Prática - Aplicabilidades Éticas e Responsáveis (8h).pdf" target="_blank" class="link-visualizar-pdf" title="Abrir PDF do Certificado">
+                <span>Ver PDF</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Formação Acadêmica: Bacharelado -->
+          <article class="cartao-certificado">
+            <div class="cabecalho-cartao-certificado">
+              <span class="badge-instituicao">UNILASALLE (2016)</span>
+              <span class="nota-certificado">Bacharel</span>
+            </div>
+            <h4 class="titulo-certificado">Gestão da Tecnologia da Informação</h4>
+            <p class="detalhes-certificado">
+              Formação superior em governança de TI, gestão de infraestrutura, processos ITIL, modelagem de banco de dados e gestão de projetos.
+            </p>
+            <div class="rodape-cartao-certificado">
+              <span class="codigo-validacao">Graduação Concluída</span>
+              <a href="Currículo Antonio Eduardo Completo.pdf" class="link-visualizar-pdf" download title="Ver no Currículo">
+                <span>Ver no CV</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 7. SEÇÃO CONTATOS & FORMULÁRIO                                   -->
+    <!-- =============================================================== -->
+    <section class="secao secao-contato" id="contato">
+      <div class="container">
+        
+        <!-- Cabeçalho da seção -->
+        <div class="cabecalho-secao">
+          <span class="subtitulo-secao">Vamos Conversar?</span>
+          <h2 class="titulo-secao">Entre em Contato</h2>
+          <div class="divisor-secao"></div>
+          <p class="descricao-secao">
+            Estou aberto a oportunidades profissionais como Desenvolvedor Web / Backend Node.js, 
+            projetos colaborativos e conexões no setor de tecnologia.
+          </p>
+        </div>
+
+        <div class="grid-contato">
+          
+          <!-- Coluna 1: Informações e Canais Diretos -->
+          <div class="canais-contato-wrapper">
+            <h3 class="titulo-canais">Canais Diretos de Comunicação</h3>
+            <p class="descricao-canais">
+              Fique à vontade para me enviar uma mensagem direta ou agendar um bate-papo via WhatsApp ou LinkedIn:
+            </p>
+
+            <div class="lista-cartoes-contato">
+              
+              <!-- WhatsApp -->
+              <a href="https://wa.me/5548974009440" target="_blank" rel="noopener noreferrer" class="cartao-canal-contato">
+                <div class="icone-canal-circulo canal-whatsapp">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.42.06-.64.3-.22.23-.85.83-.85 2.02s.87 2.35.99 2.51c.13.16 1.7 2.6 4.12 3.65.58.25 1.02.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28-.25-.13-1.44-.71-1.66-.79-.22-.09-.39-.13-.55.13-.16.25-.64.79-.79.95-.14.16-.29.18-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.3-.01-.47-.01z"/></svg>
+                </div>
+                <div class="info-canal">
+                  <span class="rotulo-canal">WhatsApp / Telefone</span>
+                  <strong class="valor-canal">(48) 9 7400-9440</strong>
+                </div>
+              </a>
+
+              <!-- E-mail -->
+              <a href="mailto:antonio_eduardo96@icloud.com" class="cartao-canal-contato">
+                <div class="icone-canal-circulo canal-email">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="info-canal">
+                  <span class="rotulo-canal">E-mail Profissional</span>
+                  <strong class="valor-canal">antonio_eduardo96@icloud.com</strong>
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/antonioedu/" target="_blank" rel="noopener noreferrer" class="cartao-canal-contato">
+                <div class="icone-canal-circulo canal-linkedin">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z"/></svg>
+                </div>
+                <div class="info-canal">
+                  <span class="rotulo-canal">LinkedIn</span>
+                  <strong class="valor-canal">linkedin.com/in/antonioedu</strong>
+                </div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/edu-costa-dev" target="_blank" rel="noopener noreferrer" class="cartao-canal-contato">
+                <div class="icone-canal-circulo canal-github">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                </div>
+                <div class="info-canal">
+                  <span class="rotulo-canal">GitHub</span>
+                  <strong class="valor-canal">github.com/edu-costa-dev</strong>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Coluna 2: Formulário Funcional de Mensagem -->
+          <div class="formulario-contato-wrapper">
+            <form class="formulario-contato" id="form-contato" novalidate>
+              <h3 class="titulo-form">Envie uma Mensagem</h3>
+              
+              <!-- Campo: Nome -->
+              <div class="grupo-campo">
+                <label for="campo-nome" class="rotulo-campo">Nome Completo <span class="campo-obrigatorio">*</span></label>
+                <input type="text" id="campo-nome" name="nome" class="input-campo" placeholder="Seu nome ou empresa" required>
+                <span class="mensagem-erro" id="erro-nome">Por favor, informe seu nome.</span>
+              </div>
+
+              <!-- Campo: E-mail -->
+              <div class="grupo-campo">
+                <label for="campo-email" class="rotulo-campo">Seu E-mail <span class="campo-obrigatorio">*</span></label>
+                <input type="email" id="campo-email" name="email" class="input-campo" placeholder="seu.email@dominio.com" required>
+                <span class="mensagem-erro" id="erro-email">Por favor, insira um e-mail válido.</span>
+              </div>
+
+              <!-- Campo: Assunto -->
+              <div class="grupo-campo">
+                <label for="campo-assunto" class="rotulo-campo">Assunto <span class="campo-obrigatorio">*</span></label>
+                <input type="text" id="campo-assunto" name="assunto" class="input-campo" placeholder="Ex.: Oportunidade Backend Node.js / Projeto" required>
+                <span class="mensagem-erro" id="erro-assunto">Por favor, digite o assunto da mensagem.</span>
+              </div>
+
+              <!-- Campo: Mensagem -->
+              <div class="grupo-campo">
+                <label for="campo-mensagem" class="rotulo-campo">Mensagem <span class="campo-obrigatorio">*</span></label>
+                <textarea id="campo-mensagem" name="mensagem" class="input-campo textarea-campo" rows="5" placeholder="Olá Antonio, gostaria de conversar sobre..." required></textarea>
+                <span class="mensagem-erro" id="erro-mensagem">Por favor, escreva a mensagem.</span>
+              </div>
+
+              <!-- Botão de Envio do Formulário -->
+              <button type="submit" class="botao botao-primario botao-bloco" id="botao-enviar-formulario">
+                <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Enviar Mensagem</span>
+              </button>
+
+              <!-- Mensagem de confirmação de envio pós-submissão -->
+              <div class="alerta-sucesso-form" id="alerta-sucesso" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>Mensagem pronta!</strong>
+                  <span>Seu cliente de e-mail foi preparado com sucesso. Responderei o mais breve possível.</span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- MODAL POP-UP NATIVO E ACESSÍVEL PARA DETALHAMENTO                 -->
+  <!-- ================================================================= -->
+  <div class="camada-modal" id="modal-container" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-titulo">
+    <div class="backdrop-modal" id="backdrop-modal"></div>
+    
+    <div class="janela-modal">
+      <!-- Botão para fechar a janela modal -->
+      <button type="button" class="botao-fechar-modal" id="botao-fechar-modal" aria-label="Fechar janela de detalhes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Conteúdo dinâmico injetado via JavaScript -->
+      <div class="conteudo-modal-dinamico" id="conteudo-modal-dinamico">
+        <!-- Inserido dinamicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- BOTÃO FLUTUANTE DE VOLTAR AO TOPO                                 -->
+  <!-- ================================================================= -->
+  <button type="button" class="botao-flutuante-topo" id="botao-topo" aria-label="Voltar ao topo da página" title="Voltar ao Topo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ================================================================= -->
+  <!-- RODAPÉ PRINCIPAL                                                  -->
+  <!-- ================================================================= -->
+  <footer class="rodape-principal">
+    <div class="container container-rodape">
+      
+      <div class="rodape-info">
+        <span class="logotipo-texto">Edu<span class="cor-destaque">Costa</span></span>
+        <p class="rodape-descricao">
+          Desenvolvedor Web &amp; Backend Node.js &bull; Florianópolis - SC, Brasil.
+        </p>
+      </div>
+
+      <div class="rodape-links-rapidos">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#experiencias">Experiências</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="rodape-direitos">
+        <p>&copy; <span id="ano-atual">2026</span> Antonio Eduardo da Costa. Todos os direitos reservados.</p>
+        <p class="rodape-credito">Desenvolvido com HTML5, CSS3 e JavaScript Puro.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script JavaScript principal -->
+  <script src="script.js"></script>
+</body>
+</html>
+
