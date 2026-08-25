@@ -422,11 +422,15 @@ function inicializarSistemaModais() {
 
 /* --------------------------------------------------------------------------
    7. FORMULÁRIO DE CONTATO FUNCIONAL (VALIDAÇÃO E DISPARO DE MENSAGEM)
-   7. FORMULÁRIO DE CONTATO FUNCIONAL (INTEGRAÇÃO FORMSPREE & MODAL DE CONFIRMAÇÃO)
+   7. FORMULÁRIO DE CONTATO COM FORMSPREE & MODAL DE CONFIRMAÇÃO
    -------------------------------------------------------------------------- */
 
 // Função de validação e submissão amigável do formulário de contato
-// Função auxiliar para escapar caracteres HTML e prevenir injeções de código no modal
+function inicializarFormularioContato() {
+  const formContato = document.getElementById('form-contato');
+  const alertaSucesso = document.getElementById('alerta-sucesso');
+  const botaoEnviar = document.getElementById('botao-enviar-formulario');
+// Função auxiliar para escapar caracteres HTML prevenindo XSS
 function escaparHtml(texto) {
   if (!texto) return '';
   const mapa = {
@@ -439,12 +443,15 @@ function escaparHtml(texto) {
   return String(texto).replace(/[&<>"']/g, (m) => mapa[m]);
 }
 
-// Abre o modal de confirmação com os dados validados e enviados com sucesso via Formspree
+  if (!formContato) return;
+// Abre a janela modal de confirmação e validação do envio
 function abrirModalSucessoContato(dados) {
   const modalContainer = document.getElementById('modal-container');
   const conteudoModalDinamico = document.getElementById('conteudo-modal-dinamico');
   const botaoFecharModal = document.getElementById('botao-fechar-modal');
 
+  formContato.addEventListener('submit', (evento) => {
+    evento.preventDefault();
   const htmlConteudo = `
     <div class="modal-confirmacao-sucesso">
       <div class="icone-sucesso-animado">
@@ -453,17 +460,23 @@ function abrirModalSucessoContato(dados) {
         </svg>
       </div>
 
+    // Captura os valores dos campos
+    const campoNome = document.getElementById('campo-nome');
+    const campoEmail = document.getElementById('campo-email');
+    const campoAssunto = document.getElementById('campo-assunto');
+    const campoMensagem = document.getElementById('campo-mensagem');
       <span class="modal-badge">✓ Envio Confirmado via Formspree</span>
       <h3 class="modal-sucesso-titulo" id="modal-titulo">Mensagem Enviada com Sucesso!</h3>
       
       <p class="modal-sucesso-descricao">
         Obrigado pelo contato, <strong class="cor-destaque">${escaparHtml(dados.nome)}</strong>! 
-        Sua mensagem foi transmitida com sucesso e entregue diretamente à minha caixa de entrada. Responderei no e-mail informado assim que possível.
+        Sua mensagem foi entregue com sucesso à minha caixa de entrada. Responderei no e-mail informado o mais breve possível.
       </p>
 
+    let formularioValido = true;
       <div class="resumo-envio-cartao">
         <div class="item-resumo-envio">
-          <span class="rotulo-resumo-envio">👤 Remetente</span>
+          <span class="rotulo-resumo-envio">👤 Nome do Remetente</span>
           <strong class="valor-resumo-envio">${escaparHtml(dados.nome)}</strong>
         </div>
         <div class="item-resumo-envio">
@@ -471,24 +484,34 @@ function abrirModalSucessoContato(dados) {
           <span class="valor-resumo-envio">${escaparHtml(dados.email)}</span>
         </div>
         <div class="item-resumo-envio">
-          <span class="rotulo-resumo-envio">📌 Assunto</span>
-          <span class="valor-resumo-envio">${escaparHtml(dados.assunto)}</span>
-        </div>
-        <div class="item-resumo-envio">
           <span class="rotulo-resumo-envio">💬 Conteúdo da Mensagem</span>
           <p class="valor-resumo-envio">${escaparHtml(dados.mensagem).replace(/\n/g, '<br>')}</p>
         </div>
       </div>
 
+    // Função auxiliar para validar campos
+    function validarCampo(campo, idErro, condicaoValida) {
+      const elementoErro = document.getElementById(idErro);
+      if (!condicaoValida) {
+        campo.classList.add('invalido');
+        if (elementoErro) elementoErro.classList.add('visivel');
+        formularioValido = false;
+      } else {
+        campo.classList.remove('invalido');
+        if (elementoErro) elementoErro.classList.remove('visivel');
+      }
+    }
       <div class="nota-envio-sucesso">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        <span>Uma notificação instantânea foi encaminhada para Antonio Eduardo.</span>
+        <span>Uma notificação instantânea foi registrada com sucesso.</span>
       </div>
 
+    // Expressão regular para validação simples de formato de e-mail
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       <div class="modal-acoes-rodape" style="justify-content: center;">
         <button type="button" class="botao botao-primario" id="botao-concluir-modal-sucesso">
           <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -506,12 +529,20 @@ function abrirModalSucessoContato(dados) {
     </div>
   `;
 
+    validarCampo(campoNome, 'erro-nome', campoNome.value.trim().length > 0);
+    validarCampo(campoEmail, 'erro-email', regexEmail.test(campoEmail.value.trim()));
+    validarCampo(campoAssunto, 'erro-assunto', campoAssunto.value.trim().length > 0);
+    validarCampo(campoMensagem, 'erro-mensagem', campoMensagem.value.trim().length > 0);
   conteudoModalDinamico.innerHTML = htmlConteudo;
   modalContainer.classList.add('aberto');
   modalContainer.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   botaoFecharModal.focus();
 
+    // Se todos os campos estiverem válidos, monta o envio
+    if (formularioValido) {
+      botaoEnviar.disabled = true;
+      botaoEnviar.innerHTML = '<span>Preparando envio...</span>';
   const botaoConcluir = document.getElementById('botao-concluir-modal-sucesso');
   if (botaoConcluir) {
     botaoConcluir.addEventListener('click', () => {
@@ -522,133 +553,21 @@ function abrirModalSucessoContato(dados) {
   }
 }
 
-// Abre o modal de erro caso ocorra falha de conexão ou problema no Formspree
-function abrirModalErroContato(mensagemErro) {
-  const modalContainer = document.getElementById('modal-container');
-  const conteudoModalDinamico = document.getElementById('conteudo-modal-dinamico');
-  const botaoFecharModal = document.getElementById('botao-fechar-modal');
-
-  const htmlConteudo = `
-    <div class="modal-confirmacao-sucesso">
-      <div class="icone-sucesso-animado" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.15); color: #ef4444; box-shadow: 0 0 25px rgba(239, 68, 68, 0.35); animation: none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="15" y1="9" x2="9" y2="15"></line>
-          <line x1="9" y1="9" x2="15" y2="15"></line>
-        </svg>
-      </div>
-
-      <span class="modal-badge" style="color: #ef4444; background: rgba(239, 68, 68, 0.15);">Instabilidade no Envio</span>
-      <h3 class="modal-sucesso-titulo" id="modal-titulo">Não foi possível enviar agora</h3>
-      
-      <p class="modal-sucesso-descricao">
-        ${escaparHtml(mensagemErro || 'Ocorreu um imprevisto na conexão com o serviço de mensagens. Você pode tentar novamente ou me chamar diretamente pelo WhatsApp ou E-mail.')}
-      </p>
-
-      <div class="modal-acoes-rodape" style="justify-content: center;">
-        <button type="button" class="botao botao-secundario" id="botao-fechar-modal-erro">
-          <span>Tentar Novamente</span>
-        </button>
-        <a href="https://wa.me/5548974009440" target="_blank" rel="noopener noreferrer" class="botao botao-primario">
-          <span>Conversar no WhatsApp</span>
-        </a>
-      </div>
-    </div>
-  `;
-
-  conteudoModalDinamico.innerHTML = htmlConteudo;
-  modalContainer.classList.add('aberto');
-  modalContainer.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-  botaoFecharModal.focus();
-
-  const botaoFecharErro = document.getElementById('botao-fechar-modal-erro');
-  if (botaoFecharErro) {
-    botaoFecharErro.addEventListener('click', () => {
-      modalContainer.classList.remove('aberto');
-      modalContainer.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    });
-  }
-}
-
-// Função de validação e submissão assíncrona do formulário de contato via Formspree
-function inicializarFormularioContato() {
-  const formContato = document.getElementById('form-contato');
-  const alertaSucesso = document.getElementById('alerta-sucesso');
-  const botaoEnviar = document.getElementById('botao-enviar-formulario');
-
-  if (!formContato) return;
-
-  formContato.addEventListener('submit', (evento) => {
-  formContato.addEventListener('submit', async (evento) => {
-    evento.preventDefault();
-
-    // Captura os valores dos campos
-    const campoNome = document.getElementById('campo-nome');
-    const campoEmail = document.getElementById('campo-email');
-    const campoAssunto = document.getElementById('campo-assunto');
-    const campoMensagem = document.getElementById('campo-mensagem');
-
-    let formularioValido = true;
-
-    // Função auxiliar para validar campos
-    function validarCampo(campo, idErro, condicaoValida) {
-      const elementoErro = document.getElementById(idErro);
-      if (!condicaoValida) {
-        campo.classList.add('invalido');
-        if (elementoErro) elementoErro.classList.add('visivel');
-        formularioValido = false;
-      } else {
-        campo.classList.remove('invalido');
-        if (elementoErro) elementoErro.classList.remove('visivel');
-      }
-    }
-
-    // Expressão regular para validação simples de formato de e-mail
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    validarCampo(campoNome, 'erro-nome', campoNome.value.trim().length > 0);
-    validarCampo(campoEmail, 'erro-email', regexEmail.test(campoEmail.value.trim()));
-    validarCampo(campoAssunto, 'erro-assunto', campoAssunto.value.trim().length > 0);
-    validarCampo(campoMensagem, 'erro-mensagem', campoMensagem.value.trim().length > 0);
-
-    // Se todos os campos estiverem válidos, monta o envio
-    if (formularioValido) {
-      botaoEnviar.disabled = true;
-      botaoEnviar.innerHTML = '<span>Preparando envio...</span>';
-    // Se houver campos inválidos, coloca o foco no primeiro campo com erro
-    if (!formularioValido) {
-      const primeiroInvalido = formContato.querySelector('.input-campo.invalido');
-      if (primeiroInvalido) primeiroInvalido.focus();
-      return;
-    }
-
       // Prepara os dados para o mailto
       const destinatario = 'antonio_eduardo96@icloud.com';
       const assuntoCodificado = encodeURIComponent(`[Contato Portfólio] ${campoAssunto.value.trim()}`);
       const corpoCodificado = encodeURIComponent(
         `Olá Antonio Eduardo,\n\nNome: ${campoNome.value.trim()}\nE-mail: ${campoEmail.value.trim()}\n\nMensagem:\n${campoMensagem.value.trim()}\n`
       );
-    // Prepara o payload de envio estruturado
-    const dadosEnvio = {
-      nome: campoNome.value.trim(),
-      email: campoEmail.value.trim(),
-      _replyto: campoEmail.value.trim(),
-      assunto: campoAssunto.value.trim(),
-      _subject: `[Contato Portfólio] ${campoAssunto.value.trim()} - ${campoNome.value.trim()}`,
-      mensagem: campoMensagem.value.trim()
-    };
+// Inicializa a submissão assíncrona do formulário com FormData e feedback visual
+function inicializarFormularioContato() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('submit-btn');
 
       // Exibe a mensagem de sucesso na interface
       alertaSucesso.classList.add('visivel');
-    // Atualiza estado do botão para carregando
-    botaoEnviar.disabled = true;
-    const conteudoOriginalBotao = botaoEnviar.innerHTML;
-    botaoEnviar.innerHTML = `
-      <span class="spinner-botao"></span>
-      <span>Enviando mensagem...</span>
-    `;
+  if (!form) return;
 
       // Abre o cliente de e-mail padrão do usuário com a mensagem preenchida
       setTimeout(() => {
@@ -661,37 +580,47 @@ function inicializarFormularioContato() {
           </svg>
           <span>Enviar Mensagem</span>
         `;
-    try {
-      // Disparo assíncrono para o endpoint Formspree
-      const endpointFormspree = 'https://formspree.io/f/mgawgldq';
-      const resposta = await fetch(endpointFormspree, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dadosEnvio)
-      });
-
-      if (resposta.ok) {
-        // Exibe a janela modal de confirmação e validação do envio
-        abrirModalSucessoContato(dadosEnvio);
-        // Reseta o formulário
         formContato.reset();
       }, 1000);
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    btn.disabled = true;
+    status.innerText = "Enviando...";
+    status.style.color = "var(--cor-destaque)";
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mgawgldq', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        status.innerText = "Mensagem enviada com sucesso!";
+        status.style.color = "#10b981";
+
+        // Abre a janela de confirmação e validação do envio
+        abrirModalSucessoContato({
+          nome: data.get('name') || '',
+          email: data.get('email') || '',
+          mensagem: data.get('message') || ''
+        });
+
+        form.reset();
       } else {
-        const dadosErro = await resposta.json().catch(() => ({}));
-        const mensagemErro = dadosErro.errors && dadosErro.errors.length > 0
-          ? dadosErro.errors.map(e => e.message).join(', ')
-          : 'Houve uma recusa no processamento do envio pelo servidor.';
-        abrirModalErroContato(mensagemErro);
+        const errorData = await response.json().catch(() => ({}));
+        status.innerText = errorData.errors ? errorData.errors.map(e => e.message).join(", ") : "Erro ao enviar.";
+        status.style.color = "#ef4444";
       }
-    } catch (erroRede) {
-      abrirModalErroContato('Falha de conexão com a rede. Verifique sua conexão ou utilize os canais diretos.');
+    } catch (error) {
+      status.innerText = "Erro de conexão ao enviar a mensagem.";
+      status.style.color = "#ef4444";
     } finally {
-      // Restaura o botão de envio
-      botaoEnviar.disabled = false;
-      botaoEnviar.innerHTML = conteudoOriginalBotao;
+      btn.disabled = false;
     }
   });
 }

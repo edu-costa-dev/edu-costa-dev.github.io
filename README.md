@@ -54,10 +54,6 @@ O portfólio conecta de forma harmoniosa sua sólida trajetória prévia em **Ge
 ### 5. 📩 Formulário de Contato e Canais Diretos
 - Validação no cliente para campos obrigatórios e formato de e-mail com mensagens de erro dinâmicas.
 - Preparação automática de envio via cliente de e-mail padrão (`mailto:`) com dados codificados.
-### 5. 📩 Formulário de Contato com Formspree & Modal de Confirmação
-- Envio assíncrono via `fetch()` para o endpoint **Formspree** (`https://formspree.io/f/mgawgldq`).
-- Validação completa no cliente com destaque nos campos com erro e foco dinâmico.
-- **Janela Modal de Confirmação e Validação do Envio:** Exibe um resumo estruturado dos dados enviados (remetente, e-mail, assunto, mensagem), confirmação de entrega e opções de continuidade.
 - Painel de links diretos para **LinkedIn**, **GitHub**, **WhatsApp** e **E-mail**.
 
 ### 6. 📱 Design Responsivo Mobile-First
