@@ -531,7 +531,7 @@ function inicializarFormularioContato() {
       }, 1000);
     }
   });
-}
+},
 
 /* --------------------------------------------------------------------------
    8. BOTÃO FLUTUANTE DE VOLTAR AO TOPO
