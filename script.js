@@ -422,26 +422,63 @@ function inicializarSistemaModais() {
 
 /* --------------------------------------------------------------------------
    7. FORMULÁRIO DE CONTATO FUNCIONAL (VALIDAÇÃO E DISPARO DE MENSAGEM)
+   7. FORMULÁRIO DE CONTATO COM FORMSPREE & MODAL DE CONFIRMAÇÃO
    -------------------------------------------------------------------------- */
 
 // Função de validação e submissão amigável do formulário de contato
+// Inicializa a submissão assíncrona do formulário com FormData e exibição da janela modal
 function inicializarFormularioContato() {
   const formContato = document.getElementById('form-contato');
   const alertaSucesso = document.getElementById('alerta-sucesso');
   const botaoEnviar = document.getElementById('botao-enviar-formulario');
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('btn-submit');
+  const modal = document.getElementById('modal-success');
+  const botaoTopo = document.getElementById('botao-topo');
 
   if (!formContato) return;
+  if (!form) return;
 
   formContato.addEventListener('submit', (evento) => {
     evento.preventDefault();
+  // Fecha o modal caso o usuário clique na área externa escurecida
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  }
 
     // Captura os valores dos campos
     const campoNome = document.getElementById('campo-nome');
     const campoEmail = document.getElementById('campo-email');
     const campoAssunto = document.getElementById('campo-assunto');
     const campoMensagem = document.getElementById('campo-mensagem');
+  // Oculta o botão flutuante enquanto o usuário digita nos campos para não sobrepor o layout
+  if (botaoTopo) {
+    const campos = form.querySelectorAll('input, textarea');
+    campos.forEach(campo => {
+      campo.addEventListener('focus', () => {
+        botaoTopo.classList.add('oculto-foco');
+      });
+      campo.addEventListener('blur', () => {
+        botaoTopo.classList.remove('oculto-foco');
+      });
+    });
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerText = 'Enviando...';
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span>Enviando...</span>';
+    }
 
     let formularioValido = true;
+    const formData = new FormData(form);
 
     // Função auxiliar para validar campos
     function validarCampo(campo, idErro, condicaoValida) {
@@ -450,10 +487,30 @@ function inicializarFormularioContato() {
         campo.classList.add('invalido');
         if (elementoErro) elementoErro.classList.add('visivel');
         formularioValido = false;
+    try {
+      const res = await fetch('https://formspree.io/f/mgawgldq', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        if (modal) {
+          modal.style.display = 'flex'; // Exibe a janela modal
+        }
       } else {
         campo.classList.remove('invalido');
         if (elementoErro) elementoErro.classList.remove('visivel');
+        alert('Erro ao enviar. Verifique os dados.');
+        alert('Erro ao enviar. Verifique os dados preenchidos e tente novamente.');
       }
+    } catch (err) {
+      alert('Erro de conexão ao enviar.');
+      alert('Erro de conexão ao enviar a mensagem.');
+    } finally {
+      btn.disabled = false;
+      btn.innerText = 'Enviar';
     }
 
     // Expressão regular para validação simples de formato de e-mail
@@ -484,14 +541,19 @@ function inicializarFormularioContato() {
         window.location.href = `mailto:${destinatario}?subject=${assuntoCodificado}&body=${corpoCodificado}`;
         botaoEnviar.disabled = false;
         botaoEnviar.innerHTML = `
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = `
           <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
           <span>Enviar Mensagem</span>
+          <span>Enviar</span>
         `;
         formContato.reset();
       }, 1000);
+      }
     }
   });
 }

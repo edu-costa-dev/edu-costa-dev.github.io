@@ -1179,54 +1179,31 @@
 
           <!-- Coluna 2: Formulário Funcional de Mensagem -->
           <div class="formulario-contato-wrapper">
-            <form class="formulario-contato" id="form-contato" action="https://formspree.io/f/mgawgldq" method="POST" novalidate>
+            <form class="formulario-contato" id="contact-form" action="https://formspree.io/f/mgawgldq" method="POST">
               <h3 class="titulo-form">Envie uma Mensagem</h3>
               
               <!-- Campo: Nome -->
               <div class="grupo-campo">
-                <label for="campo-nome" class="rotulo-campo">Nome Completo <span class="campo-obrigatorio">*</span></label>
-                <input type="text" id="campo-nome" name="nome" class="input-campo" placeholder="Seu nome ou empresa" required>
-                <span class="mensagem-erro" id="erro-nome">Por favor, informe seu nome.</span>
+                <label for="nome" class="rotulo-campo">Nome: <span class="campo-obrigatorio">*</span></label>
+                <input type="text" id="nome" name="name" class="input-campo" placeholder="Seu nome" required>
               </div>
 
               <!-- Campo: E-mail -->
               <div class="grupo-campo">
-                <label for="campo-email" class="rotulo-campo">Seu E-mail <span class="campo-obrigatorio">*</span></label>
-                <input type="email" id="campo-email" name="email" class="input-campo" placeholder="seu.email@dominio.com" required>
-                <span class="mensagem-erro" id="erro-email">Por favor, insira um e-mail válido.</span>
-              </div>
-
-              <!-- Campo: Assunto -->
-              <div class="grupo-campo">
-                <label for="campo-assunto" class="rotulo-campo">Assunto <span class="campo-obrigatorio">*</span></label>
-                <input type="text" id="campo-assunto" name="assunto" class="input-campo" placeholder="Ex.: Oportunidade Backend Node.js / Projeto" required>
-                <span class="mensagem-erro" id="erro-assunto">Por favor, digite o assunto da mensagem.</span>
+                <label for="email" class="rotulo-campo">Seu E-mail: <span class="campo-obrigatorio">*</span></label>
+                <input type="email" id="email" name="email" class="input-campo" placeholder="Seu e-mail" required>
               </div>
 
               <!-- Campo: Mensagem -->
               <div class="grupo-campo">
-                <label for="campo-mensagem" class="rotulo-campo">Mensagem <span class="campo-obrigatorio">*</span></label>
-                <textarea id="campo-mensagem" name="mensagem" class="input-campo textarea-campo" rows="5" placeholder="Olá Antonio, gostaria de conversar sobre..." required></textarea>
-                <span class="mensagem-erro" id="erro-mensagem">Por favor, escreva a mensagem.</span>
+                <label for="mensagem" class="rotulo-campo">Mensagem: <span class="campo-obrigatorio">*</span></label>
+                <textarea id="mensagem" name="message" class="input-campo textarea-campo" rows="4" placeholder="Sua mensagem" required></textarea>
               </div>
 
               <!-- Botão de Envio do Formulário -->
-              <button type="submit" class="botao botao-primario botao-bloco" id="botao-enviar-formulario">
-                <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-                <span>Enviar Mensagem</span>
+              <button type="submit" class="botao botao-primario botao-bloco" id="btn-submit">
+                <span>Enviar</span>
               </button>
-
-              <!-- Mensagem de confirmação de envio pós-submissão -->
-              <div class="alerta-sucesso-form" id="alerta-sucesso" role="alert">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <div>
-                  <strong>Mensagem pronta!</strong>
-                  <span>Seu cliente de e-mail foi preparado com sucesso. Responderei o mais breve possível.</span>
-                </div>
-              </div>
             </form>
           </div>
 
@@ -1236,6 +1213,18 @@
     </section>
 
   </main>
+
+  <!-- ================================================================= -->
+  <!-- MODAL DE SUCESSO DO FORMULÁRIO                                    -->
+  <!-- ================================================================= -->
+  <div id="modal-success" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); justify-content:center; align-items:center; z-index:9999; padding:16px;">
+    <div style="background:var(--cor-fundo-modal, #ffffff); color:var(--cor-texto-principal, #0f172a); border:1px solid var(--cor-borda-destaque, #3b82f6); padding:28px 24px; border-radius:16px; text-align:center; max-width:340px; width:100%; box-shadow:0 15px 35px rgba(0,0,0,0.4);">
+      <div style="font-size:2.8rem; margin-bottom:12px;">✅</div>
+      <h3 style="font-size:1.35rem; font-weight:700; margin-bottom:8px; color:var(--cor-texto-principal, #0f172a);">Sucesso!</h3>
+      <p style="font-size:0.95rem; color:var(--cor-texto-secundario, #475569); margin-bottom:20px; line-height:1.5;">Sua mensagem foi enviada com sucesso.</p>
+      <button type="button" class="botao botao-primario botao-bloco" onclick="document.getElementById('modal-success').style.display='none'" style="cursor:pointer;">Fechar</button>
+    </div>
+  </div>
 
   <!-- ================================================================= -->
   <!-- MODAL POP-UP NATIVO E ACESSÍVEL PARA DETALHAMENTO                 -->
