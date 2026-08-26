@@ -912,9 +912,13 @@ button {
 }
 
 .grid-experiencias {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.8rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cartao-experiencia {
@@ -928,6 +932,9 @@ button {
   transition: var(--transicao-padrao);
   position: relative;
   min-width: 0;
+  flex: 1 1 270px;
+  max-width: 340px;
+  width: 100%;
 }
 
 .cartao-experiencia:hover {
@@ -1120,6 +1127,7 @@ button {
 .acoes-cartao-projeto {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   margin-top: auto;
   flex-wrap: wrap;
@@ -1133,9 +1141,13 @@ button {
 }
 
 .grid-habilidades {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.8rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cartao-habilidade {
@@ -1145,11 +1157,15 @@ button {
   padding: 1.8rem;
   box-shadow: var(--sombra-cartao);
   min-width: 0;
+  flex: 1 1 260px;
+  max-width: 320px;
+  width: 100%;
 }
 
 .habilidade-cabecalho {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
@@ -1470,14 +1486,19 @@ button {
 .subtitulo-bloco-certificados {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: var(--cor-texto-principal);
+  text-align: center;
 }
 
 .grid-certificados {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cartao-certificado {
@@ -1490,6 +1511,10 @@ button {
   flex-direction: column;
   transition: var(--transicao-padrao);
   min-width: 0;
+  text-align: center;
+  flex: 1 1 260px;
+  max-width: 320px;
+  width: 100%;
 }
 
 .cartao-certificado:hover {
@@ -1500,7 +1525,7 @@ button {
 .cabecalho-cartao-certificado {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 0.85rem;
   gap: 0.5rem;
 }
@@ -1526,6 +1551,7 @@ button {
   font-weight: 700;
   margin-bottom: 0.6rem;
   line-height: 1.4;
+  text-align: center;
 }
 
 .detalhes-certificado {
@@ -1533,16 +1559,49 @@ button {
   line-height: 1.55;
   margin-bottom: 1.25rem;
   flex-grow: 1;
+  text-align: center;
 }
 
 .rodape-cartao-certificado {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 0.85rem;
   border-top: 1px solid var(--cor-divisor);
   gap: 0.5rem;
   flex-wrap: wrap;
+  text-align: center;
+}
+
+.lista-modulos-certificado {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem auto 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+  max-width: 320px;
+  text-align: left;
+}
+
+.lista-modulos-certificado li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--cor-texto-principal);
+}
+
+.numero-modulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  background: var(--cor-primaria-suave);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--raio-borda-pequeno);
+  font-family: var(--fonte-codigo);
+  flex-shrink: 0;
 }
 
 .codigo-validacao {
@@ -2243,13 +2302,24 @@ button {
   }
 
   /* Previne qualquer transbordamento de grids em telas mobile */
-  .grid-experiencias,
-  .grid-projetos,
-  .grid-habilidades,
-  .grid-certificados {
+  .grid-projetos {
     grid-template-columns: 1fr;
     width: 100%;
     min-width: 0;
+  }
+
+  .grid-experiencias,
+  .grid-habilidades,
+  .grid-certificados {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .grid-experiencias .cartao-experiencia,
+  .grid-habilidades .cartao-habilidade,
+  .grid-certificados .cartao-certificado {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .formulario-contato {
