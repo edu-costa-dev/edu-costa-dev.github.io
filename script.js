@@ -434,7 +434,6 @@ function inicializarFormularioContato() {
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('btn-submit');
   const modal = document.getElementById('modal-success');
-  const botaoTopo = document.getElementById('botao-topo');
 
   if (!formContato) return;
   if (!form) return;
@@ -455,27 +454,10 @@ function inicializarFormularioContato() {
     const campoEmail = document.getElementById('campo-email');
     const campoAssunto = document.getElementById('campo-assunto');
     const campoMensagem = document.getElementById('campo-mensagem');
-  // Oculta o botão flutuante enquanto o usuário digita nos campos para não sobrepor o layout
-  if (botaoTopo) {
-    const campos = form.querySelectorAll('input, textarea');
-    campos.forEach(campo => {
-      campo.addEventListener('focus', () => {
-        botaoTopo.classList.add('oculto-foco');
-      });
-      campo.addEventListener('blur', () => {
-        botaoTopo.classList.remove('oculto-foco');
-      });
-    });
-  }
-
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     btn.disabled = true;
     btn.innerText = 'Enviando...';
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = '<span>Enviando...</span>';
-    }
 
     let formularioValido = true;
     const formData = new FormData(form);
@@ -503,11 +485,9 @@ function inicializarFormularioContato() {
         campo.classList.remove('invalido');
         if (elementoErro) elementoErro.classList.remove('visivel');
         alert('Erro ao enviar. Verifique os dados.');
-        alert('Erro ao enviar. Verifique os dados preenchidos e tente novamente.');
       }
     } catch (err) {
       alert('Erro de conexão ao enviar.');
-      alert('Erro de conexão ao enviar a mensagem.');
     } finally {
       btn.disabled = false;
       btn.innerText = 'Enviar';
@@ -541,19 +521,14 @@ function inicializarFormularioContato() {
         window.location.href = `mailto:${destinatario}?subject=${assuntoCodificado}&body=${corpoCodificado}`;
         botaoEnviar.disabled = false;
         botaoEnviar.innerHTML = `
-      if (btn) {
-        btn.disabled = false;
-        btn.innerHTML = `
           <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
           <span>Enviar Mensagem</span>
-          <span>Enviar</span>
         `;
         formContato.reset();
       }, 1000);
-      }
     }
   });
 }
