@@ -1040,6 +1040,12 @@ button {
   gap: 2rem;
 }
 
+.grid-projetos.projeto-unico,
+.grid-projetos:has(.cartao-projeto:only-child) {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 .cartao-projeto {
   background: var(--cor-fundo-cartao);
   border: 1px solid var(--cor-borda);
@@ -1174,6 +1180,7 @@ button {
 .info-skill {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.88rem;
   gap: 0.5rem;
 }
@@ -1217,7 +1224,7 @@ button {
   border: 2px solid rgba(251, 191, 36, 0.4);
   border-radius: var(--raio-borda-grande);
   padding: 2.5rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), var(--brilho-ouro);
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1312,6 +1319,25 @@ button {
   color: var(--cor-texto-mutado);
 }
 
+.google-cert-linha-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.google-cert-linha-titulo .google-ai-titulo {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.botao-validar-coursera {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .google-ai-titulo {
   font-size: clamp(1.35rem, 2.5vw, 1.9rem);
   font-weight: 800;
@@ -1328,7 +1354,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -1343,11 +1369,99 @@ button {
   text-align: center;
 }
 
+.modulo-chip-ativo {
+  border-color: var(--cor-primaria) !important;
+  color: var(--cor-primaria) !important;
+  background: var(--cor-primaria-suave) !important;
+  font-weight: 600 !important;
+}
+
+.tag-status-em-curso {
+  font-style: normal;
+  color: var(--cor-primaria);
+  margin-right: 0.25rem;
+  font-size: 0.72rem;
+}
+
 .google-ai-acoes {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
+}
+
+/* Card Destaque Google IT Support (Em Andamento) */
+.cartao-destaque-google-ai.cartao-google-it {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
+  margin-bottom: 3.5rem;
+}
+
+[data-tema="claro"] .cartao-destaque-google-ai.cartao-google-it {
+  background: linear-gradient(135deg, #ffffff, #f0f9ff);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.08), 0 0 20px rgba(2, 132, 199, 0.12);
+}
+
+.cartao-google-it .emblema-google-glow {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(59, 130, 246, 0.25) 60%, transparent 100%);
+}
+
+.cartao-google-it .emblema-google {
+  border-color: #38bdf8;
+}
+
+.selo-it-andamento {
+  color: #38bdf8 !important;
+}
+
+.badge-destaque-it {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--raio-borda-total);
+  text-transform: uppercase;
+}
+
+[data-tema="escuro"] .badge-destaque-it {
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.progresso-certificacao-wrapper {
+  background: var(--cor-fundo-base);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-medio);
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.progresso-certificacao-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rotulo-progresso {
+  font-weight: 600;
+  color: var(--cor-texto-principal);
+}
+
+.valor-progresso {
+  font-size: 0.82rem;
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.progresso-google-it {
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
 }
 
 /* Galeria dos Demais Certificados */
@@ -1972,6 +2086,18 @@ button {
   }
 
   .google-ai-meta {
+    justify-content: center;
+  }
+
+  .google-cert-linha-titulo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .google-cert-linha-titulo .botao-validar-coursera {
+    width: 100%;
     justify-content: center;
   }
 

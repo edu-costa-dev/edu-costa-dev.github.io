@@ -46,14 +46,13 @@ O portfólio conecta de forma harmoniosa sua sólida trajetória prévia em **Ge
 - **Projetos em Destaque:** Modais com visão geral, arquitetura técnica, desafios superados e botão para acessar o repositório no GitHub.
 - **Controles de Acessibilidade:** Fechamento via botão "X", clique no backdrop escuro ou pressionando a tecla `Escape`, com bloqueio do scroll do fundo (`overflow: hidden`).
 
-### 4. 🏆 Espaço Especial: Certificação Google Profissional de IA
-- Emblema destacado com gradiente e acabamento sofisticado para o **Google AI Professional Certificate (Coursera - 8 cursos)**.
-- Botão com link de verificação oficial no portal Coursera (`Código: GWS4B6PJ9P7E`) e botão de visualização direta do arquivo PDF local.
-- Galeria completa com os demais certificados do **SENAI / SC Tec** (Desenvolvimento Frontend/Backend, Criação de Prompts, Fundamentos e Ética em IA).
+### 4. 🏆 Espaço Especial: Certificações Profissionais Globais Google
+- **Google AI Professional Certificate (Coursera - 8 cursos):** Emblema destacado com gradiente e botão de verificação oficial no Coursera (`Código: GWS4B6PJ9P7E`).
+- **Google IT Support Professional Certificate (Coursera - 5 cursos):** Emblema estilizado com barra de progresso em tempo real (**5% concluído** • Curso 1 em andamento) e link direto para a formação.
+- Galeria completa com os certificados do **SENAI / SC Tec** e graduação superior em **Gestão da TI (UNILASALLE)**.
 
 ### 5. 📩 Formulário de Contato e Canais Diretos
-- Validação no cliente para campos obrigatórios e formato de e-mail com mensagens de erro dinâmicas.
-- Preparação automática de envio via cliente de e-mail padrão (`mailto:`) com dados codificados.
+- Formulário integrado com **Formspree** para envio direto e modal nativo de sucesso.
 - Painel de links diretos para **LinkedIn**, **GitHub**, **WhatsApp** e **E-mail**.
 
 ### 6. 📱 Design Responsivo Mobile-First
@@ -135,7 +134,7 @@ O portfólio está configurado para publicação automática no **GitHub Pages**
 - 💼 **LinkedIn:** [linkedin.com/in/antonioedu](https://www.linkedin.com/in/antonioedu/)
 - 🐙 **GitHub:** [github.com/edu-costa-dev](https://github.com/edu-costa-dev)
 - 📱 **WhatsApp:** [(48) 9 7400-9440](https://wa.me/5548974009440)
-- ✉️ **E-mail:** [antonio_eduardo96@icloud.com](mailto:antonio_eduardo96@icloud.com)
+- ✉️ **E-mail:** [antonio.eduardo.costa96@gmail.com](mailto:antonio.eduardo.costa96@gmail.com)
 - 📍 **Localização:** Florianópolis - SC, Brasil
 
 ---

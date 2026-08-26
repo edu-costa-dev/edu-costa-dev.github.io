@@ -238,61 +238,21 @@ const dadosExperiencias = {
 
 // Estrutura de dados com o detalhamento dos projetos em destaque
 const dadosProjetos = {
-  'api-node': {
-    badge: 'SENAI / SC Tec • Backend',
-    titulo: 'API RESTful com Node.js, Express & Banco de Dados',
-    subtitulo: 'Arquitetura modular de serviços para aplicações empresariais',
-    descricao: 'API backend completa construída seguindo as melhores práticas de desenvolvimento, com roteamento estruturado, camadas de controle e serviço, validação de requisições, tratamento de exceções centralizado e persistência relacional.',
+  'petshop-landing': {
+    badge: 'SCTEC / SENAI-SC • Desafio Extra',
+    titulo: '🐾 .pet — Landing Page de Petshop',
+    subtitulo: 'Landing page moderna e funcional para pet shop desenvolvida com HTML, CSS e JavaScript',
+    descricao: 'Projeto acadêmico de uma landing page para petshop, desenvolvido a partir da proposta do Desafio Extra do curso Introdução à Programação Front-End e Back-End (SCTEC / SENAI-SC). A proposta foi construir uma página web organizada, visualmente agradável e funcional, dividida em seções estratégicas: Início (com carrossel nativo), Sobre (apresentação e indicadores de experiência), Serviços (cards com proporções aspect-ratio), Contato (formulário com validações dinâmicas no cliente) e Rodapé (atalhos para agendamento e WhatsApp).',
     destaques: [
-      'Implementação de operações CRUD completas com códigos de status HTTP semânticos.',
-      'Estruturação de middlewares para autenticação via JSON Web Tokens (JWT) e tratamento global de erros.',
-      'Modelagem relacional de banco de dados (PostgreSQL/MariaDB) e execução de queries parametrizadas.',
-      'Documentação e suíte de testes de endpoints desenvolvida e validada no Postman.'
+      '🖼️ Carrossel de Imagens Nativo: implementado com HTML e CSS puro utilizando overflow-x, scroll-snap-type e scroll-snap-align para rolagem suave.',
+      '🧭 Navegação & Menu Mobile Acessível: rolagem suave entre seções e menu mobile recolhível para telas de até 768px com botão ☰ Menu / ✕ Fechar, manipulação do DOM via classList.toggle() e acessibilidade com aria-expanded.',
+      '📝 Formulário de Contato Inteligente: interceptação via preventDefault(), verificação de serviços selecionados (impede envio sem serviço), alteração dinâmica do placeholder quando indicado que o número é WhatsApp, mensagem de confirmação personalizada e limpeza automática.',
+      '📱 Design 100% Responsivo: layout construído com Flexbox e CSS Grid, cards com aspect-ratio proporcional e adaptação fluida para qualquer tamanho de tela via media queries.',
+      '🛠️ Metodologia & Etapas: estruturação semântica, identidade visual e tipografia, layout responsivo, validações de JavaScript e documentação completa entregue com versionamento no GitHub e deploy no GitHub Pages.'
     ],
-    tecnologias: ['Node.js', 'Express', 'PostgreSQL', 'MariaDB', 'Postman', 'JWT', 'REST API', 'JavaScript ES6+'],
-    githubUrl: 'https://github.com/edu-costa-dev'
-  },
-  'app-fullstack': {
-    badge: 'Projeto SC Tec • Full Stack',
-    titulo: 'Aplicação Web Dinâmica com Integração Frontend e Backend',
-    subtitulo: 'Integração de interface responsiva com serviços de backend',
-    descricao: 'Aplicação web interativa que conecta uma interface moderna desenvolvida em JavaScript Vanilla a serviços backend em Node.js, proporcionando feedback instantâneo ao usuário e persistência assíncrona.',
-    destaques: [
-      'Consumo assíncrono de dados através da Fetch API com tratamento de erros de rede.',
-      'Interface dinâmica com renderização e manipulação do DOM sem necessidade de frameworks pesados.',
-      'Layout adaptativo construído com Mobile-First, CSS Grid e Flexbox.',
-      'Validação de dados em duas etapas: no cliente (frontend) e no servidor (backend).'
-    ],
-    tecnologias: ['HTML5 Semântico', 'CSS3 Moderno', 'JavaScript Puro', 'Node.js', 'Fetch API', 'JSON'],
-    githubUrl: 'https://github.com/edu-costa-dev'
-  },
-  'chatbot-automacao': {
-    badge: 'Automação • Integração',
-    titulo: 'Chatbots & Automações de Integração de Mensageria',
-    subtitulo: 'Fluxos automatizados multicanal e integração com APIs',
-    descricao: 'Desenvolvimento de soluções de atendimento automatizado integrando serviços de mensagens (WhatsApp e Telegram) com APIs corporativas para triagem de usuários, consultas rápidas e direcionamento de chamados.',
-    destaques: [
-      'Criação e manutenção de árvores de decisão e fluxogramas conversacionais inteligentes.',
-      'Estruturação e manipulação de payloads JSON complexos para consumo de webhooks.',
-      'Integração com bases de dados para consulta em tempo real de cadastros e status de solicitações.',
-      'Otimização do tempo de atendimento de primeiro nível em canais multicanal.'
-    ],
-    tecnologias: ['JavaScript', 'APIs JSON', 'Webhooks', 'WhatsApp API', 'Telegram API', 'Postman', 'MariaDB'],
-    githubUrl: 'https://github.com/edu-costa-dev'
-  },
-  'portfolio-web': {
-    badge: 'Frontend • Portfólio',
-    titulo: 'Portfólio Web Interativo & Acessível',
-    subtitulo: 'Homepage moderna para transição de carreira profissional',
-    descricao: 'Website interativo construído do zero com código limpo, foco em acessibilidade, suporte nativo a temas (Dark/Light Mode) e navegação com componentes modais e accordions.',
-    destaques: [
-      'Arquitetura 100% Vanilla (HTML5 semântico, CSS3 com variáveis e JavaScript nativo).',
-      'Gerenciamento de temas com persistência em localStorage e sincronização com preferências do sistema.',
-      'Janelas modais acessíveis com controle de foco e fechamento por teclado (tecla Esc).',
-      'Design totalmente responsivo com suporte do mobile ao desktop widescreen.'
-    ],
-    tecnologias: ['HTML5 Semântico', 'CSS Custom Properties', 'Vanilla JS', 'Acessibilidade WCAG', 'UI/UX Design'],
-    githubUrl: 'https://github.com/edu-costa-dev'
+    tecnologias: ['HTML5 Semântico', 'CSS3 Moderno', 'JavaScript Puro (Vanilla JS)', 'Flexbox', 'CSS Grid', 'Scroll-Snap', 'DOM & Eventos', 'Responsivo Mobile-First', 'GitHub Pages'],
+    githubUrl: 'https://github.com/edu-costa-dev/SC_Tec-DesafioExtra',
+    projetoUrl: 'https://edu-costa-dev.github.io/SC_Tec-DesafioExtra/'
   }
 };
 
@@ -314,7 +274,6 @@ function inicializarSistemaModais() {
 
     if (tipo === 'experiencia' && dadosExperiencias[id]) {
       const exp = dadosExperiencias[id];
-      
       htmlConteudo = `
         <div class="modal-cabecalho">
           <span class="modal-badge">${exp.badge}</span>
@@ -371,9 +330,14 @@ function inicializarSistemaModais() {
           </div>
 
           <div class="modal-acoes-rodape">
-            <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="botao botao-primario">
+            ${proj.projetoUrl ? `
+            <a href="${proj.projetoUrl}" target="_blank" rel="noopener noreferrer" class="botao botao-primario">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>Acessar Projeto Online</span>
+            </a>` : ''}
+            <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="botao ${proj.projetoUrl ? 'botao-outline' : 'botao-primario'}">
               <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px;"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <span>Ver Código no GitHub</span>
+              <span>Ver no GitHub</span>
             </a>
           </div>
         </div>
@@ -428,47 +392,45 @@ function inicializarSistemaModais() {
 // Função de validação e submissão amigável do formulário de contato
 // Inicializa a submissão assíncrona do formulário com FormData e exibição da janela modal
 function inicializarFormularioContato() {
-  const formContato = document.getElementById('form-contato');
-  const alertaSucesso = document.getElementById('alerta-sucesso');
-  const botaoEnviar = document.getElementById('botao-enviar-formulario');
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('btn-submit');
   const modal = document.getElementById('modal-success');
+  const botaoTopo = document.getElementById('botao-topo');
 
-  if (!formContato) return;
   if (!form) return;
 
-  formContato.addEventListener('submit', (evento) => {
-    evento.preventDefault();
   // Fecha o modal caso o usuário clique na área externa escurecida
   if (modal) {
-    modal.addEventListener('click', function(e) {
+    modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.style.display = 'none';
       }
     });
   }
 
-    // Captura os valores dos campos
-    const campoNome = document.getElementById('campo-nome');
-    const campoEmail = document.getElementById('campo-email');
-    const campoAssunto = document.getElementById('campo-assunto');
-    const campoMensagem = document.getElementById('campo-mensagem');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.innerText = 'Enviando...';
+  // Oculta o botão flutuante enquanto o usuário digita nos campos para não sobrepor o layout
+  if (botaoTopo) {
+    const campos = form.querySelectorAll('input, textarea');
+    campos.forEach(campo => {
+      campo.addEventListener('focus', () => {
+        botaoTopo.classList.add('oculto-foco');
+      });
+      campo.addEventListener('blur', () => {
+        botaoTopo.classList.remove('oculto-foco');
+      });
+    });
+  }
 
-    let formularioValido = true;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span>Enviando...</span>';
+    }
+
     const formData = new FormData(form);
 
-    // Função auxiliar para validar campos
-    function validarCampo(campo, idErro, condicaoValida) {
-      const elementoErro = document.getElementById(idErro);
-      if (!condicaoValida) {
-        campo.classList.add('invalido');
-        if (elementoErro) elementoErro.classList.add('visivel');
-        formularioValido = false;
     try {
       const res = await fetch('https://formspree.io/f/mgawgldq', {
         method: 'POST',
@@ -482,56 +444,24 @@ function inicializarFormularioContato() {
           modal.style.display = 'flex'; // Exibe a janela modal
         }
       } else {
-        campo.classList.remove('invalido');
-        if (elementoErro) elementoErro.classList.remove('visivel');
-        alert('Erro ao enviar. Verifique os dados.');
+        alert('Erro ao enviar. Verifique os dados preenchidos e tente novamente.');
       }
     } catch (err) {
-      alert('Erro de conexão ao enviar.');
+      alert('Erro de conexão ao enviar a mensagem.');
     } finally {
-      btn.disabled = false;
-      btn.innerText = 'Enviar';
-    }
-
-    // Expressão regular para validação simples de formato de e-mail
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    validarCampo(campoNome, 'erro-nome', campoNome.value.trim().length > 0);
-    validarCampo(campoEmail, 'erro-email', regexEmail.test(campoEmail.value.trim()));
-    validarCampo(campoAssunto, 'erro-assunto', campoAssunto.value.trim().length > 0);
-    validarCampo(campoMensagem, 'erro-mensagem', campoMensagem.value.trim().length > 0);
-
-    // Se todos os campos estiverem válidos, monta o envio
-    if (formularioValido) {
-      botaoEnviar.disabled = true;
-      botaoEnviar.innerHTML = '<span>Preparando envio...</span>';
-
-      // Prepara os dados para o mailto
-      const destinatario = 'antonio_eduardo96@icloud.com';
-      const assuntoCodificado = encodeURIComponent(`[Contato Portfólio] ${campoAssunto.value.trim()}`);
-      const corpoCodificado = encodeURIComponent(
-        `Olá Antonio Eduardo,\n\nNome: ${campoNome.value.trim()}\nE-mail: ${campoEmail.value.trim()}\n\nMensagem:\n${campoMensagem.value.trim()}\n`
-      );
-
-      // Exibe a mensagem de sucesso na interface
-      alertaSucesso.classList.add('visivel');
-
-      // Abre o cliente de e-mail padrão do usuário com a mensagem preenchida
-      setTimeout(() => {
-        window.location.href = `mailto:${destinatario}?subject=${assuntoCodificado}&body=${corpoCodificado}`;
-        botaoEnviar.disabled = false;
-        botaoEnviar.innerHTML = `
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = `
           <svg class="botao-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
-          <span>Enviar Mensagem</span>
+          <span>Enviar</span>
         `;
-        formContato.reset();
-      }, 1000);
+      }
     }
   });
-},
+}
 
 /* --------------------------------------------------------------------------
    8. BOTÃO FLUTUANTE DE VOLTAR AO TOPO
