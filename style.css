@@ -1356,6 +1356,13 @@ button {
   max-width: 100%;
 }
 
+.google-cert-acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
 .google-ai-titulo {
   font-size: clamp(1.35rem, 2.5vw, 1.9rem);
   font-weight: 800;
@@ -1374,6 +1381,31 @@ button {
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   width: 100%;
+}
+
+.emblema-credly {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 270px;
+  flex: 0 0 150px;
+  padding: 0;
+  background: #ffffff;
+  border: 1px solid #d9dee7;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.emblema-credly > div,
+.emblema-credly > iframe,
+.emblema-credly iframe {
+  display: block;
+  width: 150px;
+  height: 270px;
+  flex: 0 0 150px;
+  border: 0;
 }
 
 .modulo-chip {
@@ -2158,8 +2190,14 @@ button {
   }
 
   .google-cert-linha-titulo .botao-validar-coursera {
+    width: auto;
+    justify-content: center;
+  }
+
+  .google-cert-acoes {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .modulos-google-ai {
