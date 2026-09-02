@@ -432,7 +432,7 @@ function inicializarFormularioContato() {
     const formData = new FormData(form);
 
     try {
-      const res = await fetch('https://formspree.io/f/mgawgldq', {
+      const res = await fetch('https://formspree.io/f/maeyjekq', {
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
