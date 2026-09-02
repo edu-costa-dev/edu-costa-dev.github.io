@@ -1243,7 +1243,7 @@ button {
   margin-bottom: 2rem;
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), var(--brilho-ouro);
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
   gap: 2.5rem;
   align-items: center;
   position: relative;
@@ -1337,7 +1337,7 @@ button {
 
 .google-cert-linha-titulo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
   margin-bottom: 0.85rem;
@@ -1347,20 +1347,6 @@ button {
 .google-cert-linha-titulo .google-ai-titulo {
   margin-bottom: 0;
   flex: 1 1 auto;
-}
-
-.botao-validar-coursera {
-  flex-shrink: 0;
-  white-space: normal;
-  text-align: center;
-  max-width: 100%;
-}
-
-.google-cert-acoes {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
 }
 
 .google-ai-titulo {
@@ -1396,6 +1382,12 @@ button {
   border-radius: 16px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.emblema-credly:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
 }
 
 .emblema-credly > div,
@@ -2172,10 +2164,20 @@ button {
   }
 
   .cartao-destaque-google-ai {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 150px;
     text-align: center;
     gap: 1.8rem;
     padding: 2rem 1.5rem;
+  }
+
+  .cartao-destaque-google-ai .google-ai-emblema-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .cartao-destaque-google-ai .google-ai-conteudo {
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .google-ai-meta {
@@ -2189,15 +2191,10 @@ button {
     gap: 1rem;
   }
 
-  .google-cert-linha-titulo .botao-validar-coursera {
-    width: auto;
-    justify-content: center;
-  }
-
-  .google-cert-acoes {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+  .emblema-credly {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: center;
   }
 
   .modulos-google-ai {
@@ -2218,6 +2215,28 @@ button {
 
   .botao-hamburguer {
     display: flex;
+  }
+
+  .cartao-destaque-google-ai {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-destaque-google-ai .google-ai-emblema-wrapper,
+  .cartao-destaque-google-ai .google-ai-conteudo,
+  .emblema-credly {
+    grid-column: 1;
+  }
+
+  .cartao-destaque-google-ai .google-ai-emblema-wrapper {
+    grid-row: 1;
+  }
+
+  .cartao-destaque-google-ai .google-ai-conteudo {
+    grid-row: 2;
+  }
+
+  .emblema-credly {
+    grid-row: 3;
   }
 
   .navegacao-principal {
