@@ -144,3 +144,34 @@ O portfólio está configurado para publicação automática no **GitHub Pages**
   <p>© 2026 Antonio Eduardo da Costa. Todos os direitos reservados.</p>
 </div>
 
+
+---
+
+## 🧭 Guia de Manutenção e Edição (Para Desenvolvedores Júnior/Trainee)
+
+Se você é um desenvolvedor iniciante e deseja clonar este repositório para criar o seu próprio portfólio, siga este roteiro de edição:
+
+### 1. Preparando o Ambiente (VSCode)
+Ao abrir a pasta no VSCode, você notará a pasta `.vscode` contendo recomendações de extensões e configurações.
+- Aceite a instalação do **Prettier** e do **Live Server**.
+- O projeto está configurado para formatar o código automaticamente sempre que você salvar (Ctrl+S).
+
+### 2. Onde alterar as informações de Texto e Links (`index.html`)
+Abra o arquivo `index.html`. Eu adicionei comentários instrucionais em caixa alta, como:
+`<!-- ✍️ DICA TRAINEE: INSIRA O SEU LINK DO LINKEDIN NO HREF ABAIXO -->`
+Busque por `✍️ DICA TRAINEE` no arquivo para encontrar todos os pontos principais de edição (seu nome, sua foto de perfil, links de redes sociais, etc).
+
+### 3. Como funciona a Estilização (`style.css`)
+O `style.css` começa com um bloco de **Variáveis CSS** (`:root`). 
+Para mudar a cor principal do seu site de azul para verde, por exemplo, basta alterar o valor de `--cor-primaria` e `--cor-primaria-rgb` no topo do arquivo. O site inteiro mudará de cor automaticamente!
+Não tenha medo de explorar: as propriedades mais complexas (como Flexbox, Grid e Clamp) possuem comentários explicativos ao lado.
+
+### 4. Como configurar o envio de formulário para o SEU E-mail (`script.js`)
+O formulário de contato funciona sem precisar de Backend (PHP, Node), pois utilizamos o **Formspree**.
+1. Crie uma conta gratuita em [formspree.io](https://formspree.io/).
+2. Crie um novo formulário (New Form) e copie a URL gerada (ex: `https://formspree.io/f/seu-id-aqui`).
+3. Abra o arquivo `script.js` e desça até a função `configurarEnvioDeFormulario()`.
+4. Substitua a URL do fetch `fetch('https://formspree.io/f/maeyjekq'...` pela SUA URL gerada no Formspree.
+
+### 5. Lógica das Janelas Modais e Accordions
+Para adicionar novas Experiências ou Projetos, você não precisa duplicar dezenas de linhas de HTML. Abra o `script.js` e procure pelos objetos `dadosExperiencias` e `dadosProjetos`. Basta copiar e colar um dos blocos (ex: `tre-sc`) e preencher com os seus dados. O JavaScript cuidará de gerar o pop-up nativo e limpo!
