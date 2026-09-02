@@ -1866,8 +1866,31 @@ button {
   display: block;
 }
 
+#modal-success {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#modal-success.visivel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 #modal-success.visivel .janela-confirmacao {
   animation: entrada-confirmacao 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#modal-success.saindo {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#modal-success.saindo .janela-confirmacao {
+  animation: saida-confirmacao 0.3s ease-in both;
 }
 
 #modal-success.visivel .icone-confirmacao {
@@ -1897,6 +1920,17 @@ button {
   100% {
     opacity: 1;
     transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes saida-confirmacao {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
   }
 }
 
@@ -2075,6 +2109,7 @@ button {
   .secao.revelar-rolagem .cabecalho-secao,
   .janela-modal,
   #modal-success.visivel .janela-confirmacao,
+  #modal-success.saindo .janela-confirmacao,
   #modal-success.visivel .icone-confirmacao {
     transition: none;
     animation: none;

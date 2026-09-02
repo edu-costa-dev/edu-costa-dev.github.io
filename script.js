@@ -425,13 +425,19 @@ function inicializarFormularioContato() {
   const modal = document.getElementById('modal-success');
   const botaoFecharConfirmacao = document.getElementById('btn-close-success');
   const botaoTopo = document.getElementById('botao-topo');
+  let temporizadorFechamentoConfirmacao;
 
   if (!form) return;
 
   function fecharConfirmacao() {
     if (!modal) return;
     modal.classList.remove('visivel');
-    modal.style.display = 'none';
+    modal.classList.add('saindo');
+    clearTimeout(temporizadorFechamentoConfirmacao);
+    temporizadorFechamentoConfirmacao = setTimeout(() => {
+      modal.classList.remove('saindo');
+      modal.style.display = 'none';
+    }, 300);
   }
 
   // Fecha o modal caso o usuário clique na área externa escurecida
@@ -480,6 +486,8 @@ function inicializarFormularioContato() {
       if (res.ok) {
         form.reset();
         if (modal) {
+          clearTimeout(temporizadorFechamentoConfirmacao);
+          modal.classList.remove('saindo');
           modal.classList.remove('visivel');
           modal.style.display = 'flex';
           requestAnimationFrame(() => modal.classList.add('visivel'));
