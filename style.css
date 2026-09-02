@@ -3,29 +3,6 @@
    Folha de Estilos Principal (CSS3 Moderno, Variáveis CSS, Dark/Light Mode)
    ========================================================================== */
 
-/* ==========================================================================
-   🧭 GUIA DO DESENVOLVEDOR (JÚNIOR / TRAINEE) - COMO NAVEGAR NESTE CSS:
-   
-   1. CORES E TEMA:
-      - Altere as variáveis dentro de :root (para o Tema Escuro) ou 
-        dentro de [data-tema="claro"] (para o Tema Claro). 
-      - Quase todas as cores do site utilizam var(--nome-da-cor), portanto,
-        modificar aqui atualiza o site inteiro automaticamente.
-   
-   2. FONTES:
-      - Definidas nas variáveis --fonte-principal, --fonte-titulos e 
-        --fonte-codigo (linhas 50-60).
-   
-   3. CABEÇALHO E MENU DE NAVEGAÇÃO:
-      - Estilos desktop: Linhas 350 a 530.
-      - Menu Mobile (gaveta lateral): Regra @media (max-width: 960px).
-   
-   4. IMPRESSÃO DO CURRÍCULO (A4 / PDF - Ctrl+P):
-      - Fica no FINAL deste arquivo (seção @media print).
-      - Configura fundo 100% branco, tipografia preta/cinza, foto na proporção 
-        de 1/5 da página e distribuição calculada para CABER EM 1 PÁGINA A4.
-   ========================================================================== */
-
 /* --------------------------------------------------------------------------
    1. VARIÁVEIS CSS E DEFINIÇÕES DE TEMAS (DARK & LIGHT MODE)
    -------------------------------------------------------------------------- */
@@ -63,20 +40,16 @@
   --cor-divisor: rgba(255, 255, 255, 0.06);
 
   /* Sombras e Efeitos Visuais (Modo Escuro) */
-  --sombra-suave:
-    0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --sombra-cartao:
-    0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --sombra-cartao: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
   --sombra-flutuante: 0 15px 30px -8px rgba(0, 0, 0, 0.5);
   --brilho-primario: 0 0 25px rgba(59, 130, 246, 0.35);
   --brilho-ouro: 0 0 25px rgba(251, 191, 36, 0.3);
 
   /* Tipografias */
-  --fonte-principal:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  --fonte-titulos: "Outfit", system-ui, -apple-system, sans-serif;
-  --fonte-codigo: "Fira Code", monospace;
+  --fonte-principal: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fonte-titulos: 'Outfit', system-ui, -apple-system, sans-serif;
+  --fonte-codigo: 'Fira Code', monospace;
 
   /* Dimensões e Espaçamentos */
   --largura-maxima-container: 1200px;
@@ -111,10 +84,8 @@
   --cor-divisor: rgba(0, 0, 0, 0.06);
 
   /* Sombras e Efeitos Visuais (Modo Claro) */
-  --sombra-suave:
-    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --sombra-cartao:
-    0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --sombra-cartao: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   --sombra-flutuante: 0 15px 30px -8px rgba(0, 0, 0, 0.12);
   --brilho-primario: 0 0 20px rgba(37, 99, 235, 0.2);
   --brilho-ouro: 0 0 20px rgba(217, 119, 6, 0.2);
@@ -123,9 +94,7 @@
 /* --------------------------------------------------------------------------
    2. RESET E ESTILOS GERAIS
    -------------------------------------------------------------------------- */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -147,9 +116,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: clip;
   width: 100%;
   max-width: 100vw;
@@ -157,12 +124,7 @@ body {
 }
 
 /* Tipografia Base */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--fonte-titulos);
   color: var(--cor-texto-principal);
   font-weight: 700;
@@ -197,9 +159,7 @@ img {
   display: block;
 }
 
-button,
-input,
-textarea {
+button, input, textarea {
   font-family: inherit;
   font-size: inherit;
   border: none;
@@ -232,9 +192,7 @@ button {
 .secao.revelar-rolagem {
   opacity: 0;
   transform: translateY(38px);
-  transition:
-    opacity 0.75s ease,
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .secao.revelar-rolagem.visivel {
@@ -277,11 +235,7 @@ button {
 .divisor-secao {
   width: 60px;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--cor-primaria),
-    var(--cor-secundaria)
-  );
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
   border-radius: var(--raio-borda-total);
   margin: 0 auto 1.25rem auto;
 }
@@ -298,14 +252,12 @@ button {
 .gradiente-texto {
   background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #818cf8 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 [data-tema="claro"] .gradiente-texto {
   background: linear-gradient(135deg, #1e40af 0%, #0284c7 50%, #4338ca 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -326,11 +278,7 @@ button {
 }
 
 .botao-primario {
-  background: linear-gradient(
-    135deg,
-    var(--cor-primaria),
-    var(--cor-secundaria)
-  );
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }
@@ -414,7 +362,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
   height: 100%;
 }
 
@@ -427,8 +374,6 @@ button {
   font-weight: 800;
   font-size: 1.35rem;
   color: var(--cor-texto-principal);
-  flex-shrink: 0;
-  white-space: nowrap;
 }
 
 .logotipo-icone {
@@ -442,44 +387,32 @@ button {
 }
 
 /* Menu de Navegação */
-.navegacao-principal {
-  min-width: 0;
-}
-
 .lista-navegacao {
   display: flex;
   align-items: center;
-  gap: clamp(0.6rem, 1.3vw, 1.4rem);
-  flex-wrap: nowrap;
+  gap: 1.8rem;
 }
 
 .link-navegacao {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--cor-texto-secundario);
   position: relative;
-  padding: 0.45rem 0.65rem;
+  padding: 0.55rem 0.75rem;
   border-radius: var(--raio-borda-pequeno);
   isolation: isolate;
-  white-space: nowrap;
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .link-navegacao::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: var(--cor-primaria-suave);
   opacity: 0;
   transform: scale(0.75);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: -1;
 }
 
@@ -508,7 +441,7 @@ button {
 }
 
 .link-navegacao::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0.18rem;
   left: 0.75rem;
@@ -534,8 +467,7 @@ button {
 .acoes-cabecalho {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  flex-shrink: 0;
+  gap: 0.8rem;
 }
 
 /* Botão de Alternar Tema (Dark/Light) */
@@ -791,12 +723,7 @@ button {
   transform: translate(-50%, -50%);
   width: 90%;
   height: 90%;
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.4) 0%,
-    rgba(6, 182, 212, 0.1) 70%,
-    transparent 100%
-  );
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(6, 182, 212, 0.1) 70%, transparent 100%);
   filter: blur(40px);
   z-index: 1;
 }
@@ -1361,11 +1288,7 @@ button {
 
 .progresso-skill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--cor-primaria),
-    var(--cor-secundaria)
-  );
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
   border-radius: var(--raio-borda-total);
   transition: width 1s ease-in-out;
 }
@@ -1379,18 +1302,12 @@ button {
 
 /* Card Destaque Google AI */
 .cartao-destaque-google-ai {
-  background: linear-gradient(
-    135deg,
-    rgba(23, 32, 51, 0.95),
-    rgba(30, 41, 59, 0.95)
-  );
+  background: linear-gradient(135deg, rgba(23, 32, 51, 0.95), rgba(30, 41, 59, 0.95));
   border: 2px solid rgba(251, 191, 36, 0.4);
   border-radius: var(--raio-borda-grande);
   padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow:
-    0 15px 35px -5px rgba(0, 0, 0, 0.5),
-    var(--brilho-ouro);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), var(--brilho-ouro);
   display: grid;
   grid-template-columns: 150px minmax(0, 1fr) 150px;
   gap: 2.5rem;
@@ -1404,9 +1321,7 @@ button {
 [data-tema="claro"] .cartao-destaque-google-ai {
   background: linear-gradient(135deg, #ffffff, #f1f5f9);
   border-color: rgba(217, 119, 6, 0.4);
-  box-shadow:
-    0 15px 35px -5px rgba(0, 0, 0, 0.1),
-    var(--brilho-ouro);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1), var(--brilho-ouro);
 }
 
 .google-ai-emblema-wrapper {
@@ -1420,12 +1335,7 @@ button {
   position: absolute;
   width: 140px;
   height: 140px;
-  background: radial-gradient(
-    circle,
-    rgba(251, 191, 36, 0.3) 0%,
-    rgba(66, 133, 244, 0.2) 60%,
-    transparent 100%
-  );
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(66, 133, 244, 0.2) 60%, transparent 100%);
   filter: blur(25px);
 }
 
@@ -1538,9 +1448,7 @@ button {
   border-radius: 16px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .emblema-credly:hover {
@@ -1593,27 +1501,18 @@ button {
 /* Card Destaque Google IT Support (Em Andamento) */
 .cartao-destaque-google-ai.cartao-google-it {
   border-color: rgba(56, 189, 248, 0.45);
-  box-shadow:
-    0 15px 35px -5px rgba(0, 0, 0, 0.5),
-    0 0 25px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
   margin-bottom: 3.5rem;
 }
 
 [data-tema="claro"] .cartao-destaque-google-ai.cartao-google-it {
   background: linear-gradient(135deg, #ffffff, #f0f9ff);
   border-color: rgba(2, 132, 199, 0.35);
-  box-shadow:
-    0 15px 35px -5px rgba(0, 0, 0, 0.08),
-    0 0 20px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.08), 0 0 20px rgba(2, 132, 199, 0.12);
 }
 
 .cartao-google-it .emblema-google-glow {
-  background: radial-gradient(
-    circle,
-    rgba(56, 189, 248, 0.35) 0%,
-    rgba(59, 130, 246, 0.25) 60%,
-    transparent 100%
-  );
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(59, 130, 246, 0.25) 60%, transparent 100%);
 }
 
 .cartao-google-it .emblema-google {
@@ -1834,8 +1733,7 @@ button {
   align-items: start;
 }
 
-.titulo-canais,
-.titulo-form {
+.titulo-canais, .titulo-form {
   font-size: 1.35rem;
   margin-bottom: 0.85rem;
 }
@@ -2018,9 +1916,7 @@ button {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #modal-success.visivel {
@@ -2099,9 +1995,7 @@ button {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   padding: 1rem;
 }
 
@@ -2134,9 +2028,7 @@ button {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transform: translateY(24px) scale(0.92);
-  transition:
-    opacity 0.25s ease,
-    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.25s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 10;
 }
 
@@ -2231,7 +2123,7 @@ button {
 }
 
 .modal-item-lista::before {
-  content: "▹";
+  content: '▹';
   color: var(--cor-primaria);
   font-size: 1.1rem;
   line-height: 1.4;
@@ -2442,8 +2334,8 @@ button {
   }
 }
 
-/* Menu Mobile & Telas Menores (<= 960px) */
-@media screen and (max-width: 960px) {
+/* Menu Mobile & Telas Menores (< 768px) */
+@media screen and (max-width: 768px) {
   .container {
     padding-left: 1.15rem;
     padding-right: 1.15rem;
@@ -2774,461 +2666,391 @@ button {
   }
 }
 
-/* ==========================================================================
-   ESTILOS DO BOTÃO DE IMPRESSÃO (TELA WEB)
-   ========================================================================== */
-.botao-imprimir-cv {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border-radius: var(--raio-borda-medio);
-  background-color: var(--cor-fundo-cartao);
-  border: 1px solid var(--cor-borda);
-  color: var(--cor-texto-principal);
-  font-family: var(--fonte-principal);
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transicao-padrao);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+/* ========================================================================== */
+/* REGRAS VISUAIS DE IMPRESSÃO (@media print) - CURRÍCULO FÍSICO A4 PERFEITO   */
+/* ========================================================================== */
 
-.botao-imprimir-cv .texto-imprimir {
+/* Em tela (monitor/mobile), o container de currículo para impressão fica oculto */
+#curriculo-impressao {
   display: none;
 }
 
-.botao-imprimir-cv:hover {
-  background-color: var(--cor-fundo-cartao-hover);
-  border-color: var(--cor-borda-destaque);
-  color: var(--cor-primaria);
-  transform: translateY(-2px);
-}
-
-.icone-imprimir {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-
-.botao-cv-hero {
-  cursor: pointer;
-}
-
-@media (min-width: 1320px) {
-  .botao-imprimir-cv {
-    width: auto;
-    padding: 0 0.85rem;
-    gap: 0.45rem;
-  }
-  .botao-imprimir-cv .texto-imprimir {
-    display: inline;
-  }
-}
-
-/* Ocultar a versão de impressão na visualização normal de tela */
-.curriculo-print-view {
-  display: none !important;
-}
-
-/* ==========================================================================
-   REGRA @PAGE E FORMATAÇÃO DE IMPRESSÃO PROFISSIONAL (@media print)
-   Garante 1 página A4 exata, fundo 100% branco, tipografia preta/cinza,
-   foto no canto superior esquerdo (1/5 da página) e selo no rodapé.
-   ========================================================================== */
-
-/* 📄 Configuração da Folha A4 Física */
-/* DICA JÚNIOR: Caso adicione mais texto e passe de 1 página, reduza levemente as margens (ex: 6mm 8mm) */
-@page {
-  size: A4 portrait;
-  margin: 7mm 9mm 7mm 9mm; /* Margens perfeitamente calibradas para 1 página */
-}
-
 @media print {
-  /* 1. Reset Universal de Fidelidade Gráfica */
-  /* DICA: print-color-adjust: exact força o navegador a imprimir bordas e cores de fundo */
-  * {
+  /* Configuração rígida de página A4 com margens balanceadas */
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
+  /* Reset global estrito: fundo 100% branco e texto em preto/cinzas escuros */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 8.8pt !important;
+    line-height: 1.32 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-    box-sizing: border-box !important;
-    text-shadow: none !important;
-    box-shadow: none !important;
-    animation: none !important;
-    transition: none !important;
   }
 
-  /* 2. Ocultar todos os componentes interativos e da interface web */
-  /* DICA: Tudo o que tiver .no-print ou for componente web (menus, modais, botões) some aqui */
-  .no-print,
-  .cabecalho-principal,
-  #conteudo-principal,
+  /* Oculta estritamente toda a interface web, menus, botões e formulários */
+  header.cabecalho-principal,
+  main#conteudo-principal,
+  footer.rodape-principal,
   .camada-modal,
   #modal-success,
   .botao-flutuante-topo,
-  .rodape-principal,
-  button,
-  .botao {
+  .botao-tema,
+  .acoes-cabecalho,
+  .formulario-contato-wrapper,
+  form#contact-form,
+  .hero-botoes,
+  .acoes-cartao-projeto,
+  .botao-abrir-modal,
+  .backdrop-modal,
+  .janela-modal {
     display: none !important;
     visibility: hidden !important;
-  }
-
-  /* 3. Ativação e configuração da folha de currículo A4 */
-  /* DICA: Se o currículo estourar 1 página, reduza o font-size de 8.2pt para 7.8pt */
-  html,
-  body {
-    width: 100% !important;
-    height: auto !important;
-    background: #ffffff !important;
-    color: #111827 !important;
-    font-family:
-      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-      sans-serif !important;
-    font-size: 8.2pt !important;
-    line-height: 1.25 !important;
+    height: 0 !important;
+    overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
-    -webkit-font-smoothing: antialiased;
   }
 
-  .curriculo-print-view {
+  /* Exibe e estrutura o currículo físico impresso */
+  #curriculo-impressao {
     display: block !important;
+    visibility: visible !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     background: #ffffff !important;
-    border: none !important;
+    color: #111827 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    box-sizing: border-box !important;
   }
 
-  /* 4. Cabeçalho com logo mantido, foto aumentada (1/5 da página) e texto contornando */
-  .curriculo-cabecalho {
-    display: block !important; /* Block permite o fluxo e contorno de texto ao redor do float */
-    position: relative !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 6px !important;
-    border-bottom: 1.5px solid #000000 !important;
-    page-break-after: avoid !important;
-    break-after: avoid !important;
+  /* Prevenção de quebra de página (A4 de página única) */
+  .print-header,
+  .print-section,
+  .print-item-experiencia,
+  .print-item-projeto,
+  .print-item-educacao,
+  .print-item-cert,
+  .print-grupo-skills {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
-  /* Clearfix para garantir que o cabeçalho englobe toda a altura da foto */
-  .curriculo-cabecalho::after {
-    content: "" !important;
-    display: table !important;
-    clear: both !important;
+  /* Cabeçalho do Currículo com Foto à Esquerda e Emblema à Direita */
+  .print-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 1.5px solid #1f2937 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 7px !important;
+    gap: 12px !important;
   }
 
-  /* 📸 Foto de Perfil: 1/5 da largura da página (20%) com float para texto contornar */
-  /* DICA: Para mudar o tamanho da foto no PDF, altere o width: 20% abaixo */
-  .foto-perfil-wrapper {
-    float: left !important;
-    width: 20% !important; /* Exatamente 1/5 da largura da página impressa */
-    max-width: 20% !important;
-    margin: 0 14px 4px 0 !important;
-    shape-outside: margin-box !important;
+  .print-header-perfil {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
   }
 
-  .foto-perfil {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
-    border-radius: 4px !important;
-    border: 1.2px solid #000000 !important;
+  /* Foto de perfil ajustada no canto superior esquerdo */
+  .print-foto-perfil {
+    width: 66px !important;
+    height: 66px !important;
+    border-radius: 50% !important;
     object-fit: cover !important;
-    object-position: center top !important;
+    border: 1.5px solid #374151 !important;
+    flex-shrink: 0 !important;
     display: block !important;
   }
 
-  .logo-print-cabecalho {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px !important;
-    font-family: var(--fonte-mono, monospace) !important;
-    font-size: 8.5pt !important;
-    font-weight: 700 !important;
-    color: #111827 !important;
-    margin-bottom: 2px !important;
+  .print-identificacao {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5px !important;
   }
 
-  .logo-print-cabecalho .logotipo-icone {
-    color: #000000 !important;
+  .print-nome {
+    font-size: 16pt !important;
     font-weight: 800 !important;
-  }
-
-  .logo-print-cabecalho .cor-destaque-print {
     color: #000000 !important;
-    font-weight: 800 !important;
-  }
-
-  .candidato-nome {
-    font-size: 13.5pt !important;
-    font-weight: 900 !important;
-    color: #000000 !important;
-    text-transform: uppercase !important;
-    letter-spacing: -0.3px !important;
-    line-height: 1.05 !important;
+    letter-spacing: -0.5px !important;
     margin: 0 !important;
-  }
-
-  .candidato-cargo {
-    font-size: 8.2pt !important;
-    font-weight: 700 !important;
-    color: #374151 !important;
-    margin: 2px 0 3px 0 !important;
     line-height: 1.15 !important;
   }
 
-  .divisor-ponto {
-    color: #6b7280 !important;
-    margin: 0 2px !important;
+  .print-cargo {
+    font-size: 9.2pt !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
   }
 
-  .contatos-grid {
+  .print-contatos {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 2px 8px !important;
-    margin: 2px 0 4px 0 !important;
-    font-size: 7.2pt !important;
-  }
-
-  .texto-perfil-header {
-    font-size: 7.3pt !important;
+    gap: 8px !important;
+    font-size: 7.8pt !important;
     color: #374151 !important;
-    line-height: 1.24 !important;
-    text-align: justify !important;
-    margin-top: 3px !important;
+    margin-top: 2px !important;
   }
 
-  .contato-item {
+  .print-contatos span {
     display: inline-flex !important;
     align-items: center !important;
     gap: 3px !important;
-    color: #4b5563 !important;
-    text-decoration: none !important;
-  }
-
-  .icone-contato {
-    width: 10px !important;
-    height: 10px !important;
-    stroke: #111827 !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* 5. Grid de 2 colunas para distribuição perfeita em 1 página */
-  .curriculo-layout-grid {
-    display: grid !important;
-    grid-template-columns: 32% 66% !important;
-    column-gap: 12px !important;
-    margin-top: 5px !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  .titulo-secao {
-    font-size: 8.2pt !important;
-    font-weight: 800 !important;
-    color: #000000 !important;
-    border-bottom: 1px solid #111827 !important;
-    padding-bottom: 1.5px !important;
-    margin: 0 0 5px 0 !important;
-    letter-spacing: 0.4px !important;
-    text-transform: uppercase !important;
-  }
-
-  .secao-bloco {
-    margin-bottom: 6px !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  .texto-perfil {
-    font-size: 7.3pt !important;
-    color: #374151 !important;
-    line-height: 1.25 !important;
-    text-align: justify !important;
-  }
-
-  /* 6. Habilidades Técnicas em Tags Elegantes */
-  .grupo-habilidades {
-    margin-bottom: 4px !important;
-  }
-
-  .rotulo-habilidade {
-    font-size: 6.8pt !important;
-    font-weight: 700 !important;
-    color: #111827 !important;
-    margin-bottom: 2px !important;
-    display: block !important;
-    text-transform: uppercase !important;
-  }
-
-  .tags-skills {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 2.5px !important;
-  }
-
-  .skill-badge {
-    background-color: #f3f4f6 !important;
-    color: #111827 !important;
-    border: 1px solid #d1d5db !important;
-    font-size: 6.7pt !important;
-    padding: 0.8px 3.5px !important;
-    border-radius: 2.5px !important;
-    font-weight: 600 !important;
-    display: inline-block !important;
-  }
-
-  /* 7. Educação com Moldura Lateral */
-  /* DICA JÚNIOR: Moldura sutil à esquerda para destacar formações */
-  .item-educacao {
-    margin-bottom: 4px !important;
-    padding-left: 5px !important;
-    border-left: 1.5px solid #4b5563 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  .item-subtitulo-forte {
-    font-size: 7.6pt !important;
-    font-weight: 700 !important;
-    color: #000000 !important;
-    line-height: 1.15 !important;
-  }
-
-  .item-instituicao {
-    font-size: 7pt !important;
-    color: #4b5563 !important;
-    font-weight: 600 !important;
-    margin: 1px 0 !important;
-  }
-
-  .item-detalhe {
-    font-size: 7pt !important;
-    color: #374151 !important;
-    line-height: 1.2 !important;
-  }
-
-  /* 8. Experiências e Projetos com Molduras Elegantes */
-  /* DICA JÚNIOR: page-break-inside: avoid impede que um cartão seja partido ao meio entre páginas */
-  .cartao-experiencia-print,
-  .cartao-projeto-print {
-    padding: 4px 6px !important;
-    border: 1px solid #d1d5db !important;
-    border-left: 2.5px solid #111827 !important;
-    border-radius: 3px !important;
-    margin-bottom: 5px !important;
-    background: #ffffff !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  .cabecalho-cargo,
-  .cabecalho-projeto {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    margin-bottom: 2px !important;
-  }
-
-  .cargo-nome,
-  .projeto-nome {
-    font-size: 8.2pt !important;
-    font-weight: 800 !important;
-    color: #000000 !important;
-    line-height: 1.15 !important;
-  }
-
-  .empresa-nome,
-  .projeto-link-tag {
-    font-size: 7.2pt !important;
-    color: #4b5563 !important;
-    font-weight: 600 !important;
-    display: block !important;
-  }
-
-  .periodo-badge {
-    font-size: 6.8pt !important;
-    font-weight: 700 !important;
-    background: #f3f4f6 !important;
-    border: 1px solid #d1d5db !important;
-    color: #111827 !important;
-    padding: 0.5px 3.5px !important;
-    border-radius: 2px !important;
     white-space: nowrap !important;
   }
 
-  .lista-responsabilidades {
-    margin: 2px 0 0 10px !important;
-    padding: 0 !important;
-    font-size: 7.3pt !important;
-    color: #374151 !important;
-    line-height: 1.22 !important;
+  /* Emblema de Certificação Google AI */
+  .print-header-badge {
+    flex-shrink: 0 !important;
   }
 
-  .lista-responsabilidades li {
-    margin-bottom: 1.5px !important;
-  }
-
-  .projeto-descricao {
-    font-size: 7.3pt !important;
-    color: #374151 !important;
-    line-height: 1.2 !important;
-    margin-bottom: 2px !important;
-  }
-
-  /* 9. Rodapé Alinhado com Emblema da Certificação */
-  .curriculo-rodape {
+  .print-google-badge {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
     align-items: center !important;
-    border-top: 1px solid #d1d5db !important;
-    padding-top: 3px !important;
-    margin-top: 4px !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+    gap: 6px !important;
+    padding: 5px 8px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background: #f9fafb !important;
   }
 
-  .rodape-texto-principal {
-    display: block !important;
-    font-size: 6.8pt !important;
-    color: #6b7280 !important;
+  .print-badge-icon {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
   }
 
-  .rodape-url {
-    font-size: 6.8pt !important;
+  .print-badge-textos {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.1 !important;
+  }
+
+  .print-badge-linha1 {
+    font-size: 7.5pt !important;
     font-weight: 700 !important;
     color: #111827 !important;
   }
 
-  .emblema-certificacao-bloco {
+  .print-badge-linha2 {
+    font-size: 6.8pt !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+  }
+
+  /* Resumo Profissional */
+  .print-secao-resumo {
+    background: #f9fafb !important;
+    border-left: 3px solid #1f2937 !important;
+    padding: 5px 9px !important;
+    margin-bottom: 8px !important;
+    border-radius: 0 4px 4px 0 !important;
+  }
+
+  .print-texto-resumo {
+    font-size: 8.2pt !important;
+    line-height: 1.34 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    text-align: justify !important;
+  }
+
+  /* Grid Principal: 2 Colunas equilibradas para A4 */
+  .print-grid-corpo {
+    display: grid !important;
+    grid-template-columns: 64% 34% !important;
+    gap: 12px !important;
+    align-items: start !important;
+    width: 100% !important;
+  }
+
+  .print-col-principal,
+  .print-col-lateral {
     display: flex !important;
-    align-items: center !important;
-    gap: 5px !important;
+    flex-direction: column !important;
+    gap: 7px !important;
   }
 
-  .google-badge-svg {
-    width: 16px !important;
-    height: 16px !important;
-    flex-shrink: 0 !important;
-    display: block !important;
-  }
-
-  .emblema-titulo {
-    font-size: 7pt !important;
+  /* Títulos de Seção */
+  .print-titulo-secao {
+    font-size: 9.8pt !important;
     font-weight: 800 !important;
     color: #000000 !important;
-    line-height: 1 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 1px solid #d1d5db !important;
+    padding-bottom: 2.5px !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* Experiência Profissional */
+  .print-item-experiencia {
+    margin-bottom: 7px !important;
+  }
+
+  .print-item-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    margin-bottom: 2px !important;
+  }
+
+  .print-cargo-titulo {
+    font-size: 8.9pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-empresa {
+    font-size: 8pt !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
     display: block !important;
   }
 
-  .emblema-sub {
-    font-size: 6.2pt !important;
+  .print-data {
+    font-size: 7.6pt !important;
+    font-weight: 600 !important;
+    color: #4b5563 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .print-lista-realizacoes {
+    margin: 2px 0 0 0 !important;
+    padding-left: 14px !important;
+  }
+
+  .print-lista-realizacoes li {
+    font-size: 7.9pt !important;
+    line-height: 1.28 !important;
+    color: #1f2937 !important;
+    margin-bottom: 2.5px !important;
+  }
+
+  .print-lista-realizacoes li strong {
+    color: #000000 !important;
+  }
+
+  /* Projetos em Destaque */
+  .print-item-projeto {
+    margin-bottom: 6px !important;
+  }
+
+  .print-projeto-desc {
+    font-size: 7.9pt !important;
+    line-height: 1.28 !important;
+    color: #1f2937 !important;
+    margin: 2px 0 1px 0 !important;
+    text-align: justify !important;
+  }
+
+  .print-projeto-links {
+    font-size: 7.3pt !important;
+    color: #374151 !important;
+    margin: 1px 0 0 0 !important;
+    word-break: break-all !important;
+  }
+
+  .print-projeto-links strong {
+    color: #111827 !important;
+  }
+
+  /* Coluna Lateral: Habilidades Técnicas */
+  .print-grupo-skills {
+    margin-bottom: 5.5px !important;
+  }
+
+  .print-subtitulo-skill {
+    font-size: 8.2pt !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin: 0 0 2.5px 0 !important;
+  }
+
+  .print-tags-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3.5px !important;
+  }
+
+  .print-tag {
+    font-size: 7.2pt !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    background: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 1.5px 5px !important;
+    border-radius: 3px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Educação & Certificações */
+  .print-item-educacao {
+    margin-bottom: 6px !important;
+  }
+
+  .print-edu-titulo {
+    font-size: 8.4pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-edu-inst {
+    font-size: 7.8pt !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    display: block !important;
+  }
+
+  .print-edu-data {
+    font-size: 7.3pt !important;
     color: #4b5563 !important;
     display: block !important;
+    margin-bottom: 1.5px !important;
+  }
+
+  .print-edu-desc {
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    color: #374151 !important;
+    margin: 0 !important;
+  }
+
+  .print-item-cert {
+    margin-bottom: 4.5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-cert-nome {
+    font-size: 7.9pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+  }
+
+  .print-cert-detalhe {
+    font-size: 7.2pt !important;
+    color: #4b5563 !important;
   }
 }

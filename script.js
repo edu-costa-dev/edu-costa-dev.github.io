@@ -7,15 +7,15 @@
 
 // Executa as inicializações assim que o DOM estiver totalmente carregado
 document.addEventListener('DOMContentLoaded', () => {
-  configurarTemaClaroEscuro();
-  configurarMenuResponsivo();
-  configurarDestaqueMenuAoRolar();
-  configurarAnimacoesDeAparecimento();
-  configurarSanfonasSobreMim();
-  configurarJanelasModais();
-  configurarEnvioDeFormulario();
-  configurarBotaoVoltarAoTopo();
-  configurarAnoDinamicoRodape();
+  inicializarAlternadorTema();
+  inicializarMenuMobile();
+  inicializarScrollNavegacao();
+  inicializarAnimacoesRolagem();
+  inicializarAccordions();
+  inicializarSistemaModais();
+  inicializarFormularioContato();
+  inicializarBotaoVoltarAoTopo();
+  atualizarAnoAtual();
 });
 
 /* --------------------------------------------------------------------------
@@ -23,15 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
    -------------------------------------------------------------------------- */
 
 // Função responsável por configurar e alternar o tema da página
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarTemaClaroEscuro
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Controla o botão de Dark/Light mode e salva a escolha do usuário no navegador (localStorage).
-   🚀 QUANDO É DISPARADA: Imediatamente ao carregar a página.
-   =========================================================================
-*/
-function configurarTemaClaroEscuro() {
+function inicializarAlternadorTema() {
   // Captura o botão de alternância do tema no cabeçalho
   const botaoAlternarTema = document.getElementById('botao-alternar-tema');
   // Chave utilizada para persistir a preferência no navegador do usuário
@@ -53,14 +45,7 @@ function configurarTemaClaroEscuro() {
   // Adiciona evento de clique para alternar entre os modos claro e escuro
   botaoAlternarTema.addEventListener('click', () => {
     const temaAtual = document.documentElement.getAttribute('data-tema');
-    let novoTema = '';
-    // DICA PARA INICIANTES: O código abaixo (if/else) é a mesma coisa que o ternário original, 
-    // mas muito mais legível para quem está aprendendo lógicas fundamentais!
-    if (temaAtual === 'escuro') {
-      novoTema = 'claro';
-    } else {
-      novoTema = 'escuro';
-    }
+    const novoTema = temaAtual === 'escuro' ? 'claro' : 'escuro';
 
     // Aplica o novo tema no elemento raiz html
     document.documentElement.setAttribute('data-tema', novoTema);
@@ -74,15 +59,7 @@ function configurarTemaClaroEscuro() {
    -------------------------------------------------------------------------- */
 
 // Função para controlar abertura e fechamento do menu em dispositivos móveis
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarMenuResponsivo
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Abre e fecha o menu lateral no celular (hambúrguer) e fecha automaticamente ao clicar num link.
-   🚀 QUANDO É DISPARADA: Ao clicar no ícone de menu no celular ou em um link de navegação.
-   =========================================================================
-*/
-function configurarMenuResponsivo() {
+function inicializarMenuMobile() {
   const botaoMenuMobile = document.getElementById('botao-menu-mobile');
   const menuNavegacao = document.getElementById('menu-navegacao');
   const linksNavegacao = document.querySelectorAll('.link-navegacao');
@@ -109,15 +86,7 @@ function configurarMenuResponsivo() {
    -------------------------------------------------------------------------- */
 
 // Função que atualiza o link ativo conforme a rolagem da página
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarDestaqueMenuAoRolar
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Pinta de azul/destaque o link do menu superior (Sobre, Projetos, etc) dependendo da parte do site que o usuário está lendo.
-   🚀 QUANDO É DISPARADA: A cada milímetro que o usuário rola a página para cima ou para baixo (scroll).
-   =========================================================================
-*/
-function configurarDestaqueMenuAoRolar() {
+function inicializarScrollNavegacao() {
   const secoes = document.querySelectorAll('section[id]');
   const linksNavegacao = document.querySelectorAll('.link-navegacao');
   let secaoAlvoNavegacao = null;
@@ -176,15 +145,7 @@ function configurarDestaqueMenuAoRolar() {
    4. ANIMAÇÕES DE REVELAÇÃO DURANTE A ROLAGEM
    -------------------------------------------------------------------------- */
 
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarAnimacoesDeAparecimento
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Faz os textos e blocos "surgirem" de baixo para cima suavemente quando aparecem na tela (IntersectionObserver).
-   🚀 QUANDO É DISPARADA: Conforme o usuário desce a página e os elementos entram no campo de visão.
-   =========================================================================
-*/
-function configurarAnimacoesDeAparecimento() {
+function inicializarAnimacoesRolagem() {
   const secoes = document.querySelectorAll('.secao');
 
   if (!('IntersectionObserver' in window)) {
@@ -212,15 +173,7 @@ function configurarAnimacoesDeAparecimento() {
    -------------------------------------------------------------------------- */
 
 // Função que gerencia o comportamento de sanfona (Accordion) na seção Sobre Mim
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarSanfonasSobreMim
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Abre e fecha as abas de texto (Estudos, Propósito) na seção "Sobre Mim".
-   🚀 QUANDO É DISPARADA: Ao clicar nos títulos dessas abas.
-   =========================================================================
-*/
-function configurarSanfonasSobreMim() {
+function inicializarAccordions() {
   const gatilhosAccordion = document.querySelectorAll('.gatilho-accordion');
 
   gatilhosAccordion.forEach(gatilho => {
@@ -367,15 +320,7 @@ const dadosProjetos = {
    -------------------------------------------------------------------------- */
 
 // Função que controla a abertura, fechamento e injeção de conteúdo nos Modais
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarJanelasModais
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Abre os pop-ups (modais) flutuantes com os detalhes das experiências e projetos lendo os dados do "Banco de Dados Local".
-   🚀 QUANDO É DISPARADA: Ao clicar nos botões "Ler mais" nos cards de experiências ou projetos.
-   =========================================================================
-*/
-function configurarJanelasModais() {
+function inicializarSistemaModais() {
   const modalContainer = document.getElementById('modal-container');
   const backdropModal = document.getElementById('backdrop-modal');
   const botaoFecharModal = document.getElementById('botao-fechar-modal');
@@ -505,15 +450,7 @@ function configurarJanelasModais() {
 
 // Função de validação e submissão amigável do formulário de contato
 // Inicializa a submissão assíncrona do formulário com FormData e exibição da janela modal
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarEnvioDeFormulario
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Pega os dados do formulário de contato e envia um e-mail sem recarregar a página, mostrando uma mensagem de sucesso no final.
-   🚀 QUANDO É DISPARADA: Ao clicar no botão "Enviar" do formulário no rodapé.
-   =========================================================================
-*/
-function configurarEnvioDeFormulario() {
+function inicializarFormularioContato() {
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('btn-submit');
   const modal = document.getElementById('modal-success');
@@ -571,9 +508,6 @@ function configurarEnvioDeFormulario() {
     const formData = new FormData(form);
 
     try {
-      // ⚠️ ATENÇÃO TRAINEE/JÚNIOR: 
-      // Para o formulário enviar para o SEU E-MAIL, crie uma conta no site formspree.io
-      // Crie um novo formulário lá e substitua a URL abaixo pela SUA URL do formspree!
       const res = await fetch('https://formspree.io/f/maeyjekq', {
         method: 'POST',
         body: formData,
@@ -614,15 +548,7 @@ function configurarEnvioDeFormulario() {
    -------------------------------------------------------------------------- */
 
 // Função que gerencia o botão flutuante de rolagem para o topo da página
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarBotaoVoltarAoTopo
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Mostra a setinha flutuante no canto inferior direito para voltar ao topo rapidamente.
-   🚀 QUANDO É DISPARADA: Quando o usuário rola mais de 350 pixels para baixo.
-   =========================================================================
-*/
-function configurarBotaoVoltarAoTopo() {
+function inicializarBotaoVoltarAoTopo() {
   const botaoTopo = document.getElementById('botao-topo');
 
   window.addEventListener('scroll', () => {
@@ -646,15 +572,7 @@ function configurarBotaoVoltarAoTopo() {
    -------------------------------------------------------------------------- */
 
 // Função que atualiza o ano de direitos autorais para o ano corrente
-/*
-   =========================================================================
-   🛠️ FUNÇÃO: configurarAnoDinamicoRodape
-   -------------------------------------------------------------------------
-   💡 O QUE FAZ: Coloca o ano atual automaticamente no Copyright do rodapé.
-   🚀 QUANDO É DISPARADA: Imediatamente ao carregar a página.
-   =========================================================================
-*/
-function configurarAnoDinamicoRodape() {
+function atualizarAnoAtual() {
   const elementoAno = document.getElementById('ano-atual');
   if (elementoAno) {
     elementoAno.textContent = new Date().getFullYear();

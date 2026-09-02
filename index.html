@@ -25,26 +25,6 @@
 <body>
 
   <!-- ================================================================= -->
-  <!-- 🧭 GUIA RÁPIDO DO DESENVOLVEDOR (JÚNIOR / TRAINEE)                -->
-  <!-- ================================================================= -->
-  <!--
-    Olá, Dev! Este arquivo HTML possui DUAS visões estruturadas:
-    
-    1. 🌐 VERSÃO WEB (Linhas 50 a 1160):
-       - É a página normal e interativa visualizada no navegador.
-       - Contém Hero, Sobre Mim (com accordions), Experiências (com modais pop-up), 
-         Projetos, Certificados, Habilidades e Contato (Formspree).
-    
-    2. 📄 VERSÃO IMPRESSÃO / PDF (Linhas 1165 em diante):
-       - É o currículo executivo de 1 página A4 acionado via Ctrl+P ou pelo botão "Currículo PDF".
-       - Fica oculto na tela web e se torna visível automaticamente na impressão.
-       
-    💡 DICA: Quando for atualizar dados (nova experiência, novo telefone ou nova habilidade),
-    lembre-se de atualizar na seção WEB e também na seção de IMPRESSÃO (final do arquivo)
-    para manter seu currículo e seu site sempre perfeitamente alinhados!
-  -->
-
-  <!-- ================================================================= -->
   <!-- CABEÇALHO E BARRA DE NAVEGAÇÃO PRINCIPAL                          -->
   <!-- ================================================================= -->
   <!-- Cabeçalho fixo no topo com navegação responsiva e controles -->
@@ -90,16 +70,6 @@
           <svg class="icone-lua" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
-        </button>
-
-        <!-- Botão de impressão / download de currículo PDF (A4 página única) -->
-        <button type="button" class="botao-imprimir-cv no-print" onclick="window.print()" aria-label="Imprimir Currículo em PDF" title="Salvar / Imprimir Currículo em PDF (1 Página)">
-          <svg class="icone-imprimir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 6 2 18 2 18 9"></polyline>
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-            <rect x="6" y="14" width="12" height="8"></rect>
-          </svg>
-          <span class="texto-imprimir">Currículo PDF</span>
         </button>
 
         <!-- Botão de alternância do menu mobile (Hambúrguer) -->
@@ -172,23 +142,12 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-
-            <!-- Botão de ação rápida para imprimir / salvar currículo PDF -->
-            <button type="button" class="botao botao-outline botao-cv-hero no-print" onclick="window.print()" title="Salvar / Imprimir Currículo em PDF (1 Página A4)" aria-label="Imprimir Currículo em PDF">
-              <svg class="botao-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                <rect x="6" y="14" width="12" height="8"></rect>
-              </svg>
-              <span>Currículo PDF</span>
-            </button>
           </div>
 
           <!-- Links rápidos para redes sociais e canais diretos -->
           <div class="hero-redes">
             <span class="hero-redes-rotulo">Conecte-se comigo:</span>
             <div class="icones-redes">
-              <!-- ✍️ DICA TRAINEE: INSIRA O SEU LINK DO LINKEDIN NO HREF ABAIXO -->
               <a href="https://www.linkedin.com/in/antonioedu/" target="_blank" rel="noopener noreferrer" class="link-social" title="Perfil no LinkedIn" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66z"/></svg>
               </a>
@@ -213,7 +172,6 @@
             
             <!-- Imagem de perfil do usuário -->
             <div class="moldura-foto">
-              <!-- ✍️ DICA TRAINEE: PARA ALTERAR SUA FOTO, SUBSTITUA 'img/edu.jpg' PELO CAMINHO DA SUA NOVA IMAGEM -->
               <img src="img/edu.jpg" alt="Foto de perfil de Antonio Eduardo da Costa" class="foto-perfil" width="360" height="480" loading="eager">
             </div>
 
@@ -1176,259 +1134,243 @@
         <p>&copy; <span id="ano-atual">2026</span> Antonio Eduardo da Costa. Todos os direitos reservados.</p>
         <p class="rodape-credito">Desenvolvido com HTML5, CSS3 e JavaScript Puro.</p>
       </div>
+
     </div>
   </footer>
 
   <!-- ================================================================= -->
-  <!-- 📄 ESTRUTURA EXCLUSIVA PARA IMPRESSÃO (@media print)               -->
+  <!-- ESTRUTURA EXCLUSIVA PARA IMPRESSÃO (CTRL+P / CURRÍCULO A4 FÍSICO) -->
   <!-- ================================================================= -->
-  <!-- 
-    GUIA DE EDIÇÃO DO CURRÍCULO EXECUTIVO (A4 - PÁGINA ÚNICA):
+  <div id="curriculo-impressao" class="curriculo-impressao" aria-hidden="true">
     
-    1. FOTO: Para alterar sua foto, edite o atributo 'src' na tag <img> abaixo.
-       Proporção recomendada: 3:4 (ex: 360x480px ou similar).
-    2. CONTATOS: Edite os canais e links em .contatos-grid.
-    3. APRESENTAÇÃO: Edite o parágrafo .texto-perfil-header (ele contorna a foto).
-    4. HABILIDADES: Adicione ou remova <span class="skill-badge">Nome</span>.
-    5. EDUCAÇÃO: Duplique o bloco <article class="item-educacao">.
-    6. EXPERIÊNCIAS: Duplique o bloco <article class="cartao-experiencia-print">.
-    7. PROJETOS: Duplique o bloco <article class="cartao-projeto-print">.
-    
-    ⚠️ ATENÇÃO COM O LIMITE DE 1 PÁGINA: O layout foi calibrado para caber em
-    exatamente 1 página A4. Se adicionar mais itens, mantenha os textos sintéticos
-    para evitar que o documento crie uma segunda folha indesejada no PDF!
-  -->
-  <section class="curriculo-print-view" aria-label="Versão Impressa do Currículo">
-    
-    <!-- Cabeçalho com Logo, Foto Aumentada (1/5 da página) e Texto Contornando a Foto -->
-    <header class="curriculo-cabecalho">
-      <!-- 📸 Foto de Perfil (Ocupa exatamente 1/5 da largura útil da página no print) -->
-      <div class="foto-perfil-wrapper">
-        <img 
-          src="img/edu.jpg" 
-          alt="Antonio Eduardo da Costa" 
-          class="foto-perfil" 
-          width="150" 
-          height="200" 
-          loading="eager"
-        >
-      </div>
-
-      <!-- 🏷️ Logotipo de Identidade Visual Preservado -->
-      <div class="logo-print-cabecalho">
-        <span class="logotipo-icone">&lt;/&gt;</span>
-        <span class="logotipo-texto">Edu<span class="cor-destaque-print">Costa</span></span>
-      </div>
-
-      <h1 class="candidato-nome">Antonio Eduardo da Costa</h1>
-      <h2 class="candidato-cargo">
-        Analista de Suporte Pleno <span class="divisor-ponto">•</span> Transição para Desenvolvimento Backend (Node.js)
-      </h2>
-
-      <!-- 📬 Contatos e Canais Diretos -->
-      <div class="contatos-grid">
-        <span class="contato-item">
-          <svg class="icone-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Florianópolis, SC
-        </span>
-        <span class="contato-item">
-          <svg class="icone-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          edu.costa.dev96@gmail.com
-        </span>
-        <span class="contato-item">
-          <svg class="icone-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          (48) 97400-9440
-        </span>
-        <span class="contato-item">
-          <svg class="icone-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          linkedin.com/in/antonioedu
-        </span>
-        <span class="contato-item">
-          <svg class="icone-contato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          github.com/edu-costa-dev
-        </span>
-      </div>
-
-      <!-- 📝 Texto de Apresentação Profissional (Contorna a foto à esquerda via float) -->
-      <p class="texto-perfil-header">
-        Analista de Suporte Pleno com sólida experiência em sustentação de sistemas corporativos de missão crítica e alta disponibilidade, em transição estruturada para <strong>Engenharia Backend</strong> com foco em <strong>Node.js</strong>. Alio raciocínio lógico apurado, investigação de causa raiz (RCA), análise de dados relacionais e especificação técnica de requisitos à arquitetura de APIs RESTful escaláveis.
-      </p>
-    </header>
-
-    <!-- Layout Grid Otimizado em 2 Colunas (A4 Single Page) -->
-    <div class="curriculo-layout-grid">
-
-      <!-- Coluna Lateral: Habilidades e Educação -->
-      <aside class="coluna-lateral">
-
-        <!-- 🛠️ Bloco de Habilidades Técnicas -->
-        <section class="secao-bloco">
-          <h3 class="titulo-secao">Habilidades Técnicas</h3>
-          
-          <div class="grupo-habilidades">
-            <span class="rotulo-habilidade">Linguagens &amp; Backend:</span>
-            <div class="tags-skills">
-              <span class="skill-badge">Node.js</span>
-              <span class="skill-badge">JavaScript (ES6+)</span>
-              <span class="skill-badge">Express</span>
-              <span class="skill-badge">REST APIs</span>
-              <span class="skill-badge">SQL (Oracle / MariaDB)</span>
-            </div>
+    <!-- CABEÇALHO DO CURRÍCULO -->
+    <header class="print-header">
+      <div class="print-header-perfil">
+        <img src="img/edu.jpg" alt="Foto de perfil de Antonio Eduardo da Costa" class="print-foto-perfil">
+        <div class="print-identificacao">
+          <h1 class="print-nome">Antonio Eduardo da Costa</h1>
+          <p class="print-cargo">Analista de Suporte Pleno &bull; Transição para Desenvolvimento Backend (Node.js)</p>
+          <div class="print-contatos">
+            <span>📍 Florianópolis - SC</span>
+            <span>✉️ edu.costa.dev96@gmail.com</span>
+            <span>📱 (48) 9 7400-9440</span>
+            <span>🔗 linkedin.com/in/antonioedu</span>
+            <span>💻 github.com/edu-costa-dev</span>
           </div>
-
-          <div class="grupo-habilidades">
-            <span class="rotulo-habilidade">Ferramentas &amp; Ambientes:</span>
-            <div class="tags-skills">
-              <span class="skill-badge">Git &amp; GitHub</span>
-              <span class="skill-badge">Postman (API Testing)</span>
-              <span class="skill-badge">Linux CLI</span>
-              <span class="skill-badge">Webhooks &amp; JSON</span>
-            </div>
-          </div>
-
-          <div class="grupo-habilidades">
-            <span class="rotulo-habilidade">Competências Analíticas:</span>
-            <div class="tags-skills">
-              <span class="skill-badge">Troubleshooting Avançado</span>
-              <span class="skill-badge">Causa Raiz (RCA)</span>
-              <span class="skill-badge">Análise de Requisitos</span>
-              <span class="skill-badge">Comunicação Técnica</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Educação e Certificações -->
-        <!-- 🎓 Bloco de Educação e Certificações -->
-        <!-- DICA JÚNIOR: Para adicionar um novo curso/certificação, copie e cole o bloco <article class="item-educacao"> -->
-        <section class="secao-bloco">
-          <h3 class="titulo-secao">Educação &amp; Certificados</h3>
-
-          <article class="item-educacao">
-            <h4 class="item-subtitulo-forte">Desenvolvimento Web Backend (Node.js)</h4>
-            <p class="item-instituicao">SENAI / Projeto SC Tec &bull; 2026</p>
-            <p class="item-detalhe">Formação técnica intensiva focada em APIs RESTful, Node.js, Express e persistência relacional.</p>
-          </article>
-
-          <article class="item-educacao">
-            <h4 class="item-subtitulo-forte">Google AI Professional Certificate</h4>
-            <p class="item-instituicao">Google &bull; Coursera &bull; 2026</p>
-            <p class="item-detalhe">8 cursos certificados cobrindo automação inteligente, engenharia de prompts e IA responsável.</p>
-          </article>
-
-          <article class="item-educacao">
-            <h4 class="item-subtitulo-forte">Google IT Support Professional Certificate</h4>
-            <p class="item-instituicao">Google &bull; Coursera &bull; Em andamento</p>
-            <p class="item-detalhe">Formação oficial cobrindo redes de computadores, administração de sistemas e infraestrutura corporativa.</p>
-          </article>
-        </section>
-
-      </aside>
-
-      <!-- Coluna Principal: Experiência e Projetos -->
-      <section class="coluna-principal">
-
-        <!-- 💼 Bloco de Experiência Profissional (Focado em Backend) -->
-        <!-- DICA JÚNIOR: Para adicionar um novo cargo, duplique o bloco <article class="cartao-experiencia-print"> -->
-        <section class="secao-bloco">
-          <h3 class="titulo-secao">Experiência Profissional</h3>
-
-          <!-- Cargo 1: TRE-SC -->
-          <article class="cartao-experiencia-print">
-            <div class="cabecalho-cargo">
-              <div>
-                <h4 class="cargo-nome">Analista de Suporte Pleno &amp; Sustentação de Sistemas</h4>
-                <span class="empresa-nome">Tribunal Regional Eleitoral de Santa Catarina (G4F)</span>
-              </div>
-              <span class="periodo-badge">12/2023 – Presente</span>
-            </div>
-            <ul class="lista-responsabilidades">
-              <li>Liderança na investigação de causa raiz (RCA) e resolução de incidentes críticos em ambiente corporativo de missão crítica.</li>
-              <li>Diagnóstico e resolução de falhas de conexão de dados relacionais via <strong>Oracle Client / TNSNAMES</strong>, executando e auditando queries <strong>SQL</strong> para assegurar integridade de transações.</li>
-              <li>Levantamento e especificação de requisitos técnicos de software, mapeando fluxos de exceção e colaborando diretamente com times de engenharia e infraestrutura.</li>
-            </ul>
-          </article>
-
-          <!-- Cargo 2: BC Tech -->
-          <article class="cartao-experiencia-print">
-            <div class="cabecalho-cargo">
-              <div>
-                <h4 class="cargo-nome">Analista de Suporte N2 &amp; Integrações de Sistemas</h4>
-                <span class="empresa-nome">BC Tech</span>
-              </div>
-              <span class="periodo-badge">01/2020 – 05/2022</span>
-            </div>
-            <ul class="lista-responsabilidades">
-              <li>Validação e homologação de integrações via <strong>APIs RESTful</strong> com <strong>Postman</strong>, analisando payloads JSON, headers e status codes HTTP para identificar falhas de comunicação entre microsserviços.</li>
-              <li>Execução de consultas estruturadas e manipulação de registros em banco relacional (<strong>MariaDB / SQL</strong>) para saneamento de base e suporte a regras de negócio.</li>
-              <li>Construção e sustentação de automações para canais de atendimento, manipulando endpoints de <strong>Webhooks</strong> e scripts com tratamento preventivo de exceções.</li>
-            </ul>
-          </article>
-
-          <!-- Cargo 3: ALIX Tecnologia -->
-          <article class="cartao-experiencia-print">
-            <div class="cabecalho-cargo">
-              <div>
-                <h4 class="cargo-nome">Técnico de Informática II &amp; Sustentação de ERP</h4>
-                <span class="empresa-nome">ALIX Tecnologia</span>
-              </div>
-              <span class="periodo-badge">06/2022 – 08/2023</span>
-            </div>
-            <ul class="lista-responsabilidades">
-              <li>Sustentação N2 em ERP corporativo (TOTVS Protheus), analisando logs de aplicação para rastreamento de falhas e garantia de integridade transacional de rotinas fiscais.</li>
-              <li>Troubleshooting avançado de conectividade de rede corporativa e apoio na modelagem de melhorias operacionais nos sistemas internos.</li>
-            </ul>
-          </article>
-        </section>
-
-        <!-- 🚀 Bloco de Projetos de Destaque -->
-        <!-- DICA JÚNIOR: Para adicionar um novo projeto, copie o bloco <article class="cartao-projeto-print"> -->
-        <section class="secao-bloco">
-          <h3 class="titulo-secao">Projetos de Destaque</h3>
-
-          <article class="cartao-projeto-print">
-            <div class="cabecalho-projeto">
-              <h4 class="projeto-nome">Portfólio Web Interativo com Integração RESTful</h4>
-              <span class="projeto-link-tag">Hospedado via GitHub Pages</span>
-            </div>
-            <p class="projeto-descricao">
-              Aplicação web modular desenvolvida com HTML5 semântico, CSS Grid/Flexbox e JavaScript (ES6+), implementando esteira de entrega contínua (CI/CD) versionada via Git no GitHub.
-            </p>
-            <ul class="lista-responsabilidades">
-              <li>Integração com endpoint de serviço RESTful externo (API Formspree) consumido via <code>fetch</code> assíncrono com tratamento de erros de rede (HTTP 4xx/5xx).</li>
-              <li>Validação client-side rigorosa de dados, feedback dinâmico de status assíncrono (UX) e arquitetura de impressão otimizada em CSS puro.</li>
-            </ul>
-          </article>
-        </section>
-
-      </section>
-    </div>
-
-    <!-- 🏅 Rodapé Alinhado com Emblema Obrigatório de Certificação Google AI -->
-    <!-- DICA JÚNIOR: Altere a URL do seu portfólio no elemento .rodape-url abaixo -->
-    <footer class="curriculo-rodape">
-      <div class="rodape-info-validacao">
-        <span class="rodape-texto-principal">Currículo técnico gerado a partir de versão online interativa.</span>
-        <span class="rodape-url">edu-costa-dev.github.io &bull; Florianópolis - SC</span>
+        </div>
       </div>
 
-      <!-- Emblema de Certificação Alinhado no Rodapé -->
-      <div class="emblema-certificacao-bloco" title="Certificação Oficial Google AI Professional">
-        <div class="emblema-selo-grafico">
-          <svg class="google-badge-svg" viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+      <!-- Emblema de Certificação Google AI -->
+      <div class="print-header-badge">
+        <div class="print-google-badge">
+          <svg class="print-badge-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
           </svg>
-        </div>
-        <div class="emblema-rotulos">
-          <strong class="emblema-titulo">Google AI Professional Certified</strong>
-          <span class="emblema-sub">8 Cursos &bull; Credly &bull; Verificado</span>
+          <div class="print-badge-textos">
+            <span class="print-badge-linha1">Google AI Certified</span>
+            <span class="print-badge-linha2">Professional Certificate</span>
+          </div>
         </div>
       </div>
-    </footer>
+    </header>
 
-  </section>
+    <!-- RESUMO PROFISSIONAL -->
+    <section class="print-section print-secao-resumo">
+      <p class="print-texto-resumo">
+        Profissional com sólida vivência em suporte técnico avançado (N1/N2), sustentação de sistemas corporativos e infraestrutura de TI, em transição estruturada para <strong>Desenvolvimento Backend com foco em Node.js</strong>. Amplo domínio em investigação de incidentes complexos, análise de causas-raiz em logs e bancos relacionais via SQL, validação de requisições em APIs REST e compreensão aprofundada de regras de negócio corporativas. Foco na criação de sistemas resilientes, seguros e de alto desempenho.
+      </p>
+    </section>
+
+    <!-- CORPO DO CURRÍCULO EM GRID / DUAS COLUNAS OTIMIZADAS -->
+    <div class="print-grid-corpo">
+      
+      <!-- COLUNA PRINCIPAL: EXPERIÊNCIAS E PROJETOS -->
+      <div class="print-col-principal">
+        
+        <!-- SEÇÃO: EXPERIÊNCIA PROFISSIONAL -->
+        <section class="print-section">
+          <h2 class="print-titulo-secao">Experiência Profissional</h2>
+
+          <!-- Experiência Atual: TRE-SC / G4F -->
+          <article class="print-item-experiencia">
+            <div class="print-item-header">
+              <div>
+                <h3 class="print-cargo-titulo">Analista de Suporte (N1/N2) &amp; Gestão de Ativos</h3>
+                <span class="print-empresa">Tribunal Regional Eleitoral de Santa Catarina (G4F)</span>
+              </div>
+              <span class="print-data">12/2023 – Presente</span>
+            </div>
+            <ul class="print-lista-realizacoes">
+              <li><strong>Análise de Sistemas e Causa-Raiz:</strong> Investigação aprofundada de incidentes em ambiente crítico de produção, examinando logs e transações para resolução definitiva de falhas e redução de reincidência.</li>
+              <li><strong>Ambientes e Conectividade de Banco de Dados:</strong> Configuração e homologação de conexões cliente-servidor (Oracle Client, TNSNAMES), assegurando integridade e alta disponibilidade entre aplicações e bases de dados.</li>
+              <li><strong>Auditoria e Gestão de Incidentes:</strong> Gestão de fluxos técnicos via OTRS e ITIL, cumprindo rigorosos SLAs em sessões plenárias e sustentação a magistrados.</li>
+              <li><strong>Interface Técnica com Desenvolvimento:</strong> Levantamento de requisitos técnicos e documentação precisa de comportamentos anômalos para subsidiar times de engenharia de software na correção de bugs.</li>
+            </ul>
+          </article>
+
+          <!-- Experiência 2: BC Tech -->
+          <article class="print-item-experiencia">
+            <div class="print-item-header">
+              <div>
+                <h3 class="print-cargo-titulo">Analista de Suporte, Implantação e Relacionamento</h3>
+                <span class="print-empresa">BC Tech &bull; Soluções SaaS &amp; Automação</span>
+              </div>
+              <span class="print-data">01/2020 – 05/2022</span>
+            </div>
+            <ul class="print-lista-realizacoes">
+              <li><strong>Testes e Integração de APIs:</strong> Validação de endpoints RESTful, simulação de chamadas e inspeção de payloads JSON via Postman, assegurando interoperabilidade e estabilidade nos fluxos de dados.</li>
+              <li><strong>Manipulação de Banco de Dados Relacional:</strong> Criação e execução de scripts SQL complexos em MariaDB para auditoria, correção de inconsistências e migração de registros cadastrais.</li>
+              <li><strong>Automação de Lógica e Chatbots:</strong> Estruturação de fluxos condicionais e lógica de atendimento automatizado (WhatsApp/Telegram), otimizando a triagem de clientes.</li>
+            </ul>
+          </article>
+
+        </section>
+
+        <!-- SEÇÃO: PROJETOS -->
+        <section class="print-section">
+          <h2 class="print-titulo-secao">Projetos em Destaque</h2>
+
+          <article class="print-item-projeto">
+            <div class="print-item-header">
+              <div>
+                <h3 class="print-cargo-titulo">Portfólio Web Interativo &amp; Consumo de APIs</h3>
+                <span class="print-empresa">Projeto Autoral &bull; HTML5 Semântico, CSS Grid/Flexbox, JavaScript ES6+, Formspree API</span>
+              </div>
+              <span class="print-data">2026</span>
+            </div>
+            <p class="print-projeto-desc">
+              Aplicação web responsiva com arquitetura limpa sem frameworks externos. Demonstra manipulação do DOM, controle de estado, requisições assíncronas (Fetch API) integradas ao Formspree com tratamento de erros e deploy contínuo no GitHub Pages.
+            </p>
+            <p class="print-projeto-links">
+              <strong>Repositório:</strong> github.com/edu-costa-dev/edu-costa-dev.github.io &bull; 
+              <strong>Deploy:</strong> edu-costa-dev.github.io
+            </p>
+          </article>
+
+          <article class="print-item-projeto">
+            <div class="print-item-header">
+              <div>
+                <h3 class="print-cargo-titulo">🐾 .pet — Landing Page Comercial (Desafio SC-Tec)</h3>
+                <span class="print-empresa">SENAI / SC Tec &bull; HTML5 Semântico, CSS Scroll-Snap, Validações em JavaScript</span>
+              </div>
+              <span class="print-data">2026</span>
+            </div>
+            <p class="print-projeto-desc">
+              Landing page construída a partir de especificações técnicas rigorosas, com carrossel nativo, validação de inputs e foco em usabilidade e performance.
+            </p>
+            <p class="print-projeto-links">
+              <strong>Repositório:</strong> github.com/edu-costa-dev/SC_Tec-DesafioExtra
+            </p>
+          </article>
+
+        </section>
+
+      </div>
+
+      <!-- COLUNA LATERAL: HABILIDADES, EDUCAÇÃO E CERTIFICAÇÕES -->
+      <div class="print-col-lateral">
+
+        <!-- SEÇÃO: HABILIDADES TÉCNICAS -->
+        <section class="print-section">
+          <h2 class="print-titulo-secao">Habilidades Técnicas</h2>
+
+          <div class="print-grupo-skills">
+            <h4 class="print-subtitulo-skill">Backend &amp; Programação</h4>
+            <div class="print-tags-container">
+              <span class="print-tag">Node.js</span>
+              <span class="print-tag">JavaScript (ES6+)</span>
+              <span class="print-tag">Lógica de Programação</span>
+              <span class="print-tag">Express</span>
+              <span class="print-tag">Python (Básico)</span>
+            </div>
+          </div>
+
+          <div class="print-grupo-skills">
+            <h4 class="print-subtitulo-skill">Bancos de Dados</h4>
+            <div class="print-tags-container">
+              <span class="print-tag">SQL</span>
+              <span class="print-tag">MariaDB</span>
+              <span class="print-tag">Oracle SQL</span>
+              <span class="print-tag">SQL Server</span>
+              <span class="print-tag">Firebase</span>
+            </div>
+          </div>
+
+          <div class="print-grupo-skills">
+            <h4 class="print-subtitulo-skill">APIs &amp; Ferramentas</h4>
+            <div class="print-tags-container">
+              <span class="print-tag">RESTful APIs</span>
+              <span class="print-tag">JSON / Postman</span>
+              <span class="print-tag">Git &amp; GitHub</span>
+              <span class="print-tag">Linux CLI</span>
+              <span class="print-tag">Docker (Básico)</span>
+            </div>
+          </div>
+
+          <div class="print-grupo-skills">
+            <h4 class="print-subtitulo-skill">Competências &amp; Soft Skills</h4>
+            <div class="print-tags-container">
+              <span class="print-tag">Troubleshooting Avançado</span>
+              <span class="print-tag">Análise de Requisitos</span>
+              <span class="print-tag">Resolução de Problemas</span>
+              <span class="print-tag">Comunicação Técnica</span>
+              <span class="print-tag">ITIL &amp; Gestão de Incidentes</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: EDUCAÇÃO -->
+        <section class="print-section">
+          <h2 class="print-titulo-secao">Educação</h2>
+
+          <div class="print-item-educacao">
+            <h3 class="print-edu-titulo">Dev. Web Backend com Node.js</h3>
+            <span class="print-edu-inst">SENAI / Projeto SC Tec</span>
+            <span class="print-edu-data">2026 &bull; Em andamento</span>
+            <p class="print-edu-desc">Formação prática focada em RESTful APIs, Node.js, Express, modelagem relacional e arquitetura backend escalável.</p>
+          </div>
+
+          <div class="print-item-educacao">
+            <h3 class="print-edu-titulo">Bacharelado em Gestão da TI</h3>
+            <span class="print-edu-inst">UNILASALLE</span>
+            <span class="print-edu-data">Concluído em 2016</span>
+            <p class="print-edu-desc">Formação superior sólida em governança de TI, bancos de dados, infraestrutura corporativa e processos ágeis.</p>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: CERTIFICAÇÕES -->
+        <section class="print-section">
+          <h2 class="print-titulo-secao">Certificações</h2>
+
+          <div class="print-item-cert">
+            <strong class="print-cert-nome">Google AI Professional Certificate</strong>
+            <span class="print-cert-detalhe">Coursera &bull; 8 cursos concluídos (2026)</span>
+          </div>
+
+          <div class="print-item-cert">
+            <strong class="print-cert-nome">Google IT Support Professional Certificate</strong>
+            <span class="print-cert-detalhe">Coursera &bull; Em andamento (2026)</span>
+          </div>
+
+          <div class="print-item-cert">
+            <strong class="print-cert-nome">Introdução Front-End &amp; Back-End (20h)</strong>
+            <span class="print-cert-detalhe">SENAI / SC - LAB 365 (2026)</span>
+          </div>
+
+          <div class="print-item-cert">
+            <strong class="print-cert-nome">IA na Prática: Prompts &amp; Ética</strong>
+            <span class="print-cert-detalhe">SENAI / SC (4 Módulos)</span>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- Script JavaScript principal -->
   <script src="script.js"></script>
