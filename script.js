@@ -423,17 +423,28 @@ function inicializarFormularioContato() {
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('btn-submit');
   const modal = document.getElementById('modal-success');
+  const botaoFecharConfirmacao = document.getElementById('btn-close-success');
   const botaoTopo = document.getElementById('botao-topo');
 
   if (!form) return;
+
+  function fecharConfirmacao() {
+    if (!modal) return;
+    modal.classList.remove('visivel');
+    modal.style.display = 'none';
+  }
 
   // Fecha o modal caso o usuário clique na área externa escurecida
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.style.display = 'none';
+        fecharConfirmacao();
       }
     });
+  }
+
+  if (botaoFecharConfirmacao) {
+    botaoFecharConfirmacao.addEventListener('click', fecharConfirmacao);
   }
 
   // Oculta o botão flutuante enquanto o usuário digita nos campos para não sobrepor o layout
@@ -469,7 +480,9 @@ function inicializarFormularioContato() {
       if (res.ok) {
         form.reset();
         if (modal) {
-          modal.style.display = 'flex'; // Exibe a janela modal
+          modal.classList.remove('visivel');
+          modal.style.display = 'flex';
+          requestAnimationFrame(() => modal.classList.add('visivel'));
         }
       } else {
         alert('Erro ao enviar. Verifique os dados preenchidos e tente novamente.');

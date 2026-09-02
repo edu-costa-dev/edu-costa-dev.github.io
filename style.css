@@ -1866,6 +1866,40 @@ button {
   display: block;
 }
 
+#modal-success.visivel .janela-confirmacao {
+  animation: entrada-confirmacao 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#modal-success.visivel .icone-confirmacao {
+  animation: pulso-confirmacao 0.65s 0.12s ease-out both;
+}
+
+@keyframes entrada-confirmacao {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulso-confirmacao {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-12deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.12) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
 /* --------------------------------------------------------------------------
    12. JANELA MODAL POP-UP NATIVA
    -------------------------------------------------------------------------- */
@@ -2039,8 +2073,11 @@ button {
 
   .secao.revelar-rolagem,
   .secao.revelar-rolagem .cabecalho-secao,
-  .janela-modal {
+  .janela-modal,
+  #modal-success.visivel .janela-confirmacao,
+  #modal-success.visivel .icone-confirmacao {
     transition: none;
+    animation: none;
     transform: none;
     opacity: 1;
   }
