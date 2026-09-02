@@ -89,25 +89,56 @@ function inicializarMenuMobile() {
 function inicializarScrollNavegacao() {
   const secoes = document.querySelectorAll('section[id]');
   const linksNavegacao = document.querySelectorAll('.link-navegacao');
+  let secaoAlvoNavegacao = null;
 
-  window.addEventListener('scroll', () => {
-    const posicaoScroll = window.scrollY + 100;
+  function definirLinkAtivo(secaoAtual) {
+    linksNavegacao.forEach(link => {
+      link.classList.toggle(
+        'ativo',
+        secaoAtual && link.getAttribute('href') === `#${secaoAtual.id}`
+      );
+    });
+  }
+
+  function atualizarLinkAtivo() {
+    const limiteCabecalho = 100;
+
+    if (secaoAlvoNavegacao) {
+      const limitesAlvo = secaoAlvoNavegacao.getBoundingClientRect();
+      const alvoChegou = limitesAlvo.top <= limiteCabecalho
+        && limitesAlvo.bottom > limiteCabecalho;
+
+      definirLinkAtivo(secaoAlvoNavegacao);
+
+      if (!alvoChegou) {
+        return;
+      }
+
+      secaoAlvoNavegacao = null;
+    }
+
+    let secaoAtual = secoes[0];
 
     secoes.forEach(secao => {
-      const topoSecao = secao.offsetTop;
-      const alturaSecao = secao.offsetHeight;
-      const idSecao = secao.getAttribute('id');
-
-      if (posicaoScroll >= topoSecao && posicaoScroll < topoSecao + alturaSecao) {
-        linksNavegacao.forEach(link => {
-          link.classList.remove('ativo');
-          if (link.getAttribute('href') === `#${idSecao}`) {
-            link.classList.add('ativo');
-          }
-        });
+      const limites = secao.getBoundingClientRect();
+      if (limites.top <= limiteCabecalho && limites.bottom > limiteCabecalho) {
+        secaoAtual = secao;
       }
     });
+
+    definirLinkAtivo(secaoAtual);
+  }
+
+  linksNavegacao.forEach(link => {
+    link.addEventListener('click', () => {
+      const idSecao = link.getAttribute('href').slice(1);
+      secaoAlvoNavegacao = document.getElementById(idSecao);
+      definirLinkAtivo(secaoAlvoNavegacao);
+    });
   });
+
+  window.addEventListener('scroll', atualizarLinkAtivo, { passive: true });
+  atualizarLinkAtivo();
 }
 
 /* --------------------------------------------------------------------------
