@@ -47,8 +47,8 @@ O portfólio conecta de forma harmoniosa sua sólida trajetória prévia em **Ge
 - **Controles de Acessibilidade:** Fechamento via botão "X", clique no backdrop escuro ou pressionando a tecla `Escape`, com bloqueio do scroll do fundo (`overflow: hidden`).
 
 ### 4. 🏆 Espaço Especial: Certificações Profissionais Globais Google
-- **Google AI Professional Certificate (Coursera - 8 cursos):** Emblema destacado com gradiente e botão de verificação oficial no Coursera (`Código: GWS4B6PJ9P7E`).
-- **Google IT Support Professional Certificate (Coursera - 5 cursos):** Emblema estilizado com barra de progresso em tempo real (**5% concluído** • Curso 1 em andamento) e link direto para a formação.
+- **Google AI Professional Certificate (Coursera - 8 cursos):** Emblema Credly destacado e vinculado à página pública do certificado.
+- **Google IT Support Professional Certificate (Coursera - 5 cursos):** Emblema estilizado com barra de progresso em tempo real (**20% concluído** • Curso 1 em andamento).
 - Galeria completa com os certificados do **SENAI / SC Tec** e graduação superior em **Gestão da TI (UNILASALLE)**.
 
 ### 5. 📩 Formulário de Contato e Canais Diretos
@@ -74,6 +74,7 @@ edu-costa-dev.github.io/
 ├── img/
 │   └── edu.jpg                          # Foto de perfil profissional
 └── certificados/                        # Documentos comprobatórios e certificados
+    ├── 01c3059c-ec3b-4dd8-b1e7-8aa6acc7f455.jpg # Imagem de credencial
     ├── Coursera GWS4B6PJ9P7E.pdf        # Certificado Google AI Professional (8 Cursos)
     ├── Introdução à Programação Front-End e Back-End (20h).pdf
     ├── Declaração de Participação - Trilha rapida Desenvolvimento de Software (16h).pdf
