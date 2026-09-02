@@ -64,20 +64,31 @@ function inicializarMenuMobile() {
   const menuNavegacao = document.getElementById('menu-navegacao');
   const linksNavegacao = document.querySelectorAll('.link-navegacao');
 
+  function fecharMenuMobile() {
+    menuNavegacao.classList.remove('ativo');
+    botaoMenuMobile.classList.remove('ativo');
+    botaoMenuMobile.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   // Alterna o estado do menu ao clicar no botão hambúrguer
   botaoMenuMobile.addEventListener('click', () => {
     const estaAtivo = menuNavegacao.classList.toggle('ativo');
     botaoMenuMobile.classList.toggle('ativo');
     botaoMenuMobile.setAttribute('aria-expanded', estaAtivo ? 'true' : 'false');
+    document.body.style.overflow = estaAtivo ? 'hidden' : '';
   });
 
   // Fecha o menu móvel ao clicar em qualquer item de navegação
   linksNavegacao.forEach(link => {
-    link.addEventListener('click', () => {
-      menuNavegacao.classList.remove('ativo');
-      botaoMenuMobile.classList.remove('ativo');
-      botaoMenuMobile.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', fecharMenuMobile);
+  });
+
+  document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape' && menuNavegacao.classList.contains('ativo')) {
+      fecharMenuMobile();
+      botaoMenuMobile.focus();
+    }
   });
 }
 
@@ -89,56 +100,38 @@ function inicializarMenuMobile() {
 function inicializarScrollNavegacao() {
   const secoes = document.querySelectorAll('section[id]');
   const linksNavegacao = document.querySelectorAll('.link-navegacao');
-  let secaoAlvoNavegacao = null;
 
   function definirLinkAtivo(secaoAtual) {
     linksNavegacao.forEach(link => {
-      link.classList.toggle(
-        'ativo',
-        secaoAtual && link.getAttribute('href') === `#${secaoAtual.id}`
-      );
+      link.classList.remove('ativo');
     });
-  }
-
-  function atualizarLinkAtivo() {
-    const limiteCabecalho = 100;
-
-    if (secaoAlvoNavegacao) {
-      const limitesAlvo = secaoAlvoNavegacao.getBoundingClientRect();
-      const alvoChegou = limitesAlvo.top <= limiteCabecalho
-        && limitesAlvo.bottom > limiteCabecalho;
-
-      definirLinkAtivo(secaoAlvoNavegacao);
-
-      if (!alvoChegou) {
-        return;
-      }
-
-      secaoAlvoNavegacao = null;
+    if (secaoAtual) {
+      const linkAtual = document.querySelector(`.link-navegacao[href="#${secaoAtual.id}"]`);
+      linkAtual?.classList.add('ativo');
     }
+  }
 
-    let secaoAtual = secoes[0];
+  if (!('IntersectionObserver' in window)) {
+    definirLinkAtivo(secoes[0]);
+    return;
+  }
 
-    secoes.forEach(secao => {
-      const limites = secao.getBoundingClientRect();
-      if (limites.top <= limiteCabecalho && limites.bottom > limiteCabecalho) {
-        secaoAtual = secao;
+  const secoesVisiveis = new Map();
+  const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        secoesVisiveis.set(entrada.target, entrada.intersectionRatio);
+      } else {
+        secoesVisiveis.delete(entrada.target);
       }
     });
 
+    const secaoAtual = [...secoesVisiveis.entries()]
+      .sort((a, b) => b[1] - a[1])[0]?.[0] || null;
     definirLinkAtivo(secaoAtual);
-  }
+  }, { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: '-20% 0px -50% 0px' });
 
-  linksNavegacao.forEach(link => {
-    link.addEventListener('click', () => {
-      const idSecao = link.getAttribute('href').slice(1);
-      secaoAlvoNavegacao = document.getElementById(idSecao);
-      definirLinkAtivo(secaoAlvoNavegacao);
-    });
-  });
-
-  window.addEventListener('scroll', atualizarLinkAtivo, { passive: true });
-  atualizarLinkAtivo();
+  secoes.forEach(secao => observador.observe(secao));
 }
 
 /* --------------------------------------------------------------------------

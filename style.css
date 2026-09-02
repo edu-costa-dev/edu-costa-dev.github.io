@@ -2375,6 +2375,7 @@ button {
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid var(--cor-borda);
     overflow-y: auto;
+    will-change: transform;
   }
 
   .navegacao-principal.ativo {
@@ -2679,7 +2680,7 @@ button {
   /* Configuração rígida de página A4 com margens balanceadas */
   @page {
     size: A4 portrait;
-    margin: 8mm 10mm;
+    margin: 8mm;
   }
 
   /* Reset global estrito: fundo 100% branco e texto em preto/cinzas escuros */
@@ -2692,6 +2693,7 @@ button {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
+    overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -2728,6 +2730,10 @@ button {
     max-width: 100% !important;
     margin: 0 auto !important;
     padding: 0 !important;
+    height: 281mm !important;
+    max-height: 281mm !important;
+    overflow: hidden !important;
+    page-break-after: avoid !important;
     background: #ffffff !important;
     color: #111827 !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
@@ -2744,6 +2750,8 @@ button {
   .print-grupo-skills {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+    orphans: 3 !important;
+    widows: 3 !important;
   }
 
   /* Cabeçalho do Currículo com Foto à Esquerda e Emblema à Direita */
@@ -2752,22 +2760,22 @@ button {
     align-items: center !important;
     justify-content: space-between !important;
     border-bottom: 1.5px solid #1f2937 !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 7px !important;
-    gap: 12px !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 5px !important;
+    gap: 8px !important;
   }
 
   .print-header-perfil {
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 8px !important;
     flex: 1 !important;
   }
 
   /* Foto de perfil ajustada no canto superior esquerdo */
   .print-foto-perfil {
-    width: 66px !important;
-    height: 66px !important;
+    width: 58px !important;
+    height: 58px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     border: 1.5px solid #374151 !important;
@@ -2782,7 +2790,7 @@ button {
   }
 
   .print-nome {
-    font-size: 16pt !important;
+    font-size: 14.5pt !important;
     font-weight: 800 !important;
     color: #000000 !important;
     letter-spacing: -0.5px !important;
@@ -2791,7 +2799,7 @@ button {
   }
 
   .print-cargo {
-    font-size: 9.2pt !important;
+    font-size: 8.5pt !important;
     font-weight: 700 !important;
     color: #1f2937 !important;
     margin: 0 !important;
@@ -2801,8 +2809,8 @@ button {
   .print-contatos {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 8px !important;
-    font-size: 7.8pt !important;
+    gap: 5px !important;
+    font-size: 7.2pt !important;
     color: #374151 !important;
     margin-top: 2px !important;
   }
@@ -2858,7 +2866,7 @@ button {
     background: #f9fafb !important;
     border-left: 3px solid #1f2937 !important;
     padding: 5px 9px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 5px !important;
     border-radius: 0 4px 4px 0 !important;
   }
 
@@ -2895,12 +2903,12 @@ button {
     letter-spacing: 0.5px !important;
     border-bottom: 1px solid #d1d5db !important;
     padding-bottom: 2.5px !important;
-    margin: 0 0 6px 0 !important;
+    margin: 0 0 4px 0 !important;
   }
 
   /* Experiência Profissional */
   .print-item-experiencia {
-    margin-bottom: 7px !important;
+    margin-bottom: 5px !important;
   }
 
   .print-item-header {
