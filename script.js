@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   inicializarAlternadorTema();
   inicializarMenuMobile();
   inicializarScrollNavegacao();
+  inicializarAnimacoesRolagem();
   inicializarAccordions();
   inicializarSistemaModais();
   inicializarFormularioContato();
@@ -110,7 +111,34 @@ function inicializarScrollNavegacao() {
 }
 
 /* --------------------------------------------------------------------------
-   4. COMPONENTE ACCORDION (TÓPICOS EXPANSÍVEIS / REVELAR NO CLIQUE)
+   4. ANIMAÇÕES DE REVELAÇÃO DURANTE A ROLAGEM
+   -------------------------------------------------------------------------- */
+
+function inicializarAnimacoesRolagem() {
+  const secoes = document.querySelectorAll('.secao');
+
+  if (!('IntersectionObserver' in window)) {
+    secoes.forEach(secao => secao.classList.add('revelar-rolagem', 'visivel'));
+    return;
+  }
+
+  const observador = new IntersectionObserver((entradas, observer) => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add('visivel');
+        observer.unobserve(entrada.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  secoes.forEach(secao => {
+    secao.classList.add('revelar-rolagem');
+    observador.observe(secao);
+  });
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPONENTE ACCORDION (TÓPICOS EXPANSÍVEIS / REVELAR NO CLIQUE)
    -------------------------------------------------------------------------- */
 
 // Função que gerencia o comportamento de sanfona (Accordion) na seção Sobre Mim

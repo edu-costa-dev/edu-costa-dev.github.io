@@ -135,7 +135,7 @@ O portfólio está configurado para publicação automática no **GitHub Pages**
 - 💼 **LinkedIn:** [linkedin.com/in/antonioedu](https://www.linkedin.com/in/antonioedu/)
 - 🐙 **GitHub:** [github.com/edu-costa-dev](https://github.com/edu-costa-dev)
 - 📱 **WhatsApp:** [(48) 9 7400-9440](https://wa.me/5548974009440)
-- ✉️ **E-mail:** [antonio.eduardo.costa96@gmail.com](mailto:antonio.eduardo.costa96@gmail.com)
+- ✉️ **E-mail:** [edu.costa.dev96@gmail.com](mailto:edu.costa.dev96@gmail.com)
 - 📍 **Localização:** Florianópolis - SC, Brasil
 
 ---
