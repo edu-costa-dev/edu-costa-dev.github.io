@@ -2665,3 +2665,392 @@ button {
     height: 36px;
   }
 }
+
+/* ========================================================================== */
+/* REGRAS VISUAIS DE IMPRESSÃO (@media print) - CURRÍCULO FÍSICO A4 PERFEITO   */
+/* ========================================================================== */
+
+/* Em tela (monitor/mobile), o container de currículo para impressão fica oculto */
+#curriculo-impressao {
+  display: none;
+}
+
+@media print {
+  /* Configuração rígida de página A4 com margens balanceadas */
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
+  /* Reset global estrito: fundo 100% branco e texto em preto/cinzas escuros */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 8.8pt !important;
+    line-height: 1.32 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Oculta estritamente toda a interface web, menus, botões e formulários */
+  header.cabecalho-principal,
+  main#conteudo-principal,
+  footer.rodape-principal,
+  .camada-modal,
+  #modal-success,
+  .botao-flutuante-topo,
+  .botao-tema,
+  .acoes-cabecalho,
+  .formulario-contato-wrapper,
+  form#contact-form,
+  .hero-botoes,
+  .acoes-cartao-projeto,
+  .botao-abrir-modal,
+  .backdrop-modal,
+  .janela-modal {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Exibe e estrutura o currículo físico impresso */
+  #curriculo-impressao {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevenção de quebra de página (A4 de página única) */
+  .print-header,
+  .print-section,
+  .print-item-experiencia,
+  .print-item-projeto,
+  .print-item-educacao,
+  .print-item-cert,
+  .print-grupo-skills {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Cabeçalho do Currículo com Foto à Esquerda e Emblema à Direita */
+  .print-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 1.5px solid #1f2937 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 7px !important;
+    gap: 12px !important;
+  }
+
+  .print-header-perfil {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+  }
+
+  /* Foto de perfil ajustada no canto superior esquerdo */
+  .print-foto-perfil {
+    width: 66px !important;
+    height: 66px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1.5px solid #374151 !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+
+  .print-identificacao {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5px !important;
+  }
+
+  .print-nome {
+    font-size: 16pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    letter-spacing: -0.5px !important;
+    margin: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  .print-cargo {
+    font-size: 9.2pt !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-contatos {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    font-size: 7.8pt !important;
+    color: #374151 !important;
+    margin-top: 2px !important;
+  }
+
+  .print-contatos span {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Emblema de Certificação Google AI */
+  .print-header-badge {
+    flex-shrink: 0 !important;
+  }
+
+  .print-google-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 5px 8px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background: #f9fafb !important;
+  }
+
+  .print-badge-icon {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .print-badge-textos {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.1 !important;
+  }
+
+  .print-badge-linha1 {
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+  }
+
+  .print-badge-linha2 {
+    font-size: 6.8pt !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+  }
+
+  /* Resumo Profissional */
+  .print-secao-resumo {
+    background: #f9fafb !important;
+    border-left: 3px solid #1f2937 !important;
+    padding: 5px 9px !important;
+    margin-bottom: 8px !important;
+    border-radius: 0 4px 4px 0 !important;
+  }
+
+  .print-texto-resumo {
+    font-size: 8.2pt !important;
+    line-height: 1.34 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    text-align: justify !important;
+  }
+
+  /* Grid Principal: 2 Colunas equilibradas para A4 */
+  .print-grid-corpo {
+    display: grid !important;
+    grid-template-columns: 64% 34% !important;
+    gap: 12px !important;
+    align-items: start !important;
+    width: 100% !important;
+  }
+
+  .print-col-principal,
+  .print-col-lateral {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+  }
+
+  /* Títulos de Seção */
+  .print-titulo-secao {
+    font-size: 9.8pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 1px solid #d1d5db !important;
+    padding-bottom: 2.5px !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* Experiência Profissional */
+  .print-item-experiencia {
+    margin-bottom: 7px !important;
+  }
+
+  .print-item-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    margin-bottom: 2px !important;
+  }
+
+  .print-cargo-titulo {
+    font-size: 8.9pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-empresa {
+    font-size: 8pt !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    display: block !important;
+  }
+
+  .print-data {
+    font-size: 7.6pt !important;
+    font-weight: 600 !important;
+    color: #4b5563 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .print-lista-realizacoes {
+    margin: 2px 0 0 0 !important;
+    padding-left: 14px !important;
+  }
+
+  .print-lista-realizacoes li {
+    font-size: 7.9pt !important;
+    line-height: 1.28 !important;
+    color: #1f2937 !important;
+    margin-bottom: 2.5px !important;
+  }
+
+  .print-lista-realizacoes li strong {
+    color: #000000 !important;
+  }
+
+  /* Projetos em Destaque */
+  .print-item-projeto {
+    margin-bottom: 6px !important;
+  }
+
+  .print-projeto-desc {
+    font-size: 7.9pt !important;
+    line-height: 1.28 !important;
+    color: #1f2937 !important;
+    margin: 2px 0 1px 0 !important;
+    text-align: justify !important;
+  }
+
+  .print-projeto-links {
+    font-size: 7.3pt !important;
+    color: #374151 !important;
+    margin: 1px 0 0 0 !important;
+    word-break: break-all !important;
+  }
+
+  .print-projeto-links strong {
+    color: #111827 !important;
+  }
+
+  /* Coluna Lateral: Habilidades Técnicas */
+  .print-grupo-skills {
+    margin-bottom: 5.5px !important;
+  }
+
+  .print-subtitulo-skill {
+    font-size: 8.2pt !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin: 0 0 2.5px 0 !important;
+  }
+
+  .print-tags-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3.5px !important;
+  }
+
+  .print-tag {
+    font-size: 7.2pt !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    background: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 1.5px 5px !important;
+    border-radius: 3px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Educação & Certificações */
+  .print-item-educacao {
+    margin-bottom: 6px !important;
+  }
+
+  .print-edu-titulo {
+    font-size: 8.4pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-edu-inst {
+    font-size: 7.8pt !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    display: block !important;
+  }
+
+  .print-edu-data {
+    font-size: 7.3pt !important;
+    color: #4b5563 !important;
+    display: block !important;
+    margin-bottom: 1.5px !important;
+  }
+
+  .print-edu-desc {
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    color: #374151 !important;
+    margin: 0 !important;
+  }
+
+  .print-item-cert {
+    margin-bottom: 4.5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-cert-nome {
+    font-size: 7.9pt !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+  }
+
+  .print-cert-detalhe {
+    font-size: 7.2pt !important;
+    color: #4b5563 !important;
+  }
+}
