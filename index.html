@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDev | Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#a8c7fa',
+                            DEFAULT: '#4285f4', // Google Blue Classic
+                            dark: '#174ea6',
+                            neon: '#8ab4f8',    // Google Blue for Dark Mode
+                            green: '#81c995',   // Google Green for Dark Mode
+                            red: '#f28b82',     // Google Red for Dark Mode
+                            yellow: '#fdd663'   // Google Yellow for Dark Mode
+                        },
+                        dark: {
+                            bg: '#202124',      // Google Dark Mode background
+                            card: '#303134',    // Google Dark Mode surface
+                            border: '#3c4043'   // Google Dark Mode border
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 antialiased">
+
+    <!-- Header / Navbar -->
+    <nav class="fixed top-0 w-full bg-white/80 dark:bg-dark-card/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <button id="top-nav-toggle" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none shadow-sm">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Nav Socials -->
+                    <div class="hidden sm:flex items-center gap-3 border-r border-gray-200 dark:border-dark-border pr-4" id="nav-socials">
+                        <!-- Injetados via JS -->
+                    </div>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-moon dark:hidden text-gray-600 text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400 text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    
+    <!-- Mobile Drawer Overlay -->
+    <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-30 opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden"></div>
+
+
+
+    <!-- Main Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 flex flex-col lg:flex-row gap-8">
+        
+        <!-- Sidebar Esquerda (Fixa/Sticky) -->
+        <aside id="main-sidebar" class="fixed top-0 left-0 z-40 w-[90%] sm:w-[350px] h-screen pt-24 px-4 lg:pt-0 lg:px-0 lg:h-auto lg:relative lg:w-1/3 xl:w-1/4 flex-shrink-0 transition-all duration-500 ease-in-out origin-left">
+            <div class="sticky top-24 z-30 max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar pb-4">
+                
+                <!-- Card Único Unificado do Perfil -->
+                <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg border border-gray-100 dark:border-dark-border overflow-hidden hover-card" data-aos="fade-right">
+                    
+                    <!-- Capa Animada e Aleatória -->
+                    <div id="cover-photo" class="h-32 relative bg-cover bg-center bg-no-repeat transition-all duration-700 ease-in-out group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-neon/80 via-brand-DEFAULT/60 to-brand-light/80 mix-blend-multiply group-hover:opacity-70 transition-opacity duration-500"></div>
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-30 animate-pulse"></div>
+                        
+                        <div class="absolute top-3 left-3 bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-white text-[10px] font-bold flex items-center gap-1.5 border border-white/30 z-10 shadow-lg">
+                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            Open to Work
+                        </div>
+
+
+                    </div>
+                    
+                    <!-- Cabeçalho Principal (Sempre Visível) -->
+                    <div class="px-5 pb-2 relative text-center">
+                        <div class="relative inline-block -mt-16 mb-4 z-20">
+                            <!-- Foto Oval (retrato) -->
+                            <img src="./portifolio/img/edu.jpg" alt="EduDev" class="w-28 h-32 rounded-[50%] object-cover border-4 border-white dark:border-dark-card shadow-md bg-gray-200" style="border-radius: 50%;">
+                        </div>
+                        
+                        <h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight" id="profile-name">Carregando...</h1>
+                        <p class="text-brand dark:text-brand-neon font-semibold text-sm mt-1 mb-3" id="profile-role">...</p>
+                    </div>
+                    
+                    <!-- Área Colapsável Unificada -->
+                    <div id="sidebar-content" class="block">
+                        
+                        <!-- Bio e Redes -->
+                        <div class="px-5 pb-5 text-center">
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed text-left" id="profile-bio">...</p>
+                            
+                            <div class="flex flex-wrap justify-center gap-3 mt-5 pt-5 border-t border-gray-100 dark:border-dark-border" id="profile-socials">
+                                <!-- Socials -->
+                            </div>
+                        </div>
+
+                        
+                        <!-- Projetos de Vida -->
+                        <div class="p-5 border-t border-gray-100 dark:border-dark-border bg-gray-50/50 dark:bg-gray-800/20">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2"><i class="fas fa-rocket text-brand dark:text-brand-neon"></i> Projetos de Vida</h2>
+                            <ul class="space-y-3 text-sm" id="profile-goals">
+                                <!-- Projetos de vida -->
+                            </ul>
+                        </div>
+
+                        <!-- Certificações -->
+                        <div class="p-5 border-t border-gray-100 dark:border-dark-border" id="google-cert-section" style="display:none;">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2"><i class="fab fa-google text-blue-500"></i> Certificados</h2>
+                            <div class="space-y-4" id="google-certs-feed">
+                                <!-- Google Certs injected here -->
+                            </div>
+                        </div>
+
+<!-- Skills Combinadas -->
+                        <div class="p-5 border-t border-gray-100 dark:border-dark-border">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2"><i class="fas fa-microchip text-brand dark:text-brand-neon"></i> Top Skills (IA & Backend)</h2>
+                            <div class="flex flex-wrap gap-2" id="sidebar-skills">
+                                <!-- Skills injetadas via JS -->
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Feed Principal (Rolagem Infinita) -->
+        <main id="main-feed" class="lg:w-2/3 xl:w-3/4 space-y-8 flex-grow transition-all duration-500 ease-in-out w-full">
+
+            <!-- Projetos e Cursos em Andamento (Lado a Lado) -->
+            <section data-aos="fade-up" id="ongoing-section" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start hidden">
+                <!-- Projetos (Apps iOS like) -->
+                <div>
+                    <h2 class="text-xl font-bold mb-5 flex items-center gap-2 border-b border-gray-200 dark:border-dark-border pb-2"><i class="fas fa-mobile-alt text-brand dark:text-brand-neon"></i> Projetos</h2>
+                    <div class="flex flex-wrap justify-center gap-6 p-6 bg-gray-100 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-dark-border" id="projects-grid" style="border-radius: 2rem;">
+                        <!-- App 1: Pet Shop -->
+                        <button id="btn-petshop" class="flex flex-col items-center gap-2 group cursor-pointer focus:outline-none">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 shadow-md flex items-center justify-center transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <span class="text-white font-bold text-2xl drop-shadow-sm"><i class="fas fa-paw"></i></span>
+                            </div>
+                            <span class="text-xs font-bold text-gray-700 dark:text-gray-300">.pet</span>
+                        </button>
+                        
+                        <!-- Folder: Apps IA -->
+                        <div class="flex flex-col items-center gap-2 group cursor-pointer" onclick="
+                            document.getElementById('folder-ia-modal').classList.remove('hidden'); 
+                            setTimeout(() => { 
+                                document.getElementById('folder-ia-modal-content').classList.remove('opacity-0', 'scale-95'); 
+                                document.getElementById('folder-ia-modal-content').classList.add('opacity-100', 'scale-100'); 
+                            }, 10)
+                        ">
+                            <div class="w-16 h-16 rounded-2xl bg-gray-200/70 dark:bg-gray-700/60 shadow-md flex flex-wrap content-start gap-1 p-2 transform transition-all duration-300 group-hover:scale-105 relative overflow-hidden backdrop-blur-sm border border-white/30 dark:border-gray-500/30">
+                                <!-- Mini Icon 1 -->
+                                <div class="w-[1.2rem] h-[1.2rem] bg-gradient-to-br from-blue-400 to-blue-600 rounded-[4px] flex items-center justify-center"><i class="fas fa-robot text-white text-[9px]"></i></div>
+                                <!-- Mini Icon 2 -->
+                                <div class="w-[1.2rem] h-[1.2rem] bg-gradient-to-br from-purple-400 to-purple-600 rounded-[4px] flex items-center justify-center"><i class="fas fa-brain text-white text-[9px]"></i></div>
+                                <!-- Mini Icon 3 -->
+                                <div class="w-[1.2rem] h-[1.2rem] bg-gradient-to-br from-teal-400 to-teal-600 rounded-[4px] flex items-center justify-center"><i class="fas fa-magic text-white text-[9px]"></i></div>
+                            </div>
+                            <span class="text-xs font-bold text-gray-700 dark:text-gray-300">Apps IA</span>
+                        </div>
+                        <!-- Add more apps here if needed in the future -->
+                    </div>
+                </div>
+
+                <!-- Cursos em Andamento (Task app style) -->
+                <div>
+                    <h2 class="text-xl font-bold mb-5 flex items-center gap-2 border-b border-gray-200 dark:border-dark-border pb-2">
+                        <i class="fas fa-tasks text-brand dark:text-brand-neon"></i> 
+                        Metas para 
+                        <select id="task-year-selector" class="bg-transparent border-none text-gray-900 dark:text-white font-bold outline-none cursor-pointer hover:text-brand dark:hover:text-brand-neon transition-colors appearance-none pr-4 relative">
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+                    </h2>
+                    <div id="ongoing-feed" class="flex flex-col gap-3 p-4 bg-gray-100 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-dark-border" style="border-radius: 2rem;">
+                        <!-- Ongoing Courses injected here by site.js -->
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Experiência Profissional -->
+            <section data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-5 flex items-center gap-2 border-b border-gray-200 dark:border-dark-border pb-2"><i class="fas fa-briefcase text-brand dark:text-brand-neon"></i> Experiência Profissional</h2>
+                <div class="space-y-2" id="business-feed">
+                    <!-- Cards injetados via JS -->
+                </div>
+            </section>
+
+            <!-- Formação e Cursos (Histórico) -->
+            <section data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-5 flex items-center gap-2 border-b border-gray-200 dark:border-dark-border pb-2"><i class="fas fa-graduation-cap text-brand dark:text-brand-neon"></i> Acadêmico & Cursos Concluídos</h2>
+                <div class="columns-1 md:columns-2 gap-5 space-y-5" id="academic-feed">
+                    <!-- Cards injetados via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Project Details Modal (Hidden by default) -->
+    <div id="project-modal" class="fixed inset-0 z-[60] hidden">
+        <!-- Backdrop with Blur -->
+        <div id="project-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+            <div id="project-modal-content" class="bg-white dark:bg-dark-card w-full max-w-2xl max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto transform scale-95 opacity-0 transition-all duration-300">
+                
+                <!-- Header -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-100 dark:border-dark-border">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-tr from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-900 dark:text-white leading-tight">.pet - Petshop</h2>
+                            <p class="text-xs text-brand dark:text-brand-neon font-medium">Desafio Extra SCTEC / SENAI-SC</p>
+                        </div>
+                    </div>
+                    <button id="close-project-modal" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white flex items-center justify-center transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Body (Scrollable) -->
+                <div class="p-6 overflow-y-auto custom-scrollbar flex-grow text-gray-700 dark:text-gray-300 space-y-5 text-sm leading-relaxed">
+                    <p>Projeto acadêmico de uma <strong>landing page para petshop</strong>, desenvolvido com HTML, CSS e JavaScript. A página apresenta a empresa, seus serviços, informações de contato e um formulário com interações básicas em JavaScript.</p>
+                    
+                    <div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base mb-2 flex items-center gap-2"><i class="fas fa-rocket text-brand dark:text-brand-neon"></i> Tecnologias utilizadas</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
+                            <li><strong>HTML5</strong> - estrutura e semântica da página.</li>
+                            <li><strong>CSS3</strong> - estilização, Flexbox, Grid, responsividade e efeitos visuais.</li>
+                            <li><strong>JavaScript</strong> - validação do formulário, manipulação do DOM e interatividade.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base mb-2 flex items-center gap-2"><i class="fas fa-cogs text-brand dark:text-brand-neon"></i> Funcionalidades</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
+                            <li>Carrossel de imagens nativo com HTML e CSS (scroll-snap).</li>
+                            <li>Navegação suave (smooth scroll) entre seções.</li>
+                            <li>Menu mobile recolhível em telas menores.</li>
+                            <li>Formulário de contato com validação e interatividade customizada via JS.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Footer with Buttons -->
+                <div class="p-6 border-t border-gray-100 dark:border-dark-border flex flex-col sm:flex-row gap-3">
+                    <a href="https://edu-costa-dev.github.io/SC_Tec-DesafioExtra/" target="_blank" class="flex-1 bg-brand dark:bg-brand-neon text-white dark:text-gray-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-brand-dark dark:hover:bg-brand-light transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt"></i> Acessar Página
+                    </a>
+                    <a href="https://github.com/edu-costa-dev/SC_Tec-DesafioExtra" target="_blank" class="flex-1 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-md">
+                        <i class="fab fa-github text-lg"></i> Ver Repositório
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Folder Modal (Apps IA) -->
+    <div id="folder-ia-modal" class="fixed inset-0 z-[60] flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300" onclick="
+            document.getElementById('folder-ia-modal-content').classList.remove('opacity-100', 'scale-100');
+            document.getElementById('folder-ia-modal-content').classList.add('opacity-0', 'scale-95');
+            setTimeout(() => document.getElementById('folder-ia-modal').classList.add('hidden'), 300);
+        "></div>
+        
+        <!-- Folder Content -->
+        <div id="folder-ia-modal-content" class="relative z-10 w-[90%] max-w-sm bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-2xl opacity-0 scale-95 transition-all duration-300 border border-white/20 dark:border-white/10">
+            <h3 class="text-center text-xl font-bold text-gray-900 dark:text-white mb-8">Apps feitos com IA</h3>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- App 1 -->
+                <div class="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 shadow-md flex items-center justify-center">
+                        <span class="text-white text-2xl"><i class="fas fa-robot"></i></span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-800 dark:text-gray-200">ChatBot</span>
+                </div>
+                <!-- App 2 -->
+                <div class="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 shadow-md flex items-center justify-center">
+                        <span class="text-white text-2xl"><i class="fas fa-brain"></i></span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-800 dark:text-gray-200">VisionAI</span>
+                </div>
+                <!-- App 3 -->
+                <div class="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-600 shadow-md flex items-center justify-center">
+                        <span class="text-white text-2xl"><i class="fas fa-magic"></i></span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-800 dark:text-gray-200">Gerador</span>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-gray-500 dark:text-gray-400 mt-8">Clique fora para fechar</p>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="site.js"></script>
+    
+<script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+</body>
+</html>
