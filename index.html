@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 antialiased">
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-bg" class="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-40 dark:opacity-50 transition-opacity duration-300"></canvas>
+
 
     <!-- Header / Navbar -->
     <nav class="fixed top-0 w-full bg-white/80 dark:bg-dark-card/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border z-50 transition-colors duration-300">
@@ -157,7 +160,7 @@
                 <!-- Projetos (Apps iOS like) -->
                 <div>
                     <div class="mb-5"><h2 class="text-sm font-bold uppercase tracking-wider inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800/50 px-4 py-2 rounded-2xl border border-gray-200 dark:border-dark-border shadow-sm text-gray-700 dark:text-gray-300"><i class="fas fa-mobile-alt text-brand dark:text-brand-neon"></i> Projetos</h2></div>
-                    <div class="flex flex-wrap justify-center gap-6 p-6 bg-gray-100 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-dark-border" id="projects-grid" style="border-radius: 2rem;">
+                    <div class="flex flex-wrap justify-center gap-6 p-6 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md shadow-xl border border-gray-200 dark:border-dark-border rounded-3xl" id="projects-grid" style="border-radius: 2rem;">
                         <!-- App 1: Pet Shop -->
                         <button id="btn-petshop" class="flex flex-col items-center gap-2 group cursor-pointer focus:outline-none">
                             <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 shadow-md flex items-center justify-center transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg relative overflow-hidden">
@@ -199,7 +202,7 @@
                             <option value="2027">2027</option>
                         </select>
                     </h2></div>
-                    <div id="ongoing-feed" class="flex flex-col gap-3 p-4 bg-gray-100 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-dark-border" style="border-radius: 2rem;">
+                    <div id="ongoing-feed" class="flex flex-col gap-3 p-4 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md shadow-xl border border-gray-200 dark:border-dark-border rounded-3xl" style="border-radius: 2rem;">
                         <!-- Ongoing Courses injected here by site.js -->
                     </div>
                 </div>
@@ -224,7 +227,7 @@
             </section>
             <!-- Biblioteca -->
             <section data-aos="fade-up" class="mt-8">
-                <div class="p-6 bg-gray-100 dark:bg-gray-800/50 rounded-3xl border border-gray-200 dark:border-dark-border" style="border-radius: 2rem;">
+                <div class="p-6 bg-white/90 dark:bg-gray-800/80 backdrop-blur-md shadow-xl border border-gray-200 dark:border-dark-border rounded-3xl" style="border-radius: 2rem;">
                     <div class="mb-5"><h2 class="text-sm font-bold uppercase tracking-wider inline-flex items-center gap-2 bg-white dark:bg-dark-card px-4 py-2 rounded-2xl border border-gray-200 dark:border-dark-border shadow-sm text-gray-700 dark:text-gray-300"><i class="fas fa-book text-brand dark:text-brand-neon"></i> Biblioteca</h2></div>
                     
                     <!-- Contos e Fantasia -->

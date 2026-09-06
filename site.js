@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar Efeito Matrix
+    initMatrixRain();
+
     // Inicializar AOS para animações de scroll
     AOS.init({
         duration: 800,
@@ -716,4 +719,62 @@ function populateSidebarSkills(academic, certs) {
     }
 
     skillsContainer.innerHTML = skillsHTML;
+}
+
+// Matrix Rain Effect
+function initMatrixRain() {
+    const canvas = document.getElementById('matrix-bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!\\|{}<>[]^~';
+    letters = letters.split('');
+
+    const fontSize = 14;
+    let columns = canvas.width / fontSize;
+
+    let drops = [];
+    for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+
+    function draw() {
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        ctx.fillStyle = isDark ? 'rgba(32, 33, 36, 0.1)' : 'rgba(249, 250, 251, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            // Cores tema LGBT (Arco-íris) distribuídas horizontalmente
+            const hue = (i / columns) * 360;
+            // Ajuste de luminosidade para ficar legível e destacar no fundo
+            const lightness = isDark ? 70 : 35;
+            ctx.fillStyle = `hsl(${hue}, 80%, ${lightness}%)`;
+
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    setInterval(draw, 33);
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        columns = canvas.width / fontSize;
+        drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = Math.random() * (canvas.height / fontSize);
+        }
+    });
 }
