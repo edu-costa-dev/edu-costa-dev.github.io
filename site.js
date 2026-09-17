@@ -556,7 +556,7 @@ function populateAcademicAndCerts(academic, certs) {
             if (cert.medalhas_credly) {
                 cert.medalhas_credly.forEach(b => {
                     const badgeUrl = b.url_badge || verifyUrl;
-                    const imgPath = info.emblema_local ? info.emblema_local.replace('./information_user/', 'user_information/academic/certification/') : '';
+                    const imgPath = info.emblema_local ? (info.emblema_local.startsWith('portifolio/') ? info.emblema_local : info.emblema_local.replace('./information_user/', 'user_information/academic/certification/')) : '';
                     badgesHTML += `<a href="${badgeUrl}" target="_blank" class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 badge-hover flex-shrink-0" title="${b.nome_emblema}">
                                       <img src="${imgPath}" onerror="this.outerHTML='<i class=\'fas fa-award text-3xl text-yellow-500\'></i>'" alt="Badge" class="w-full h-full object-contain rounded-full p-1">
                                    </a>`;
@@ -576,25 +576,24 @@ function populateAcademicAndCerts(academic, certs) {
             let isGoogleAI = title.toLowerCase().includes('google ai');
 
             if (isGoogleAI) {
+                const credlyUrl = "https://www.credly.com/earner/earned/badge/b65644d0-31bd-4ace-a357-b687381c6052";
+                const badgeLocalImg = "portifolio/img/google-ai-professional-certificate.png";
+                const badgeCdnImg = "https://images.credly.com/size/340x340/images/5bd2d506-c95c-4766-a5b1-8da62a3a23b2/blob";
                 certsContainer.innerHTML += `
                     <div class="flex flex-col gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-dark-border hover-card transition-all text-center items-center">
                         <div class="flex justify-center w-full -mb-2 mt-2">
-                            <div class="bg-white rounded-xl p-2 shadow-sm w-[166px] h-[166px] flex justify-center items-center relative">
-                                <!-- O script do Credly vai renderizar o iframe aqui dentro -->
-                                <div data-iframe-width="150" data-iframe-height="150" data-share-badge-id="b65644d0-31bd-4ace-a357-b687381c6052" data-share-badge-host="https://www.credly.com" class="relative z-10 w-full h-full flex justify-center items-center"></div>
-                                
-                                <!-- Fallback/Logo nativa caso o script bloqueie (ex: adblock) -->
-                                <img src="user_information/academic/certification/badge/google-ai-professional-certificate.png" class="w-32 h-32 absolute inset-0 m-auto object-contain pointer-events-none" alt="Google AI Logo" onerror="this.style.display='none'">
-                            </div>
+                            <a href="${credlyUrl}" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-2.5 shadow-sm w-[166px] h-[166px] flex justify-center items-center relative group hover:shadow-md transition-all cursor-pointer overflow-hidden border border-gray-100 dark:border-gray-700" title="Verificar credencial oficial no Credly">
+                                <img src="${badgeLocalImg}" onerror="this.onerror=null; this.src='${badgeCdnImg}'" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300 drop-shadow-sm" alt="Google AI Professional Certificate">
+                            </a>
                         </div>
                         
                         <h3 class="font-bold text-sm text-gray-900 dark:text-white leading-tight flex items-center justify-center gap-2">${title}</h3>
                         
                         <div class="flex flex-col gap-2 w-full mt-2">
-                            <a href="https://www.credly.com/earner/earned/badge/b65644d0-31bd-4ace-a357-b687381c6052" target="_blank" class="w-full bg-brand dark:bg-brand-neon text-white dark:text-gray-900 text-xs py-2 rounded-lg font-semibold hover:bg-brand dark:bg-brand-neon/90 transition-colors shadow-sm flex items-center justify-center gap-2">
+                            <a href="${credlyUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-brand dark:bg-brand-neon text-white dark:text-gray-900 text-xs py-2 rounded-lg font-semibold hover:bg-brand dark:bg-brand-neon/90 transition-colors shadow-sm flex items-center justify-center gap-2">
                                 <i class="fas fa-award text-sm"></i> Credencial Credly
                             </a>
-                            <a href="https://coursera.org/share/f18e7e79b6777199d923ec40979bac72" target="_blank" class="w-full bg-[#0056D2] text-white text-xs py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm flex items-center justify-center gap-2">
+                            <a href="https://coursera.org/share/f18e7e79b6777199d923ec40979bac72" target="_blank" rel="noopener noreferrer" class="w-full bg-[#0056D2] text-white text-xs py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm flex items-center justify-center gap-2">
                                 <i class="fas fa-graduation-cap text-sm"></i> Certificado Coursera
                             </a>
                         </div>

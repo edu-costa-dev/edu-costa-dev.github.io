@@ -312,15 +312,15 @@ const portfolioData = {
         "titulo_curso": "Certificado Profissional de Google AI",
         "instituicao_emissora": "Google",
         "codigo_credencial": "b65644d0-31bd-4ace-a357-b687381c6052",
-        "url_verificacao": "https://credly.com",
+        "url_verificacao": "https://www.credly.com/earner/earned/badge/b65644d0-31bd-4ace-a357-b687381c6052",
         "data_conclusion": "Agosto 2026",
-        "emblema_local": "./information_user/badge/google-ai-professional-certificate.png"
+        "emblema_local": "portifolio/img/google-ai-professional-certificate.png"
       },
       "medalhas_credly": [
         {
           "nome_emblema": "Google AI Professional Certificate",
-          "url_badge": "https://credly.com",
-          "imagem_badge": "https://credly.com",
+          "url_badge": "https://www.credly.com/earner/earned/badge/b65644d0-31bd-4ace-a357-b687381c6052",
+          "imagem_badge": "portifolio/img/google-ai-professional-certificate.png",
           "status": "Verificado"
         }
       ],
