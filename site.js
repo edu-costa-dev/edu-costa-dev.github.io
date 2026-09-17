@@ -562,8 +562,14 @@ function populateAcademicAndCerts(academic, certs) {
                                    </a>`;
                 });
             } else {
-                badgesHTML += `<div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center shadow-inner border border-gray-200 dark:border-gray-600 flex-shrink-0" title="Emblema em breve">
-                                  <i class="fas fa-lock text-xl text-gray-400 dark:text-gray-500"></i>
+                let iconContent = '<i class="fas fa-lock text-xl text-gray-400 dark:text-gray-500"></i>';
+                let iconTitle = 'Emblema em breve';
+                if (title.toLowerCase().includes('google') || title.toLowerCase().includes('it support')) {
+                    iconContent = '<i class="fab fa-google text-2xl text-brand dark:text-brand-neon"></i>';
+                    iconTitle = 'Certificação Google em andamento';
+                }
+                badgesHTML += `<div class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center shadow-inner border border-blue-100 dark:border-blue-800/40 flex-shrink-0" title="${iconTitle}">
+                                  ${iconContent}
                                </div>`;
             }
 
@@ -602,14 +608,31 @@ function populateAcademicAndCerts(academic, certs) {
                 
                 let linkOrProgress = '';
                 if (isProgress) {
+                    let totalCourses = (cert.grade_curricular && cert.grade_curricular.length) ? cert.grade_curricular.length : 6;
+                    let currentCourseNum = 3;
+                    let currentCoursePercent = '55%';
+                    let totalPercentSum = 0;
+
+                    if (cert.grade_curricular) {
+                        cert.grade_curricular.forEach((c, idx) => {
+                            let p = parseFloat(c.progresso_individual) || 0;
+                            totalPercentSum += p;
+                            if (c.status && c.status.toLowerCase().includes('andamento')) {
+                                currentCourseNum = idx + 1;
+                                currentCoursePercent = c.progresso_individual || currentCoursePercent;
+                            }
+                        });
+                    }
+                    let overallPercent = totalCourses > 0 ? Math.round(totalPercentSum / totalCourses) : 43;
+
                     linkOrProgress = `
-                        <div class="mt-2 w-full">
-                            <div class="flex justify-between text-[9px] sm:text-[10px] text-gray-500 font-semibold mb-1 whitespace-nowrap gap-1">
+                        <div class="mt-1.5 w-full">
+                            <div class="flex justify-between text-[9px] sm:text-[10px] text-gray-500 dark:text-gray-400 font-semibold mb-1 whitespace-nowrap gap-1">
                                 <span class="truncate">Em Andamento</span>
-                                <span>1 de 6</span>
+                                <span class="text-brand dark:text-brand-neon font-bold">Curso ${currentCourseNum} de ${totalCourses} (${currentCoursePercent})</span>
                             </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
-                                <div class="bg-brand dark:bg-brand-neon h-1.5 rounded-full" style="width: 16.66%"></div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-brand dark:bg-brand-neon h-1.5 rounded-full transition-all duration-1000" style="width: ${overallPercent}%"></div>
                             </div>
                         </div>
                     `;
