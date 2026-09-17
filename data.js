@@ -412,32 +412,32 @@ const portfolioData = {
         "titulo": "Google IT Support",
         "instituicao": "CIEE + Google",
         "status_geral": "Em andamento",
-        "progresso_geral": "1 de 6 cursos exibidos"
+        "progresso_geral": "Curso 3 de 6 (55%)"
       },
       "grade_curricular": [
         {
           "nome_curso": "Technical Support Fundamentals",
-          "status": "Em andamento",
+          "status": "Concluído",
           "data_conclusao": "16 de set de 2026",
-          "progresso_individual": "87%"
+          "progresso_individual": "100%"
         },
         {
           "nome_curso": "The Bits and Bytes of Computer Networking",
-          "status": "Não iniciado",
-          "data_conclusao": "21 de set de 2026",
-          "progresso_individual": "0%"
+          "status": "Concluído",
+          "data_conclusao": "17 de set de 2026",
+          "progresso_individual": "100%"
         },
         {
           "nome_curso": "Operating Systems and You: Becoming a Power User",
-          "status": "Não iniciado",
+          "status": "Em andamento",
           "data_conclusao": "27 de set de 2026",
-          "progresso_individual": "0%"
+          "progresso_individual": "55%"
         },
         {
           "nome_curso": "System Administration and IT Infrastructure Services",
-          "status": "Em andamento",
+          "status": "Não iniciado",
           "data_conclusao": "23 de set de 2026",
-          "progresso_individual": "1%"
+          "progresso_individual": "0%"
         },
         {
           "nome_curso": "IT Security: Defense against the digital dark arts",

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizando... 99%</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0078d7;
+            color: #ffffff;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+            user-select: none;
+        }
+
+        /* Windows Fluent Spinning Dots Animation */
+        .spinner-container {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            margin-bottom: 36px;
+        }
+
+        .spinner-dot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: rotate(225deg);
+            animation: orbit 5.5s infinite;
+        }
+
+        .spinner-dot:after {
+            content: '';
+            position: absolute;
+            width: 6.5px;
+            height: 6.5px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .spinner-dot:nth-child(2) { animation-delay: 240ms; }
+        .spinner-dot:nth-child(3) { animation-delay: 480ms; }
+        .spinner-dot:nth-child(4) { animation-delay: 720ms; }
+        .spinner-dot:nth-child(5) { animation-delay: 960ms; }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(225deg);
+                opacity: 1;
+                animation-timing-function: ease-out;
+            }
+            7% {
+                transform: rotate(345deg);
+                animation-timing-function: linear;
+            }
+            30% {
+                transform: rotate(455deg);
+                animation-timing-function: ease-in-out;
+            }
+            39% {
+                transform: rotate(690deg);
+                animation-timing-function: linear;
+            }
+            70% {
+                transform: rotate(815deg);
+                opacity: 1;
+                animation-timing-function: ease-out;
+            }
+            75% {
+                transform: rotate(945deg);
+                animation-timing-function: ease-out;
+            }
+            76% {
+                transform: rotate(945deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotate(945deg);
+                opacity: 0;
+            }
+        }
+
+        /* Text Styles */
+        .main-message {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 300;
+            line-height: 1.35;
+            max-width: 680px;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .sub-message {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            font-weight: 350;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            backdrop-blur: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Floating Return Button */
+        .return-btn {
+            position: fixed;
+            bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .return-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Windows Update Spinner -->
+    <div class="spinner-container">
+        <div class="spinner-dot"></div>
+        <div class="spinner-dot"></div>
+        <div class="spinner-dot"></div>
+        <div class="spinner-dot"></div>
+        <div class="spinner-dot"></div>
+    </div>
+
+    <!-- Messages -->
+    <h1 class="main-message">ainda estou desenvolvendo as atividades para postar, aguarde 99%</h1>
+    <p class="sub-message">Não desligue o seu computador. Isso pode demorar um pouco.</p>
+
+    <!-- Project info -->
+    <div class="tech-badge">
+        <i class="fab fa-node-js"></i> Módulo 1 • Backend Node.js & TypeScript — SENAI SC Tec
+    </div>
+
+    <!-- Voltar ao Portfólio -->
+    <a href="index.html" class="return-btn">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+    </a>
+
+</body>
+</html>
+

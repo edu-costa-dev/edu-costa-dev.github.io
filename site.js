@@ -85,6 +85,46 @@ document.addEventListener('DOMContentLoaded', () => {
         closeProjectModalBtn.addEventListener('click', closeProjectModal);
         projectModalBackdrop.addEventListener('click', closeProjectModal);
     }
+
+    // Mod1 Modal Logic
+    const btnMod1 = document.getElementById('btn-mod1');
+    const mod1Modal = document.getElementById('mod1-modal');
+    const mod1ModalBackdrop = document.getElementById('mod1-modal-backdrop');
+    const mod1ModalContent = document.getElementById('mod1-modal-content');
+    const closeMod1ModalBtn = document.getElementById('close-mod1-modal');
+
+    if (btnMod1 && mod1Modal) {
+        function openMod1Modal() {
+            mod1Modal.classList.remove('hidden');
+            setTimeout(() => {
+                if (mod1ModalBackdrop) mod1ModalBackdrop.classList.remove('opacity-0');
+                if (mod1ModalContent) {
+                    mod1ModalContent.classList.remove('opacity-0', 'scale-95');
+                    mod1ModalContent.classList.add('opacity-100', 'scale-100');
+                }
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMod1Modal() {
+            if (mod1ModalBackdrop) mod1ModalBackdrop.classList.add('opacity-0');
+            if (mod1ModalContent) {
+                mod1ModalContent.classList.remove('opacity-100', 'scale-100');
+                mod1ModalContent.classList.add('opacity-0', 'scale-95');
+            }
+            setTimeout(() => {
+                mod1Modal.classList.add('hidden');
+                const folderModal = document.getElementById('folder-senai-modal');
+                if (!folderModal || folderModal.classList.contains('hidden')) {
+                    document.body.style.overflow = '';
+                }
+            }, 300);
+        }
+
+        btnMod1.addEventListener('click', openMod1Modal);
+        if (closeMod1ModalBtn) closeMod1ModalBtn.addEventListener('click', closeMod1Modal);
+        if (mod1ModalBackdrop) mod1ModalBackdrop.addEventListener('click', closeMod1Modal);
+    }
 });
 
 function populateProfile(persona) {
@@ -322,7 +362,7 @@ function populateAcademicAndCerts(academic, certs) {
                                     </div>
                                     <div class="flex-grow min-w-0">
                                         <h3 class="font-bold text-sm text-brand dark:text-brand-neon truncate">Certificação ${cert.certificacao_macro.titulo}</h3>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400 truncate">${cert.certificacao_macro.instituicao}</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 truncate">${cert.certificacao_macro.instituicao}${cert.certificacao_macro.progresso_geral ? ' • ' + cert.certificacao_macro.progresso_geral : ''}</p>
                                     </div>
                                     <i class="fab fa-google text-brand dark:text-brand-neon text-lg opacity-80"></i>
                                 </div>
